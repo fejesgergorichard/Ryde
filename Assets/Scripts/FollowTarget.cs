@@ -18,6 +18,10 @@ public class FollowTarget : MonoBehaviour
 
     void Start()
     {
+        QualitySettings.vSyncCount = 0;
+        QualitySettings.antiAliasing = 0;
+        Application.targetFrameRate = 60;
+
         transform.LookAt(Target.transform);
     }
 
