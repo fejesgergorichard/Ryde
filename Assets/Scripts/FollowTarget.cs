@@ -4,36 +4,39 @@ using UnityEngine;
 
 public class FollowTarget : MonoBehaviour
 {
-    //private Quaternion initialDeviceRotation;
-    private Vector3 initialDeviceRotation;
-
-
     public GameObject Target;
-    
-    // Start is called before the first frame update
+    public float rotation;
+    private bool rotateCamera;
+    public bool RotateCamera
+    {
+        get => rotateCamera;
+        set => rotateCamera = value;
+    }
+
+    //public Vector3 result;
+
+
     void Start()
     {
         transform.LookAt(Target.transform);
-        Input.gyro.enabled = true;
-        initialDeviceRotation = DeviceRotation.Get().eulerAngles;
-        
-
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector3 deviceRotation = DeviceRotation.Get().eulerAngles;
-
         transform.LookAt(Target.transform);
 
-        Vector3 newRotation = new Vector3(
-            transform.rotation.eulerAngles.x,
-            transform.rotation.eulerAngles.y,
-            transform.rotation.eulerAngles.z + (deviceRotation.z - initialDeviceRotation.z)
-            );
-
-        transform.rotation = Quaternion.Euler(newRotation);
-        //transform.rotation = Quaternion.Euler(deviceRotation);
+        if (RotateCamera)
+        {
+            Vector3 newRotation = new Vector3(transform.rotation.eulerAngles.x,
+                                               transform.rotation.eulerAngles.y,
+                                               transform.rotation.eulerAngles.z - DeviceTiltAngle.Get());
+            transform.rotation = Quaternion.Euler(newRotation);
+        }
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawLine(transform.position, transform.position + result);
+    //}
 }
