@@ -29,7 +29,7 @@ public static class DeviceRotation
         if (HasGyroscope)
         {
             Input.gyro.enabled = true;                // enable the gyroscope
-            Input.gyro.updateInterval = 0.0167f;    // set the update interval to it's highest value (60 Hz)
+            Input.gyro.updateInterval = 0.0167f;      // set the update interval to it's highest value (60 Hz)
         }
         gyroInitialized = true;
     }
