@@ -5,16 +5,7 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
     public GameObject Target;
-    public float rotation;
-    private bool rotateCamera;
-    public bool RotateCamera
-    {
-        get => rotateCamera;
-        set => rotateCamera = value;
-    }
-
-    //public Vector3 result;
-
+    public bool RotateCamera { get; set; }
 
     void Start()
     {
@@ -37,10 +28,4 @@ public class CameraControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(newRotation);
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawLine(transform.position, transform.position + result);
-    //}
 }
