@@ -5,7 +5,8 @@ using UnityEngine;
 public class FloaterAssigner : MonoBehaviour
 {
     public float OffsetPerItem = 30.0f;
-    async void Start()
+
+    void Start()
     {
         int i = 0;
 
@@ -17,7 +18,6 @@ public class FloaterAssigner : MonoBehaviour
                 child.gameObject.AddComponent<Floater>().StartOffset = OffsetPerItem * i;
                 i++;
             }
-            //await Task.Run(()=> Thread.Sleep(50));
         }
     }
 }
