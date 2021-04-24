@@ -79,27 +79,26 @@ public class PlayerControls : MonoBehaviour
 		{
 			tapLeft = tapRight = false;
 
-			// Right tap = gas
-			// Left tap = reverse/brake
-
 			if (Input.touches.Length != 0)
-			{
-				if (Input.touches[0].phase == TouchPhase.Began || Input.touches[0].phase == TouchPhase.Stationary) //"touches[0]" means first finger to touch
-				{
-					if (Input.touches[0].position.x < Screen.width / 2)
-					{
-						tapLeft = true;
-					}
-					else
-					{
-						tapRight = true;
-					}
-				}
-			}
+            {
+                // "touches[0]" - first finger to touch
+                CheckTouchSide(Input.touches[0]);
 
-			if (tapLeft)
+                if (Input.touches.Length > 1)
+				{
+					// "touches[1]" - second finger to touch
+					CheckTouchSide(Input.touches[1]);
+				}
+            }
+
+			// Right + Left touch = brake
+			if (tapLeft && tapRight)
+				brakeTorque = 1;
+			// Left touch only = reverse
+			else if (tapLeft && !tapRight)
 				motor = -maxMotorTorque;
-			else if (tapRight)
+			// Right touch only = forward
+			else if (tapRight && !tapLeft)
 				motor = maxMotorTorque;
 
 			steering = Math.Min(maxSteeringAngle, Math.Max(-maxSteeringAngle, DeviceTiltAngle.Get() / 1.5f));
@@ -107,8 +106,8 @@ public class PlayerControls : MonoBehaviour
 
 		#endregion
 
-
 		#region Desktop controls
+		// WASD & Gamepad
 
 		else if (DeviceType == DeviceType.Desktop)
 		{
@@ -148,24 +147,28 @@ public class PlayerControls : MonoBehaviour
 			VisualizeWheel(truckInfo);
 		}
 
-		// pedal to the metal
-		if (Input.GetAxis("Vertical") > 0)
-		{
-			SetTaillightColor(Color.white);
-			SetMotorSmokeEmission(Input.GetAxis("Vertical") * 30 * Smokiness);
-		}
-		// braking
-		else if (Input.GetAxis("Vertical") < 0 || brakeTorque > 0)
-		{
-			SetTaillightColor(Color.red);
-			SetMotorSmokeEmission(2 * Smokiness);
-		}
-		// idle state
-		else
-		{
-			SetTaillightColor(Color.white);
-			SetMotorSmokeEmission(10 * Smokiness);
-		}
+        #region Visual effects of car
+		
+  //      // pedal to the metal
+  //      if (Input.GetAxis("Vertical") > 0)
+		//{
+		//	SetTaillightColor(Color.white);
+		//	SetMotorSmokeEmission(Input.GetAxis("Vertical") * 30 * Smokiness);
+		//}
+		//// braking
+		//else if (Input.GetAxis("Vertical") < 0 || brakeTorque > 0)
+		//{
+		//	SetTaillightColor(Color.red);
+		//	SetMotorSmokeEmission(2 * Smokiness);
+		//}
+		//// idle state
+		//else
+		//{
+		//	SetTaillightColor(Color.white);
+		//	SetMotorSmokeEmission(10 * Smokiness);
+		//}
+		
+		#endregion
 
 		if (Input.GetKey(KeyCode.R))
 		{
@@ -173,7 +176,22 @@ public class PlayerControls : MonoBehaviour
 		}
 	}
 
-	public void Restart()
+    private void CheckTouchSide(Touch touch)
+    {
+        if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary)
+        {
+            if (touch.position.x < Screen.width / 2)
+            {
+                tapLeft = true;
+            }
+            else if (touch.position.x > Screen.width / 2)
+            {
+                tapRight = true;
+            }
+        }
+    }
+
+    public void Restart()
 	{
 		transform.position = initialPosition;
 		transform.rotation = initialRotation;
@@ -183,17 +201,17 @@ public class PlayerControls : MonoBehaviour
 
 	private void SetTaillightColor(Color color)
 	{
-		//Material myMaterial = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/Brakelight.mat", typeof(Material));
+        Material myMaterial = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/Brakelight.mat", typeof(Material));
 
-		//Color currentAlbedo = myMaterial.GetColor("_Color");
-		//Color currentEmission = myMaterial.GetColor("_EmissionColor");
+        Color currentAlbedo = myMaterial.GetColor("_Color");
+        Color currentEmission = myMaterial.GetColor("_EmissionColor");
 
-		//if (!color.Equals(currentAlbedo))
-		//{
-		//	myMaterial.SetColor("_Color", Color.Lerp(currentAlbedo, color, lightSwitchSpeed));
-		//	myMaterial.SetColor("_EmissionColor", Color.Lerp(currentEmission, color, lightSwitchSpeed));
-		//}
-	}
+        if (!color.Equals(currentAlbedo))
+        {
+            myMaterial.SetColor("_Color", Color.Lerp(currentAlbedo, color, lightSwitchSpeed));
+            myMaterial.SetColor("_EmissionColor", Color.Lerp(currentEmission, color, lightSwitchSpeed));
+        }
+    }
 
 
 	/// <summary>
