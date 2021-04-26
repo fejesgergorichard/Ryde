@@ -101,7 +101,8 @@ public class PlayerControls : MonoBehaviour
 			else if (tapRight && !tapLeft)
 				motor = maxMotorTorque;
 
-			steering = Math.Min(maxSteeringAngle, Math.Max(-maxSteeringAngle, DeviceTiltAngle.Get() / 1.5f));
+			// Steering is limited between +-maxSteeringAngle
+			steering = Math.Min(maxSteeringAngle, Math.Max(-maxSteeringAngle, MobileInput.AccelerometerTilt / 1.5f));
 		}
 
 		#endregion

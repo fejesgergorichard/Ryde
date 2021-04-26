@@ -1,15 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MovingCubeController : MonoBehaviour
 {
+    private float initialYPosition;
+    private LTSpline spline;
+
     public int Id;
     public float TargetDistanceY;
-    private float initialYPosition;
-
+    public List<Transform> Points;
+    
     private void Start()
     {
+        // select every transform.position from the List<Transform> Points
+        spline = new LTSpline(Points.Select(transform => transform.position).ToArray());
+
+        LeanTween.moveSpline(gameObject, spline.pts, 16f).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong().setOrientToPath(false);
+
+
         GameEvents.Instance.onMovingBlockTriggerEnter += OnMovingBlockTriggerEnter;
         GameEvents.Instance.onMovingBlockTriggerExit += OnMovingBlockTriggerExit;
         initialYPosition = transform.position.y;
@@ -42,5 +52,14 @@ public class MovingCubeController : MonoBehaviour
     {
         GameEvents.Instance.onMovingBlockTriggerEnter -= OnMovingBlockTriggerEnter;
         GameEvents.Instance.onMovingBlockTriggerExit -= OnMovingBlockTriggerExit;
+    }
+
+    void OnDrawGizmos()
+    {
+        if (spline != null)
+        {
+            Gizmos.color = Color.red;
+            spline.gizmoDraw(); // debug aid to be able to see the path in the scene inspector
+        }
     }
 }
