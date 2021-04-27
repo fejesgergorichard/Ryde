@@ -101,7 +101,8 @@ public class PlayerControls : MonoBehaviour
 			else if (tapRight && !tapLeft)
 				motor = maxMotorTorque;
 
-			steering = Math.Min(maxSteeringAngle, Math.Max(-maxSteeringAngle, DeviceTiltAngle.Get() / 1.5f));
+			// Steering is limited between +-maxSteeringAngle
+			steering = Math.Min(maxSteeringAngle, Math.Max(-maxSteeringAngle, MobileInput.AccelerometerTilt / 1.5f));
 		}
 
 		#endregion
@@ -201,16 +202,16 @@ public class PlayerControls : MonoBehaviour
 
 	private void SetTaillightColor(Color color)
 	{
-        Material myMaterial = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/Brakelight.mat", typeof(Material));
+        //Material myMaterial = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/Brakelight.mat", typeof(Material));
 
-        Color currentAlbedo = myMaterial.GetColor("_Color");
-        Color currentEmission = myMaterial.GetColor("_EmissionColor");
+        //Color currentAlbedo = myMaterial.GetColor("_Color");
+        //Color currentEmission = myMaterial.GetColor("_EmissionColor");
 
-        if (!color.Equals(currentAlbedo))
-        {
-            myMaterial.SetColor("_Color", Color.Lerp(currentAlbedo, color, lightSwitchSpeed));
-            myMaterial.SetColor("_EmissionColor", Color.Lerp(currentEmission, color, lightSwitchSpeed));
-        }
+        //if (!color.Equals(currentAlbedo))
+        //{
+        //    myMaterial.SetColor("_Color", Color.Lerp(currentAlbedo, color, lightSwitchSpeed));
+        //    myMaterial.SetColor("_EmissionColor", Color.Lerp(currentEmission, color, lightSwitchSpeed));
+        //}
     }
 
 

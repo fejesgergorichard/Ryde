@@ -24,7 +24,7 @@ public class CameraControl : MonoBehaviour
         {
             Vector3 newRotation = new Vector3(transform.rotation.eulerAngles.x,
                                                transform.rotation.eulerAngles.y,
-                                               transform.rotation.eulerAngles.z - DeviceTiltAngle.Get());
+                                               transform.rotation.eulerAngles.z + (MobileInput.GyroRotation.eulerAngles.z - MobileInput.InitialGyroRotation.eulerAngles.z));
             transform.rotation = Quaternion.Euler(newRotation);
         }
     }
