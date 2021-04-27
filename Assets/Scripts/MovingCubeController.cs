@@ -5,35 +5,38 @@ using UnityEngine;
 
 public class MovingCubeController : MonoBehaviour
 {
-    private float initialYPosition;
+    private Quaternion initialRotation;
+    private Quaternion finalRotation;
     private LTSpline spline;
+    private LTDescr movement;
+    private LTDescr rotation;
 
+    public float ratioPassed;
     public int Id;
-    public float TargetDistanceY;
+    public float MovementSpeed = 10f;
+    public float DelayTime = 1f;
     public List<Transform> Points;
-    
+
     private void Start()
     {
         // select every transform.position from the List<Transform> Points
         spline = new LTSpline(Points.Select(transform => transform.position).ToArray());
 
-        LeanTween.moveSpline(gameObject, spline.pts, 16f).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong().setOrientToPath(false);
-
-
         GameEvents.Instance.onMovingBlockTriggerEnter += OnMovingBlockTriggerEnter;
         GameEvents.Instance.onMovingBlockTriggerExit += OnMovingBlockTriggerExit;
-        initialYPosition = transform.position.y;
+
+        initialRotation = transform.rotation;
+        finalRotation = Points.Last().rotation;
     }
 
     private void OnMovingBlockTriggerEnter(int id)
     {
-
         if (id == Id)
         {
             LeanTween.cancel(gameObject);
 
-            LeanTween.moveY(gameObject, initialYPosition + TargetDistanceY, 5f).setEaseOutQuad().setDelay(1.5f);
-            LeanTween.moveLocal(gameObject, new Vector3(-8.5f, -1.6f, 4.94f), 7f).setEaseInQuad().setEaseOutQuad().setDelay(6.7f);
+            movement = LeanTween.moveSpline(gameObject, spline.pts, MovementSpeed).setEase(LeanTweenType.easeInOutQuad).setDelay(DelayTime);
+            rotation = LeanTween.rotate(gameObject, finalRotation.eulerAngles, MovementSpeed);
         }
     }
 
@@ -41,11 +44,23 @@ public class MovingCubeController : MonoBehaviour
     {
         if (id == Id)
         {
-            LeanTween.cancel(gameObject);
-
-            LeanTween.moveY(gameObject, initialYPosition, 5f).setEaseOutQuad().setDelay(1f);
-            //LeanTween.moveX(gameObject, -8f, 8f).setEaseOutQuad();
+            // If the movement is completed, we need to create a new one in a reversed direction
+            if (movement.ratioPassed == 1f)
+            {
+                movement = LeanTween.moveSpline(gameObject, spline.pts, MovementSpeed / 2).setEase(LeanTweenType.easeInOutQuad).setDirection(-1);
+                rotation = LeanTween.rotate(gameObject, initialRotation.eulerAngles, MovementSpeed / 2);
+            }
+            else
+            {
+                movement.setDirection(-1).setTime(MovementSpeed / 2);
+                rotation.setDirection(-1).setTime(MovementSpeed / 2);
+            }
         }
+    }
+
+    private void Update()
+    {
+        ratioPassed = movement.ratioPassed;
     }
 
     private void OnDestroy()
