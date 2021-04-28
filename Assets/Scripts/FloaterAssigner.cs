@@ -5,6 +5,7 @@ using UnityEngine;
 public class FloaterAssigner : MonoBehaviour
 {
     public float OffsetPerItem = 30.0f;
+    public float AmplitudeModifierOfItems = 0.2f;
 
     void Start()
     {
@@ -15,7 +16,9 @@ public class FloaterAssigner : MonoBehaviour
         {
             if (child != transform)
             {
-                child.gameObject.AddComponent<Floater>().StartOffset = OffsetPerItem * i;
+                Floater childFloater = child.gameObject.AddComponent<Floater>();
+                childFloater.StartOffset = OffsetPerItem * i;
+                childFloater.AmplitudeModifier = AmplitudeModifierOfItems;
                 i++;
             }
         }
