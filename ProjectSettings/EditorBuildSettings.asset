@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Cargame.unity
+    path: Assets/Scenes/Selector.unity
+    guid: 4043a98eecbb04445b75efcf9a664cee
+  - enabled: 1
+    path: Assets/Scenes/Cargame-abstract.unity
     guid: d9b5ad11f62805641b351300b5d3d414
+  - enabled: 1
+    path: Assets/Scenes/Cargame-islands.unity
+    guid: c3225c5d49a1ffb40a0f8fe37bc0cb84
   m_configObjects: {}
