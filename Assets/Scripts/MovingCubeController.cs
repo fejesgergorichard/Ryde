@@ -60,7 +60,8 @@ public class MovingCubeController : MonoBehaviour
 
     private void Update()
     {
-        ratioPassed = movement.ratioPassed;
+        if (movement != null)
+            ratioPassed = movement.ratioPassed;
     }
 
     private void OnDestroy()
