@@ -9,7 +9,12 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
 
-    void Update()
+    private void Start()
+    {
+        PauseMenuUI.SetActive(false);
+    }
+
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -17,13 +22,13 @@ public class PauseMenu : MonoBehaviour
             else Pause();
         }
     }
-    void Resume()
+    private void Resume()
     {
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f; // we can set this to create slowmo effects
         GameIsPaused = false;
     }
-    void Pause()
+    private void Pause()
     {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f; // we can set this to create slowmo effects
