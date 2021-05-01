@@ -26,7 +26,8 @@ public class Tilter : MonoBehaviour
         angle = (float)(Mathf.PI * Time.time * FrequencyModifier / 180.0);
         sinValue = Mathf.Sin(angle) * AmplitudeModifier;
 
-        transform.Rotate((TiltX) ? sinValue : 0.0f,
+        if (!PauseMenu.GameIsPaused)
+            transform.Rotate((TiltX) ? sinValue : 0.0f,
                         (TiltY) ? sinValue : 0.0f,
                         (TiltZ) ? sinValue : 0.0f);
     }
