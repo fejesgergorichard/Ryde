@@ -20,7 +20,7 @@ public class CameraControl : MonoBehaviour
     {
         transform.LookAt(Target.transform);
 
-        if (RotateCamera)
+        if (RotateCamera && !PauseMenu.GameIsPaused)
         {
             Vector3 newRotation = new Vector3(transform.rotation.eulerAngles.x,
                                                transform.rotation.eulerAngles.y,
