@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     private bool _pausedFromUI = false;
+    private GameObject PauseMenuUI;
 
     public static bool GameIsPaused = false;
-    public GameObject PauseMenuUI;
 
     private void Start()
     {
+        // The UI must be the 0th child
+        PauseMenuUI = transform.GetChild(0).gameObject;
         PauseMenuUI.SetActive(false);
     }
 
@@ -33,6 +36,12 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f; // we can set this to create slowmo effects
         GameIsPaused = true;
+    }
+
+    public void MenuButtonAction()
+    {
+        SceneManager.LoadScene("Selector");
+        Resume();
     }
 
     public void PauseFromUI()
