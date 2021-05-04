@@ -8,11 +8,14 @@ public class Floater : MonoBehaviour
     private float sinValue;
     private float initialYPosition;
 
+    [Header("Z-floating")]
     public float FrequencyModifier = 60.0f;
     public float StartOffset = 0.0f;
     public float AmplitudeModifier = 0.2f;
-    public float RotationSpeed = 1.0f;
+
+    [Header("Rotation")]
     public bool Rotate = false;
+    public Vector3 RotationSpeed = new Vector3(1.0f, 0.0f, 0.0f);
 
     void Start()
     {
@@ -29,7 +32,7 @@ public class Floater : MonoBehaviour
         // Rotate if asked
         if (Rotate)
         {
-            transform.Rotate(0.0f, RotationSpeed, 0.0f);
+            transform.Rotate(RotationSpeed);
         }
     }
 }
