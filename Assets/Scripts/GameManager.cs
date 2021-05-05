@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
 
     private GameObject _spawnObject;
 
-    private bool _mapLoaded = false;
+    private bool _mapLoaded = true;
+
+    public static string ActiveMap;
 
 
     void Start()
@@ -29,7 +31,8 @@ public class GameManager : MonoBehaviour
     {
         ResetPlayer();
 
-        //LoadMap("Abstract2");
+        LoadMap(ActiveMap);
+        LoadMap(ActiveMap);
     }
 
     private void LoadMap(string mapName)

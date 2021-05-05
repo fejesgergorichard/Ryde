@@ -21,5 +21,6 @@ public class SceneSelector : MonoBehaviour
     {
         SceneManager.LoadScene(target);
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        GameManager.ActiveMap = target;
     }
 }
