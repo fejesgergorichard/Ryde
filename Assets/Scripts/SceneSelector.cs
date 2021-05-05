@@ -20,5 +20,6 @@ public class SceneSelector : MonoBehaviour
     public void LoadScene(string target)
     {
         SceneManager.LoadScene(target);
+        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
     }
 }
