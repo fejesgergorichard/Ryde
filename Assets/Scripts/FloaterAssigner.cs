@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class FloaterAssigner : MonoBehaviour
 {
+    [Header("Z-floating")]
     public float OffsetPerItem = 30.0f;
     public float AmplitudeModifierOfItems = 0.2f;
+
+    [Header("Rotation")]
+    public bool Rotate = false;
+    public Vector3 RotationSpeed = new Vector3(0.0f, 0.0f, 1.0f);
 
     void Start()
     {
@@ -19,6 +24,10 @@ public class FloaterAssigner : MonoBehaviour
                 Floater childFloater = child.gameObject.AddComponent<Floater>();
                 childFloater.StartOffset = OffsetPerItem * i;
                 childFloater.AmplitudeModifier = AmplitudeModifierOfItems;
+
+                childFloater.Rotate = Rotate;
+                childFloater.RotationSpeed = RotationSpeed;
+
                 i++;
             }
         }

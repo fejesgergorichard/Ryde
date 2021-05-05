@@ -29,8 +29,8 @@ public class Floater : MonoBehaviour
         sinValue = Mathf.Sin(angle) * AmplitudeModifier;
         transform.position = new Vector3(transform.position.x, initialYPosition + sinValue, transform.position.z);
 
-        // Rotate if asked
-        if (Rotate)
+        // Rotate if asked and not paused
+        if (Rotate && !PauseMenu.GameIsPaused)
         {
             transform.Rotate(RotationSpeed);
         }
