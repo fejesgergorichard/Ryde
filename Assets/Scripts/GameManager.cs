@@ -13,10 +13,17 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+#if DEBUG
+        ActiveMap = "Abstract1";
+#endif
+
         LoadPlayerInitInfo();
         ResetPlayer();
     }
 
+    private void Reset()
+    {
+    }
 
     void Update()
     {
@@ -34,7 +41,14 @@ public class GameManager : MonoBehaviour
     private void LoadMap(string mapName)
     {
         if (!_mapLoaded)
-            SceneManager.LoadSceneAsync(mapName, LoadSceneMode.Additive).completed += SceneLoadAsyncCompleted;
+        {
+            SceneManager.LoadScene(mapName, LoadSceneMode.Additive);
+            var mainCamera = GameObject.Find("Main Camera");
+            var cameraPlaceholder = GameObject.Find("CameraPlaceholder");
+
+            mainCamera.transform.position = cameraPlaceholder.transform.position;
+            mainCamera.transform.rotation = cameraPlaceholder.transform.rotation;
+        }
         else
             SceneManager.UnloadSceneAsync(mapName);
 
