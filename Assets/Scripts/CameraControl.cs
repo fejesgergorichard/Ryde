@@ -18,7 +18,10 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(Target.transform);
+        if (Target != null)
+        {
+            transform.LookAt(Target.transform);
+        }
 
         if (RotateCamera && !PauseMenu.GameIsPaused)
         {
@@ -27,5 +30,6 @@ public class CameraControl : MonoBehaviour
                                                transform.rotation.eulerAngles.z + (MobileInput.GyroRotation.eulerAngles.z - MobileInput.InitialGyroRotation.eulerAngles.z));
             transform.rotation = Quaternion.Euler(newRotation);
         }
+
     }
 }

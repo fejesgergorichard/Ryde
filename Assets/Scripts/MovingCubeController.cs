@@ -35,7 +35,7 @@ public class MovingCubeController : MonoBehaviour
         {
             LeanTween.cancel(gameObject);
 
-            movement = LeanTween.moveSpline(gameObject, spline.pts, MovementSpeed).setEase(LeanTweenType.easeInOutQuad).setDelay(DelayTime);
+            movement = LeanTween.moveSpline(gameObject, spline.pts, MovementSpeed).setEase(LeanTweenType.easeInOutQuad);
             rotation = LeanTween.rotate(gameObject, finalRotation.eulerAngles, MovementSpeed);
         }
     }
