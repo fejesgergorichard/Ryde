@@ -30,16 +30,21 @@ public class PlayerControls : MonoBehaviour
 
 	[Range(0, 1000)]
 	public int FlipTimeInMs;
-	public float maxMotorTorque;
-	public float maxSteeringAngle;
-	public List<Truck> truck_Infos;
+	public float MaxMotorTorque;
+
+	[Range(0f, 2f)]
+	public float BrakeTorqueMotorTorqueRatio;
+
+	[Range(0f, 45f)]
+	public float MaxSteeringAngle;
+	public List<Truck> TruckInfos;
 
 	public Vector3 CenterOfMass;
-	public float radius = 5f;
+	public float Radius = 5f;
 	[Range(0, 50)]
 	public int Smokiness = 3;
 	[Range(0.01f, 0.5f)]
-	public float lightSwitchSpeed = 0.1f;
+	public float LightSwitchSpeed = 0.1f;
 
 	private void Start()
 	{
@@ -96,13 +101,13 @@ public class PlayerControls : MonoBehaviour
 				brakeTorque = 1;
 			// Left touch only = reverse
 			else if (tapLeft && !tapRight)
-				motor = -maxMotorTorque;
+				motor = -MaxMotorTorque;
 			// Right touch only = forward
 			else if (tapRight && !tapLeft)
-				motor = maxMotorTorque;
+				motor = MaxMotorTorque;
 
 			// Steering is limited between +-maxSteeringAngle
-			steering = Math.Min(maxSteeringAngle, Math.Max(-maxSteeringAngle, MobileInput.AccelerometerTilt / 1.5f));
+			steering = Math.Min(MaxSteeringAngle, Math.Max(-MaxSteeringAngle, MobileInput.AccelerometerTilt / 1.5f));
 		}
 
 		#endregion
@@ -112,8 +117,8 @@ public class PlayerControls : MonoBehaviour
 
 		else if (DeviceType == DeviceType.Desktop)
 		{
-			motor = maxMotorTorque * Input.GetAxis("Vertical");
-			steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+			motor = MaxMotorTorque * Input.GetAxis("Vertical");
+			steering = MaxSteeringAngle * Input.GetAxis("Horizontal");
 			brakeTorque = Mathf.Abs(Input.GetAxis("Jump"));
 		}
 
@@ -121,7 +126,7 @@ public class PlayerControls : MonoBehaviour
 
 		if (brakeTorque > 0.001)
 		{
-			brakeTorque = maxMotorTorque;
+			brakeTorque = MaxMotorTorque * BrakeTorqueMotorTorqueRatio;
 			motor = 0;
 		}
 		else
@@ -129,7 +134,7 @@ public class PlayerControls : MonoBehaviour
 			brakeTorque = 0;
 		}
 
-		foreach (Truck truckInfo in truck_Infos)
+		foreach (Truck truckInfo in TruckInfos)
 		{
 			if (truckInfo.steering == true)
 			{

@@ -10,9 +10,12 @@ public class MovingCubeController : MonoBehaviour
     private LTSpline spline;
     private LTDescr movement;
     private LTDescr rotation;
+    private float ratioPassed;
 
-    public float ratioPassed;
+    [Header("ID for the event parameter")]
     public int Id;
+    [Header("Movement properties")]
+    public bool StartPingPongOnLoad = false;
     public float MovementSpeed = 10f;
     public float DelayTime = 1f;
     public List<Transform> Points;
@@ -27,6 +30,13 @@ public class MovingCubeController : MonoBehaviour
 
         initialRotation = transform.rotation;
         finalRotation = Points.Last().rotation;
+
+        if (StartPingPongOnLoad)
+        {
+            movement = LeanTween.moveSpline(gameObject, spline.pts, MovementSpeed).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong();
+            rotation = LeanTween.rotate(gameObject, finalRotation.eulerAngles, MovementSpeed).setLoopPingPong();
+        }
+
     }
 
     private void OnMovingBlockTriggerEnter(int id)
