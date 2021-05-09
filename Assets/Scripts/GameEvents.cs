@@ -37,4 +37,13 @@ public class GameEvents : MonoBehaviour
     }
 
     #endregion
+
+    public event Action onCrystalTriggerEnter;
+    public void CrystalTriggerEnter()
+    {
+        if (onCrystalTriggerEnter != null)
+        {
+            onCrystalTriggerEnter.Invoke();
+        }
+    }
 }
