@@ -120,7 +120,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 224c58956149b2c498af1bac5af69edc,
         type: 3}
       propertyPath: m_Name
-      value: car_coupe
+      value: Car_model
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 224c58956149b2c498af1bac5af69edc,
         type: 3}

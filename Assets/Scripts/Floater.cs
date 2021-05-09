@@ -30,7 +30,7 @@ public class Floater : MonoBehaviour
         transform.position = new Vector3(transform.position.x, initialYPosition + sinValue, transform.position.z);
 
         // Rotate if asked and not paused
-        if (Rotate && !PauseMenu.GameIsPaused)
+        if (Rotate && Time.timeScale > 0f)
         {
             transform.Rotate(RotationSpeed);
         }
