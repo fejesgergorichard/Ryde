@@ -1640,7 +1640,7 @@ PrefabInstance:
     - target: {fileID: 8957604150148044044, guid: ade021dbb074ed34fae61105ee4172ad,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.29
+      value: 8.102
       objectReference: {fileID: 0}
     - target: {fileID: 8957604150148044044, guid: ade021dbb074ed34fae61105ee4172ad,
         type: 3}
@@ -2470,17 +2470,17 @@ PrefabInstance:
     - target: {fileID: 8957604150148044044, guid: ade021dbb074ed34fae61105ee4172ad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4
+      value: -2.077
       objectReference: {fileID: 0}
     - target: {fileID: 8957604150148044044, guid: ade021dbb074ed34fae61105ee4172ad,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.46
+      value: 8.107
       objectReference: {fileID: 0}
     - target: {fileID: 8957604150148044044, guid: ade021dbb074ed34fae61105ee4172ad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.22
+      value: 2.958
       objectReference: {fileID: 0}
     - target: {fileID: 8957604150148044044, guid: ade021dbb074ed34fae61105ee4172ad,
         type: 3}
@@ -3821,7 +3821,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: ca3ff56c08e3b034ea252ec053ac87bf, type: 3}
+  - {fileID: 2100000, guid: 9cc729f3dfcf78747af568ca093d99c7, type: 2}
   - {fileID: 2100000, guid: 4f8a8fc5a09ca8044bd841f028110467, type: 2}
   - {fileID: 2100000, guid: 87adae3c1accb2040998519d18a90a89, type: 2}
   - {fileID: 2100000, guid: 250752a268cf0ae4baa3391525461578, type: 2}

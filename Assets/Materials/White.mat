@@ -26,7 +26,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AOTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 53ab194b3681b1f4db0df59716883318, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -84,7 +84,7 @@ Material:
     - _DontMix: 0
     - _DstBlend: 0
     - _Fade: 1
-    - _FogHeight: 10
+    - _FogHeight: 1.85
     - _FogYStartPos: 0
     - _GSpace: 0
     - _GlossMapScale: 1
@@ -105,8 +105,8 @@ Material:
     - _GradientHeight_T: 1
     - _GradientSpace: 0
     - _HFogEnable: 0
-    - _LMPower: 0
-    - _LmapBlendingMode: 0
+    - _LMPower: 2.23
+    - _LmapBlendingMode: 2
     - _LmapEnable: 0
     - _MainTexturePower: 0
     - _Metallic: 0
@@ -133,16 +133,16 @@ Material:
     - _Shading_T: 1
     - _ShadowBlend: 0.5
     - _ShadowInfluence: 0.93
-    - _ShowAO: 0
+    - _ShowAO: 1
     - _ShowAmbientSettings: 0
     - _ShowBack: 0
     - _ShowBottom: 0
     - _ShowColorCorrection: 0
     - _ShowCustomShading: 1
-    - _ShowFog: 0
+    - _ShowFog: 1
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 0
-    - _ShowLMap: 0
+    - _ShowLMap: 1
     - _ShowLeft: 0
     - _ShowRight: 1
     - _ShowTexture: 0
@@ -155,12 +155,12 @@ Material:
     - _ZWrite: 1
     - _ZWriteOverride: 0
     m_Colors:
-    - _AOColor: {r: 1, g: 1, b: 1, a: 1}
+    - _AOColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.8000001, g: 0.56858325, b: 0.18025805, a: 1}
     - _Color1_B: {r: 1, g: 1, b: 1, a: 1}
     - _Color1_D: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_F: {r: 0.90196085, g: 0.85098046, b: 0.82745105, a: 1}
+    - _Color1_F: {r: 1, g: 1, b: 1, a: 1}
     - _Color1_L: {r: 1, g: 1, b: 1, a: 1}
     - _Color1_R: {r: 0.93725497, g: 0.909804, b: 0.8705883, a: 1}
     - _Color1_T: {r: 0.96470594, g: 0.93725497, b: 0.91372555, a: 1}
@@ -185,7 +185,7 @@ Material:
     - _GradientYStartPos_G: {r: 0, g: 0, b: 0, a: 0}
     - _GradientYStartPos_L: {r: 0, g: 0, b: 0, a: 0}
     - _GradientYStartPos_R: {r: 0, g: 0, b: 0, a: 0}
-    - _LMColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LMColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
     - _RimColor: {r: 0.8490566, g: 0.84650797, b: 0.82102174, a: 1}
     - _ShadowColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}

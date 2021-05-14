@@ -127,6 +127,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -182,34 +186,6 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
-      propertyPath: m_AspectRatio
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
-      propertyPath: m_FieldOfView
-      value: 58
-      objectReference: {fileID: 0}
-    - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
-      propertyPath: m_FarClipPlane
-      value: 3.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
-      propertyPath: m_Orthographic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
-      propertyPath: m_NearClipPlane
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
-      propertyPath: m_OrthographicSize
-      value: 0.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 11900000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
-      propertyPath: m_IgnoreLayers.m_Bits
-      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 3}
