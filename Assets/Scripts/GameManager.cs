@@ -14,6 +14,14 @@ public class GameManager : MonoBehaviour
     public GameObject TrackCompleteUI;
     public static string ActiveMap;
 
+
+
+
+    [Header("Coin fly test")]
+    public Canvas Canvas;
+    public RectTransform CoinCounter;
+    public GameObject CoinSprite;
+
     private void Awake()
     {
         if (Instance != null)
@@ -29,7 +37,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
     #if DEBUG
-        //ActiveMap = "Abstract1";
+        if (ActiveMap == null || ActiveMap == "")
+            ActiveMap = "Abstract1";
 #endif
 
         TrackCompleteUI.SetActive(false);
@@ -49,8 +58,20 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    // TEST
+    public void CoinFlyEffect(Vector3 coinPos)
+    {
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(coinPos);
 
-    private void LoadMap(string mapName)
+        var coin = Instantiate(CoinSprite, screenPos, Quaternion.identity) as GameObject;
+        coin.transform.SetParent(CoinCounter.parent);
+
+        LeanTween.moveLocal(coin, CoinCounter.localPosition, 0.4f).setEaseInQuad().setIgnoreTimeScale(true);
+        Destroy(coin, 0.4f);
+    }
+
+
+    private void LoadMap(string mapName)    
     {
         if (!_mapLoaded)
         {

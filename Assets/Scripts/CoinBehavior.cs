@@ -2,11 +2,23 @@ using UnityEngine;
 
 public class CoinBehavior : MonoBehaviour
 {
-    public GameObject ParticlePrefab;
+    public GameObject[] ParticlePrefabs;
+
+
     private void OnTriggerEnter(Collider other)
     {
         AudioManager.Instance.PlaySound("Coin");
-        var particle = Instantiate(ParticlePrefab, transform.position, Quaternion.identity);
+        GameManager.Instance.CoinFlyEffect(transform.position);
+
+        InstantiateParticles();
         Destroy(gameObject);
+    }
+
+    private void InstantiateParticles()
+    {
+        foreach (var particlePrefab in ParticlePrefabs)
+        {
+            Instantiate(particlePrefab, transform.position, Quaternion.identity);
+        }
     }
 }
