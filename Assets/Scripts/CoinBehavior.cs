@@ -8,7 +8,7 @@ public class CoinBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         AudioManager.Instance.PlaySound("Coin");
-        GameManager.Instance.CoinFlyEffect(transform.position);
+        GameManager.Instance.AddCoin(transform.position, 1);
 
         InstantiateParticles();
         Destroy(gameObject);

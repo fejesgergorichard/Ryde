@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,13 +15,23 @@ public class GameManager : MonoBehaviour
     public GameObject TrackCompleteUI;
     public static string ActiveMap;
 
-
-
-
-    [Header("Coin fly test")]
+    [Header("Coin fly settings")]
     public Canvas Canvas;
-    public RectTransform CoinCounter;
+    public RectTransform CoinFlyTarget;
+    public TMP_Text CoinCounterText;
     public GameObject CoinSprite;
+
+    private int _score;
+    public int Score
+    {
+        get { return _score; }
+        set
+        {
+            _score = value;
+            CoinCounterText.text = _score.ToString();
+        }
+    }
+
 
     private void Awake()
     {
@@ -36,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-    #if DEBUG
+#if DEBUG
         if (ActiveMap == null || ActiveMap == "")
             ActiveMap = "Abstract1";
 #endif
@@ -51,6 +62,8 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        Score = 0;
+
         ResetPlayer();
 
         ReloadMap(ActiveMap);
@@ -59,19 +72,25 @@ public class GameManager : MonoBehaviour
     }
 
     // TEST
-    public void CoinFlyEffect(Vector3 coinPos)
+    public async void AddCoin(Vector3 coinWorldPos, int num)
     {
-        Vector2 screenPos = Camera.main.WorldToScreenPoint(coinPos);
+        Score += num;
 
-        var coin = Instantiate(CoinSprite, screenPos, Quaternion.identity) as GameObject;
-        coin.transform.SetParent(CoinCounter.parent);
+        Vector2 coinScreenPos = Camera.main.WorldToScreenPoint(coinWorldPos);
 
-        LeanTween.moveLocal(coin, CoinCounter.localPosition, 0.4f).setEaseInQuad().setIgnoreTimeScale(true);
-        Destroy(coin, 0.4f);
+        for (int i = 0; i < num; i++)
+        {
+            var coin = Instantiate(CoinSprite, coinScreenPos, Quaternion.identity) as GameObject;
+            coin.transform.SetParent(CoinFlyTarget.parent);
+            LeanTween.moveLocal(coin, CoinFlyTarget.localPosition, 0.4f).setEaseInQuad().setIgnoreTimeScale(true);
+            Destroy(coin, 0.4f);
+            if (num > 1)
+                await Task.Run(() => Thread.Sleep(30));
+        }
     }
 
 
-    private void LoadMap(string mapName)    
+    private void LoadMap(string mapName)
     {
         if (!_mapLoaded)
         {

@@ -548,6 +548,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 33.92, y: 140.3, z: 0}
+--- !u!114 &1519352076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7991343018858645164, guid: 6149468c16fd54a468ac5e908bbfa9de,
+    type: 3}
+  m_PrefabInstance: {fileID: 3941720546332131123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!223 &1617599835 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3941720545713469825, guid: 6149468c16fd54a468ac5e908bbfa9de,
@@ -731,6 +743,16 @@ PrefabInstance:
       propertyPath: CoinCounter
       value: 
       objectReference: {fileID: 74544179}
+    - target: {fileID: 3838710024024875651, guid: 6fc1f8769c42acd499db7511ebedc609,
+        type: 3}
+      propertyPath: CoinFlyTarget
+      value: 
+      objectReference: {fileID: 74544179}
+    - target: {fileID: 3838710024024875651, guid: 6fc1f8769c42acd499db7511ebedc609,
+        type: 3}
+      propertyPath: CoinCounterText
+      value: 
+      objectReference: {fileID: 1519352076}
     - target: {fileID: 3838710024024875651, guid: 6fc1f8769c42acd499db7511ebedc609,
         type: 3}
       propertyPath: TrackCompleteUI
