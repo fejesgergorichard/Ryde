@@ -292,7 +292,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20157a328a433aa449f7f36207d48aa3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9585269987def1446a9b4c50a850d182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &793385055
@@ -630,33 +630,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
-      propertyPath: Sounds.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
-        type: 3}
       propertyPath: Sounds.Array.data[1].Clip
       value: 
-      objectReference: {fileID: 8300000, guid: 3d87a31e5590e8849aa906308d4c0009, type: 3}
+      objectReference: {fileID: 8300000, guid: 044dd3ec7742d0e46ba1b2834022efb1, type: 3}
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
       propertyPath: Sounds.Array.data[1].Name
-      value: Crystal
-      objectReference: {fileID: 0}
-    - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
-        type: 3}
-      propertyPath: Sounds.Array.data[1].Pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
-        type: 3}
-      propertyPath: Sounds.Array.data[0].Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
-        type: 3}
-      propertyPath: Sounds.Array.data[1].Volume
-      value: 0.5
+      value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915788, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
@@ -732,12 +712,6 @@ PrefabInstance:
       propertyPath: Canvas
       value: 
       objectReference: {fileID: 1617599835}
-    - target: {fileID: 3838710024024875651, guid: 6fc1f8769c42acd499db7511ebedc609,
-        type: 3}
-      propertyPath: CoinSprite
-      value: 
-      objectReference: {fileID: 3857840954531268011, guid: 0d3ad04eeb4db0146a142a7fbbbf3ff9,
-        type: 3}
     - target: {fileID: 3838710024024875651, guid: 6fc1f8769c42acd499db7511ebedc609,
         type: 3}
       propertyPath: CoinCounter
@@ -938,6 +912,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ba8a90545c34dcc4f96578f25299d007,
         type: 3}
+    - target: {fileID: 4569907850198069303, guid: 6149468c16fd54a468ac5e908bbfa9de,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569907850198069303, guid: 6149468c16fd54a468ac5e908bbfa9de,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569907850198069303, guid: 6149468c16fd54a468ac5e908bbfa9de,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7991343018858645164, guid: 6149468c16fd54a468ac5e908bbfa9de,
         type: 3}
       propertyPath: m_text
@@ -1466,6 +1455,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Track Complete UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300087963044904271, guid: 1d2b379867241554c98e0dc6c39f874a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1300087963168818504, guid: 1d2b379867241554c98e0dc6c39f874a,
         type: 3}

@@ -3,15 +3,19 @@ using UnityEngine;
 public class CoinBehavior : MonoBehaviour
 {
     public GameObject[] ParticlePrefabs;
+    public int NumberOfCoinsToAdd = 1;
 
 
     private void OnTriggerEnter(Collider other)
     {
-        AudioManager.Instance.PlaySound("Coin");
-        GameManager.Instance.AddCoin(transform.position, 1);
+        if (other.gameObject.transform.parent.tag == "Player")
+        {
+            GameManager.Instance.AddCoin(transform.position, NumberOfCoinsToAdd);
 
-        InstantiateParticles();
-        Destroy(gameObject);
+            InstantiateParticles();
+
+            Destroy(gameObject);
+        }
     }
 
     private void InstantiateParticles()

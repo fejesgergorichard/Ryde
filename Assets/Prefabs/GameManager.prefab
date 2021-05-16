@@ -41,11 +41,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3838710024024875708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20157a328a433aa449f7f36207d48aa3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9585269987def1446a9b4c50a850d182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TrackCompleteUI: {fileID: 0}
-  ActiveMap: 
+  Canvas: {fileID: 0}
+  CoinFlyTarget: {fileID: 0}
+  CoinCounterText: {fileID: 0}
+  CoinSprite: {fileID: 3857840954531268011, guid: 0d3ad04eeb4db0146a142a7fbbbf3ff9,
+    type: 3}
 --- !u!1 &3838710024915646859
 GameObject:
   m_ObjectHideFlags: 0

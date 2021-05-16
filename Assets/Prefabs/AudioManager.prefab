@@ -41,13 +41,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1809479063144915788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4450f11db9e7058449779fd3734d1161, type: 3}
+  m_Script: {fileID: 11500000, guid: 08b1749bd7cdb5c4a98f2db5f32d6f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Sounds:
-  - Name: Coin
-    Clip: {fileID: 8300000, guid: 044dd3ec7742d0e46ba1b2834022efb1, type: 3}
-    Volume: 0.7
+  - Name: Crystal
+    Clip: {fileID: 8300000, guid: 3d87a31e5590e8849aa906308d4c0009, type: 3}
+    Volume: 0.5
+    Pitch: 1
+  - Name: Crystal
+    Clip: {fileID: 8300000, guid: 3d87a31e5590e8849aa906308d4c0009, type: 3}
+    Volume: 0.5
+    Pitch: 1
+  - Name: Fall
+    Clip: {fileID: 8300000, guid: f001c8adf0976ce46a57762d22715a08, type: 3}
+    Volume: 0.5
     Pitch: 1
 --- !u!81 &1809479063144915786
 AudioListener:

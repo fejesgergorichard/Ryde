@@ -38,6 +38,8 @@ public class GameEvents : MonoBehaviour
 
     #endregion
 
+    #region Crystal trigger events
+
     public event Action onCrystalTriggerEnter;
     public void CrystalTriggerEnter()
     {
@@ -46,4 +48,19 @@ public class GameEvents : MonoBehaviour
             onCrystalTriggerEnter.Invoke();
         }
     }
+
+    #endregion
+    
+    #region Fall events
+
+    public event Action onFallEvent;
+    public void FallEventEnter()
+    {
+        if (onFallEvent != null)
+        {
+            onFallEvent.Invoke();
+        }
+    }
+
+    #endregion
 }

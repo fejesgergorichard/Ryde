@@ -54,7 +54,8 @@ public class GameManager : MonoBehaviour
 
         TrackCompleteUI.SetActive(false);
 
-        GameEvents.Instance.onCrystalTriggerEnter += CrystalCollected;
+        GameEvents.Instance.onCrystalTriggerEnter += OnCrystalCollected;
+        GameEvents.Instance.onFallEvent += OnFallEvent;
 
         LoadPlayerInitInfo();
         ResetPlayer();
@@ -74,19 +75,31 @@ public class GameManager : MonoBehaviour
     // TEST
     public async void AddCoin(Vector3 coinWorldPos, int num)
     {
-        Score += num;
-
         Vector2 coinScreenPos = Camera.main.WorldToScreenPoint(coinWorldPos);
 
+        LeanTween.scale(CoinFlyTarget, Vector3.one, 0.1f).setDelay(0.2f);
+
+        float pitch = 0.9f;
         for (int i = 0; i < num; i++)
         {
+            Score++;
+
+            pitch += 0.1f;
+            AudioManager.Instance.PlaySound("Coin", pitch);
+
             var coin = Instantiate(CoinSprite, coinScreenPos, Quaternion.identity) as GameObject;
             coin.transform.SetParent(CoinFlyTarget.parent);
             LeanTween.moveLocal(coin, CoinFlyTarget.localPosition, 0.4f).setEaseInQuad().setIgnoreTimeScale(true);
             Destroy(coin, 0.4f);
+
+
             if (num > 1)
-                await Task.Run(() => Thread.Sleep(30));
+                await Task.Run(() => Thread.Sleep(65));
+
         }
+
+        LeanTween.scale(CoinFlyTarget, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setDelay(0.3f);
+
     }
 
 
@@ -107,12 +120,19 @@ public class GameManager : MonoBehaviour
         _mapLoaded = !_mapLoaded;
     }
 
-    private void CrystalCollected()
+    private void OnCrystalCollected()
     {
         Debug.Log("Crystal collected!");
         Time.timeScale = 0f;
         AudioManager.Instance.PlaySound("Crystal");
         TrackCompleteUI.SetActive(true);
+    }
+    
+    private void OnFallEvent()
+    {
+        Debug.Log("Player fell!");
+        AudioManager.Instance.PlaySound("Fall");
+        Restart();
     }
 
     private void ReloadMap(string mapName)
