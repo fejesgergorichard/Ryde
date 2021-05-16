@@ -97,7 +97,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3965774, y: 1.4937809, z: 6.35281}
+  m_Size: {x: 2, y: 2, z: 8.2}
   m_Center: {x: 0, y: 4.3283214e-16, z: 0.060915697}
 --- !u!114 &2309192809134271586
 MonoBehaviour:
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67325bd3f86698848ba2d8a5206afce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParticlePrefab: {fileID: 3529499762584548423, guid: 2e8592d906352f54d9b61913839ce119,
+  ParticlePrefab: {fileID: 9210253883927229272, guid: 3b2dbce3ba0ed76408c9ce805ae8bdaa,
     type: 3}
 --- !u!114 &9132443715675467663
 MonoBehaviour:
