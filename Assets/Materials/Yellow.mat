@@ -84,8 +84,8 @@ Material:
     - _DontMix: 0
     - _DstBlend: 0
     - _Fade: 1
-    - _FogHeight: 10
-    - _FogYStartPos: 0
+    - _FogHeight: 0.97
+    - _FogYStartPos: 0.17
     - _GSpace: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -139,7 +139,7 @@ Material:
     - _ShowBottom: 0
     - _ShowColorCorrection: 0
     - _ShowCustomShading: 1
-    - _ShowFog: 0
+    - _ShowFog: 1
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 0
     - _ShowLMap: 0
@@ -170,7 +170,7 @@ Material:
     - _Color2_L: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_R: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_T: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_Fog: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color_Fog: {r: 0.023529414, g: 0.3921569, b: 0.54901963, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GizmoPosition_B: {r: 0, g: 0, b: 10, a: 10}
     - _GizmoPosition_D: {r: 0, g: 0, b: 10, a: 10}

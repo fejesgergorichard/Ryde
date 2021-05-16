@@ -500,7 +500,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.15294118, g: 0.59607846, b: 0.6117647, a: 0}
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1326,6 +1326,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 243146061741808019, guid: 1d2b379867241554c98e0dc6c39f874a,
+        type: 3}
+      propertyPath: m_Name
+      value: ScoreText
+      objectReference: {fileID: 0}
     - target: {fileID: 1300087962894003131, guid: 1d2b379867241554c98e0dc6c39f874a,
         type: 3}
       propertyPath: m_Color.a
@@ -1459,7 +1464,7 @@ PrefabInstance:
     - target: {fileID: 1300087963044904271, guid: 1d2b379867241554c98e0dc6c39f874a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1300087963168818504, guid: 1d2b379867241554c98e0dc6c39f874a,
         type: 3}
@@ -1500,6 +1505,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MenuButtonAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445014412942783428, guid: 1d2b379867241554c98e0dc6c39f874a,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Score:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153867093091710395, guid: 1d2b379867241554c98e0dc6c39f874a,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855414267673985521, guid: 1d2b379867241554c98e0dc6c39f874a,
+        type: 3}
+      propertyPath: m_Name
+      value: ScoreCounter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d2b379867241554c98e0dc6c39f874a, type: 3}

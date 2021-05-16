@@ -7011,6 +7011,31 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3469444244528229408, guid: a070e9264f641074a83a7e229beda9c1,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469444244528229408, guid: a070e9264f641074a83a7e229beda9c1,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469444244528229408, guid: a070e9264f641074a83a7e229beda9c1,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.5529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469444244528229408, guid: a070e9264f641074a83a7e229beda9c1,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.3647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469444244528229408, guid: a070e9264f641074a83a7e229beda9c1,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.007843138
+      objectReference: {fileID: 0}
     - target: {fileID: 3469444244528229409, guid: a070e9264f641074a83a7e229beda9c1,
         type: 3}
       propertyPath: m_RootOrder

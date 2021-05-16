@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         GameEvents.Instance.onFallEvent += OnFallEvent;
 
         LoadPlayerInitInfo();
-        ResetPlayer();
+        Restart();
     }
 
     public void Restart()
@@ -126,6 +126,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         AudioManager.Instance.PlaySound("Crystal");
         TrackCompleteUI.SetActive(true);
+
+        var scoreCounterObject = TrackCompleteUI.transform.Find("ScoreCounter");
+        scoreCounterObject.GetComponent<TMP_Text>().text = Score.ToString();
+
     }
     
     private void OnFallEvent()
@@ -148,7 +152,10 @@ public class GameManager : MonoBehaviour
 
     private void ResetPlayer()
     {
-        _player.transform.parent = null;
+        if (_player != null)
+        {
+            _player.transform.parent = null;
+        }
 
         SceneManager.MoveGameObjectToScene(_player, gameObject.scene);
 
