@@ -35,6 +35,13 @@ public class Sound
         source.pitch = DefaultPitch;
     }
 
+    public void Play(bool loop)
+    {
+        source.loop = loop;
+        source.volume = Volume;
+        source.pitch = Pitch;
+        source.Play();
+    }
     public void Play()
     {
         source.volume = Volume;
@@ -71,11 +78,16 @@ public class AudioManager : MonoBehaviour
             Sounds[i].SetSource(go.AddComponent<AudioSource>());
         }
     }
-
     public void PlaySound(string name)
     {
         var sound = Sounds.FirstOrDefault(x => x.Name == name);
         sound.Play();
+    }
+
+    public void PlaySound(string name, bool loop)
+    {
+        var sound = Sounds.FirstOrDefault(x => x.Name == name);
+        sound.Play(loop);
     }
     
     public void PlaySound(string name, float pitch)
