@@ -6,11 +6,9 @@ public static class SaveSystem
 {
     private static string path = Application.persistentDataPath + "/save.dat";
 
-    public static void Save()
+    public static void Save(SaveData data)
     {
         FileStream stream = new FileStream(path, FileMode.Create);
-
-        SaveData data = new SaveData();
 
         GetBinaryFormatter().Serialize(stream, data);
 
@@ -29,7 +27,7 @@ public static class SaveSystem
         }
         else
         {
-            Debug.LogError($"Save file not fount in {path}.");
+            Debug.LogError($"Save file not found in {path}.");
             
             return null;
         }
