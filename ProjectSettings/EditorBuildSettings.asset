@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Islands1.unity
     guid: c3225c5d49a1ffb40a0f8fe37bc0cb84
   - enabled: 1
-    path: Assets/Scenes/Abstract2.unity
-    guid: 3276a42d633dd2544a63808da67df385
-  - enabled: 1
     path: Assets/Scenes/Abstract1.unity
     guid: 4c9613f2c8d610e4685e0b3091872b7e
+  - enabled: 1
+    path: Assets/Scenes/Abstract2.unity
+    guid: daa309f7d5775c940b3aaaa35de5368c
+  - enabled: 1
+    path: Assets/Scenes/Abstract3.unity
+    guid: 42060dfcd652c6a4f8d21d8c010e4161
   m_configObjects: {}
