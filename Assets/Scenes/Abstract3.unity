@@ -347,6 +347,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Round dome
       objectReference: {fileID: 0}
+    - target: {fileID: 8971841757861258434, guid: cde33325cd9426745bb48d61cc2dc779,
+        type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 2739c64012dccd846ad1a6cf2f2fe19d, type: 2}
+    - target: {fileID: 8971841757861258434, guid: cde33325cd9426745bb48d61cc2dc779,
+        type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971841757861258434, guid: cde33325cd9426745bb48d61cc2dc779,
+        type: 3}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 2739c64012dccd846ad1a6cf2f2fe19d, type: 2}
+    - target: {fileID: 8971841757861258434, guid: cde33325cd9426745bb48d61cc2dc779,
+        type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: e0697874c3eb7df4291f458087294e79, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cde33325cd9426745bb48d61cc2dc779, type: 3}
 --- !u!4 &248075031 stripped
