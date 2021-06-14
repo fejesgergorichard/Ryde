@@ -25,9 +25,6 @@ public class MovingCubeController : MonoBehaviour
         // select every transform.position from the List<Transform> Points
         spline = new LTSpline(Points.Select(transform => transform.position).ToArray());
 
-        GameEvents.Instance.onMovingBlockTriggerEnter += OnMovingBlockTriggerEnter;
-        GameEvents.Instance.onMovingBlockTriggerExit += OnMovingBlockTriggerExit;
-
         initialRotation = transform.rotation;
         finalRotation = Points.Last().rotation;
 
@@ -36,7 +33,11 @@ public class MovingCubeController : MonoBehaviour
             movement = LeanTween.moveSpline(gameObject, spline.pts, MovementSpeed).setEase(LeanTweenType.easeInOutQuad).setLoopPingPong();
             rotation = LeanTween.rotate(gameObject, finalRotation.eulerAngles, MovementSpeed).setLoopPingPong();
         }
-
+        else
+        {
+            GameEvents.Instance.onMovingBlockTriggerEnter += OnMovingBlockTriggerEnter;
+            GameEvents.Instance.onMovingBlockTriggerExit += OnMovingBlockTriggerExit;
+        }
     }
 
     private void OnMovingBlockTriggerEnter(int id)
