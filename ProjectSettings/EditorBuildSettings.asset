@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Abstract3.unity
     guid: 42060dfcd652c6a4f8d21d8c010e4161
+  - enabled: 1
+    path: Assets/Scenes/Abstract4.unity
+    guid: 7253e0fde4e89454c899346366633e06
   m_configObjects: {}
