@@ -3,9 +3,12 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Saving;
 
 public class GameManager : MonoBehaviour
 {
+    private SaveData _saveData;
+
     private GameObject _player;
     private Rigidbody _playerRigidBody;
     private GameObject _spawnObject;
@@ -51,6 +54,7 @@ public class GameManager : MonoBehaviour
         if (ActiveMap == null || ActiveMap == "")
             ActiveMap = "Abstract1";
 #endif
+       _saveData = SaveSystem.Load();
 
         TrackCompleteUI.SetActive(false);
 

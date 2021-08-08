@@ -1,6 +1,6 @@
 using System;
 
-namespace SaveData
+namespace Saving
 {
     [Serializable]
     public class SaveData
@@ -13,6 +13,18 @@ namespace SaveData
         public SaveData()
         {
 
+        }
+
+        public SaveData(bool test)
+        {
+            UnlockedLevel = 4;
+            TotalCollectedCoins = 1234;
+            Settings = new SavedSettings() 
+            { 
+                IsMusicMuted = true, 
+                IsScreenRotationEnabled = false, 
+                IsSoundEffectsMuted = true
+            };
         }
     }
 

@@ -2,7 +2,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-namespace SaveData
+namespace Saving
 {
 
     public static class SaveSystem
@@ -11,20 +11,28 @@ namespace SaveData
 
         public static void Save(SaveData data)
         {
-            FileStream stream = new FileStream(path, FileMode.Create);
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                GetBinaryFormatter().Serialize(stream, data);
 
-            GetBinaryFormatter().Serialize(stream, data);
+                stream.Close();
+            }
 
-            stream.Close();
+            Debug.Log("Data saved.");
         }
 
         public static SaveData Load()
         {
             if (File.Exists(path))
             {
-                FileStream stream = new FileStream(path, FileMode.Open);
-                SaveData data = GetBinaryFormatter().Deserialize(stream) as SaveData;
-                stream.Close();
+                SaveData data;
+
+                using (FileStream stream = new FileStream(path, FileMode.Open))
+                {
+                    data = GetBinaryFormatter().Deserialize(stream) as SaveData;
+                    
+                    stream.Close();
+                }
 
                 return data;
             }
@@ -42,6 +50,5 @@ namespace SaveData
 
             return formatter;
         }
-
     }
 }
