@@ -205,19 +205,19 @@ public class PlayerControls : MonoBehaviour
 		rb.angularVelocity = Vector3.zero;
 	}
 
-	private void SetTaillightColor(Color color)
-	{
-        //Material myMaterial = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/Brakelight.mat", typeof(Material));
+	//private void SetTaillightColor(Color color)
+	//{
+ //       Material myMaterial = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/Brakelight.mat", typeof(Material));
 
-        //Color currentAlbedo = myMaterial.GetColor("_Color");
-        //Color currentEmission = myMaterial.GetColor("_EmissionColor");
+ //       Color currentAlbedo = myMaterial.GetColor("_Color");
+ //       Color currentEmission = myMaterial.GetColor("_EmissionColor");
 
-        //if (!color.Equals(currentAlbedo))
-        //{
-        //    myMaterial.SetColor("_Color", Color.Lerp(currentAlbedo, color, lightSwitchSpeed));
-        //    myMaterial.SetColor("_EmissionColor", Color.Lerp(currentEmission, color, lightSwitchSpeed));
-        //}
-    }
+ //       if (!color.Equals(currentAlbedo))
+ //       {
+ //           myMaterial.SetColor("_Color", Color.Lerp(currentAlbedo, color, LightSwitchSpeed));
+ //           myMaterial.SetColor("_EmissionColor", Color.Lerp(currentEmission, color, LightSwitchSpeed));
+ //       }
+ //   }
 
 
 	/// <summary>

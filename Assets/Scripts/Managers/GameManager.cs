@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
             pitch += 0.1f;
             AudioManager.Instance.PlaySound("Coin", pitch);
 
-            var coin = Instantiate(CoinSprite, coinScreenPos, Quaternion.identity) as GameObject;
+            var coin = Instantiate(CoinSprite, coinScreenPos, Quaternion.identity);
             coin.transform.SetParent(CoinFlyTarget.parent);
             LeanTween.moveLocal(coin, CoinFlyTarget.localPosition, 0.4f).setEaseInQuad().setIgnoreTimeScale(true);
             Destroy(coin, 0.4f);
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        LeanTween.scale(CoinFlyTarget, new Vector3(0.8f, 0.8f, 0.8f), 0.2f).setDelay(0.3f);
+        LeanTween.scale(CoinFlyTarget, new Vector3(0.6f, 0.6f, 0.6f), 0.2f).setDelay(0.3f);
 
     }
 
