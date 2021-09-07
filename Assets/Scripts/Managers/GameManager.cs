@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         if (ActiveMap == null || ActiveMap == "")
             ActiveMap = "Abstract1";
 #endif
-       _saveData = SaveSystem.Load();
+       _saveData = SaveSystem.SaveData;
 
         TrackCompleteUI.SetActive(false);
 

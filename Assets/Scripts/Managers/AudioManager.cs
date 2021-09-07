@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Linq;
+using Saving;
 using UnityEngine.Audio;
 
 [Serializable]
@@ -81,7 +82,8 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(string name)
     {
         var sound = Sounds.FirstOrDefault(x => x.Name == name);
-        sound.Play();
+        if (!SaveSystem.SaveData.Settings.IsSoundEffectsMuted)
+            sound.Play();
     }
 
     public void PlaySound(string name, bool loop)
@@ -94,6 +96,7 @@ public class AudioManager : MonoBehaviour
     {
         var sound = Sounds.FirstOrDefault(x => x.Name == name);
         sound.Pitch = pitch;
-        sound.Play();
+        if (!SaveSystem.SaveData.Settings.IsSoundEffectsMuted)
+            sound.Play();
     }
 }

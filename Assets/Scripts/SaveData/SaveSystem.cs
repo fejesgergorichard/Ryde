@@ -4,12 +4,23 @@ using UnityEngine;
 
 namespace Saving
 {
-
     public static class SaveSystem
     {
         private static string path = Application.persistentDataPath + "/save.dat";
 
-        public static void Save(SaveData data)
+        public static SaveData SaveData
+        {
+            get
+            {
+                return Load();
+            }
+            set
+            {
+                Save(value);
+            }
+        }
+
+        private static void Save(SaveData data)
         {
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {
@@ -21,7 +32,7 @@ namespace Saving
             Debug.Log("Data saved.");
         }
 
-        public static SaveData Load()
+        private static SaveData Load()
         {
             if (File.Exists(path))
             {
@@ -44,7 +55,7 @@ namespace Saving
             }
         }
 
-        public static BinaryFormatter GetBinaryFormatter()
+        private static BinaryFormatter GetBinaryFormatter()
         {
             BinaryFormatter formatter = new BinaryFormatter();
 
