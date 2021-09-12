@@ -1543,7 +1543,7 @@ Transform:
   m_LocalScale: {x: 0.10894577, y: 0.13520429, z: 0.39734524}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -91.114, y: 0.013000488, z: -0.83}
 --- !u!65 &1229759447
 BoxCollider:
@@ -3109,7 +3109,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.2419837, y: 7.6547422, z: 3.669658}
-  m_Center: {x: -0.021724703, y: 0.04624616, z: -1.73}
+  m_Center: {x: -0.021724703, y: 0.04624616, z: -1.715}
 --- !u!1 &1801275882959842094
 GameObject:
   m_ObjectHideFlags: 0
