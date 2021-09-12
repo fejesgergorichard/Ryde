@@ -2385,7 +2385,7 @@ MonoBehaviour:
   OffsetPerItem: 30
   AmplitudeModifierOfItems: 0.05
   Rotate: 1
-  RotationSpeed: {x: 0, y: 2, z: 0}
+  RotationSpeed: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1827977580
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,17 +3089,17 @@ PrefabInstance:
     - target: {fileID: 3469444244528229409, guid: a070e9264f641074a83a7e229beda9c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.468
+      value: 4.83
       objectReference: {fileID: 0}
     - target: {fileID: 3469444244528229409, guid: a070e9264f641074a83a7e229beda9c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.276
+      value: 16.95
       objectReference: {fileID: 0}
     - target: {fileID: 3469444244528229409, guid: a070e9264f641074a83a7e229beda9c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.802
+      value: 14.78
       objectReference: {fileID: 0}
     - target: {fileID: 3469444244528229409, guid: a070e9264f641074a83a7e229beda9c1,
         type: 3}

@@ -165,8 +165,6 @@ public class GameManager : MonoBehaviour
 
         // Reload camera target
         var mainCamera = GameObject.Find("Main Camera");
-        var cameraScript = mainCamera.GetComponent<CameraControl>();
-        cameraScript.Target = _player;
 
         // Reset position and forces
         _spawnObject = GameObject.Find("SpawnObject");
