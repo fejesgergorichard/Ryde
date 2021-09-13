@@ -2081,6 +2081,11 @@ PrefabInstance:
       propertyPath: m_PlaneDistance
       value: 7.43
       objectReference: {fileID: 0}
+    - target: {fileID: 3941720545713469825, guid: 6149468c16fd54a468ac5e908bbfa9de,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3941720545713469852, guid: 6149468c16fd54a468ac5e908bbfa9de,
         type: 3}
       propertyPath: m_Name

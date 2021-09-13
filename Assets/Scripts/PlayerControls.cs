@@ -26,7 +26,7 @@ public class PlayerControls : MonoBehaviour
 	private bool tapLeft;
 	private Vector3 initialPosition;
 	private Quaternion initialRotation;
-	private DeviceType DeviceType;
+	private DeviceType deviceType;
 
 	[Range(0, 1000)]
 	public int FlipTimeInMs;
@@ -48,7 +48,7 @@ public class PlayerControls : MonoBehaviour
 
 	private void Start()
 	{
-		DeviceType = SystemInfo.deviceType;
+		deviceType = SystemInfo.deviceType;
 		rb = GetComponent<Rigidbody>();
 		rb.centerOfMass = CenterOfMass;
 		mass = rb.mass;
@@ -80,7 +80,7 @@ public class PlayerControls : MonoBehaviour
 
 		#region Mobile controls
 
-		if (DeviceType == DeviceType.Handheld)
+		if (deviceType == DeviceType.Handheld)
 		{
 			tapLeft = tapRight = false;
 
@@ -115,7 +115,7 @@ public class PlayerControls : MonoBehaviour
 		#region Desktop controls
 		// WASD & Gamepad
 
-		else if (DeviceType == DeviceType.Desktop)
+		else if (deviceType == DeviceType.Desktop)
 		{
 			motor = MaxMotorTorque * Input.GetAxis("Vertical");
 			steering = MaxSteeringAngle * Input.GetAxis("Horizontal");
@@ -153,29 +153,6 @@ public class PlayerControls : MonoBehaviour
 			VisualizeWheel(truckInfo);
 		}
 
-        #region Visual effects of car
-		
-  //      // pedal to the metal
-  //      if (Input.GetAxis("Vertical") > 0)
-		//{
-		//	SetTaillightColor(Color.white);
-		//	SetMotorSmokeEmission(Input.GetAxis("Vertical") * 30 * Smokiness);
-		//}
-		//// braking
-		//else if (Input.GetAxis("Vertical") < 0 || brakeTorque > 0)
-		//{
-		//	SetTaillightColor(Color.red);
-		//	SetMotorSmokeEmission(2 * Smokiness);
-		//}
-		//// idle state
-		//else
-		//{
-		//	SetTaillightColor(Color.white);
-		//	SetMotorSmokeEmission(10 * Smokiness);
-		//}
-		
-		#endregion
-
 		if (Input.GetKey(KeyCode.R))
 		{
 			Flip();
@@ -204,21 +181,6 @@ public class PlayerControls : MonoBehaviour
 		rb.velocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
 	}
-
-	//private void SetTaillightColor(Color color)
-	//{
- //       Material myMaterial = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/Brakelight.mat", typeof(Material));
-
- //       Color currentAlbedo = myMaterial.GetColor("_Color");
- //       Color currentEmission = myMaterial.GetColor("_EmissionColor");
-
- //       if (!color.Equals(currentAlbedo))
- //       {
- //           myMaterial.SetColor("_Color", Color.Lerp(currentAlbedo, color, LightSwitchSpeed));
- //           myMaterial.SetColor("_EmissionColor", Color.Lerp(currentEmission, color, LightSwitchSpeed));
- //       }
- //   }
-
 
 	/// <summary>
 	/// Flips the given quaternion parameter horizontally (Z rotation + 180°)

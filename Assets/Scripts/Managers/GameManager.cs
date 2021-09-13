@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     private void Awake()
     {
         if (Instance != null)
@@ -50,13 +49,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-#if DEBUG
-        if (ActiveMap == null || ActiveMap == "")
-            ActiveMap = "Abstract1";
-#endif
+        #if DEBUG
+            if (ActiveMap == null || ActiveMap == "")
+                ActiveMap = "Abstract1";
+        #endif
        _saveData = SaveSystem.SaveData;
-
-        //Application.targetFrameRate = 60;
 
         TrackCompleteUI.SetActive(false);
 
@@ -78,7 +75,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    // TEST
     public async void AddCoin(Vector3 coinWorldPos, int num)
     {
         Vector2 coinScreenPos = Camera.main.WorldToScreenPoint(coinWorldPos);
@@ -101,13 +97,10 @@ public class GameManager : MonoBehaviour
 
             if (num > 1)
                 await Task.Run(() => Thread.Sleep(65));
-
         }
 
         LeanTween.scale(CoinFlyTarget, new Vector3(0.6f, 0.6f, 0.6f), 0.2f).setDelay(0.3f);
-
     }
-
 
     private void LoadMap(string mapName)
     {
@@ -135,7 +128,6 @@ public class GameManager : MonoBehaviour
 
         var scoreCounterObject = TrackCompleteUI.transform.Find("ScoreCounter");
         scoreCounterObject.GetComponent<TMP_Text>().text = Score.ToString();
-
     }
     
     private void OnFallEvent()
@@ -149,11 +141,6 @@ public class GameManager : MonoBehaviour
     {
         LoadMap(mapName);
         LoadMap(mapName);
-    }
-
-    private void SceneLoadAsyncCompleted(AsyncOperation obj)
-    {
-        Debug.Log("SCENE LOADED BOI");
     }
 
     private void ResetPlayer()

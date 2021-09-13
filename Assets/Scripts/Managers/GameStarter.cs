@@ -14,5 +14,10 @@ public class GameStarter : MonoBehaviour
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
         GameManager.ActiveMap = targetScene;
         GameManager.Instance?.Restart();
+
+        QualitySettings.vSyncCount = 0;
+        QualitySettings.antiAliasing = 0;
+
+        Application.targetFrameRate = 60;
     }
 }
