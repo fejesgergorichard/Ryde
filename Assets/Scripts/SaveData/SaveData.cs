@@ -12,17 +12,12 @@ namespace Saving
 
         public SaveData()
         {
-
-        }
-
-        public SaveData(bool test)
-        {
             UnlockedLevel = 4;
             TotalCollectedCoins = 1234;
-            Settings = new SavedSettings() 
-            { 
-                IsMusicMuted = false, 
-                IsScreenRotationEnabled = false, 
+            Settings = new SavedSettings()
+            {
+                IsMusicMuted = false,
+                IsScreenRotationEnabled = false,
                 IsSoundEffectsMuted = false
             };
         }

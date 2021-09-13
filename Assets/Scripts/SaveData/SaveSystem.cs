@@ -49,9 +49,12 @@ namespace Saving
             }
             else
             {
-                Debug.LogError($"Save file not found in {path}.");
+                Debug.LogWarning($"Save file not found in {path}. Creating default one.");
 
-                return null;
+                var defaultSaveData = new SaveData();
+                Save(defaultSaveData);
+
+                return defaultSaveData;
             }
         }
 
