@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     private bool _pausedFromUI = false;
     private GameObject PauseMenuUI;
+    public GameObject SceneSelectorUI;
 
     public static bool GameIsPaused = false;
 
@@ -15,6 +16,7 @@ public class PauseMenu : MonoBehaviour
         // The UI must be the 0th child
         PauseMenuUI = transform.GetChild(0).gameObject;
         PauseMenuUI.SetActive(false);
+        SceneSelectorUI.SetActive(false);
     }
 
     private void Update()
@@ -40,7 +42,8 @@ public class PauseMenu : MonoBehaviour
 
     public void MenuButtonAction()
     {
-        SceneManager.LoadScene("Selector");
+        SceneManager.UnloadSceneAsync(GameManager.ActiveMap);
+        SceneSelectorUI.SetActive(true);
         Resume();
     }
 

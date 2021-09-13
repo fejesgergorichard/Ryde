@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
 #endif
        _saveData = SaveSystem.SaveData;
 
+        //Application.targetFrameRate = 60;
+
         TrackCompleteUI.SetActive(false);
 
         GameEvents.Instance.onCrystalTriggerEnter += OnCrystalCollected;

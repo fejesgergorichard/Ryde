@@ -15,7 +15,7 @@ public class CameraControl : MonoBehaviour
 
         transform.LookAt(Target.transform);
     }
-
+    
     void Update()
     {
         if (Target != null)

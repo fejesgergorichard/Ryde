@@ -21,9 +21,9 @@ namespace Saving
             TotalCollectedCoins = 1234;
             Settings = new SavedSettings() 
             { 
-                IsMusicMuted = true, 
+                IsMusicMuted = false, 
                 IsScreenRotationEnabled = false, 
-                IsSoundEffectsMuted = true
+                IsSoundEffectsMuted = false
             };
         }
     }
