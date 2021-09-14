@@ -16,10 +16,12 @@ public class PodiumRotator : MonoBehaviour
     private Vector3 mousePosNew;
 
     private float velocity;
+    private CancellationTokenSource cts;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
+        cts = new CancellationTokenSource();
     }
 
     void Update()
@@ -30,15 +32,16 @@ public class PodiumRotator : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Began:
+                    ResetCts();
                     touchPosLatest = touch.position.x;
                     break;
                 case TouchPhase.Moved:
                     touchPosNew = touch.position.x;
-                    velocity = touchPosNew - touchPosLatest;
+                    velocity = touchPosNew - touchPosLatest * 4;
                     touchPosLatest = touchPosNew;
                     break;
                 case TouchPhase.Ended:
-                    Task.Run(() => KillVelocity());
+                    Task.Run(() => KillVelocity(cts.Token));
                     Debug.Log("Touch Phase Ended.");
                     break;
             }
@@ -48,6 +51,7 @@ public class PodiumRotator : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            ResetCts();
             mousePosLatest = Input.mousePosition;
         }
 
@@ -60,21 +64,22 @@ public class PodiumRotator : MonoBehaviour
 
         else if(Input.GetMouseButtonUp(0))
         {
-            Task.Run(() => KillVelocity());
+            Task.Run(() => KillVelocity(cts.Token));
         }
 
         if (velocity != 0)
             transform.Rotate(Vector3.down, velocity * RotateSpeed * 0.001f);
     }
 
-    private void KillVelocity()
+    private void KillVelocity(CancellationToken token)
     {
         var decreaseSpeed = velocity / StepsToKillVelocity;
         var steps = 0;
+        var initialSign = Mathf.Sign(velocity);
 
         while (velocity != 0)
         {
-            if (steps == StepsToKillVelocity)
+            if (steps == StepsToKillVelocity || Mathf.Sign(velocity) != initialSign || token.IsCancellationRequested)
             {
                 velocity = 0;
                 return;
@@ -84,5 +89,12 @@ public class PodiumRotator : MonoBehaviour
             Thread.Sleep(20);
             steps++;
         }
+    }
+
+    private void ResetCts()
+    {
+        cts.Cancel();
+        cts.Dispose();
+        cts = new CancellationTokenSource();
     }
 }
