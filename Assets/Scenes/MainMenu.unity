@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d193b3d05751bd4bb9057994dbf46ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 5492745501836915088}
+  Target: {fileID: 0}
 --- !u!114 &1413841388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,6 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateSpeed: 10
+  StepsToKillVelocity: 100
 --- !u!1001 &1809479062445703207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1327,12 +1328,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c167ebc372b17408b9c27b49a58d11, type: 3}
---- !u!1 &5492745501836915088 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1313445618600562577, guid: 48c167ebc372b17408b9c27b49a58d11,
-    type: 3}
-  m_PrefabInstance: {fileID: 5492745501836915087}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5492745501836915089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1833417464403891499, guid: 48c167ebc372b17408b9c27b49a58d11,
