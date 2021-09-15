@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -45,6 +46,12 @@ public class PauseMenu : MonoBehaviour
         SceneManager.UnloadSceneAsync(GameManager.ActiveMap);
         SceneSelectorUI.SetActive(true);
         Resume();
+    }
+
+    public void HomeButtonAction()
+    {
+        //SceneManager.GetAllScenes().Select(s => SceneManager.UnloadScene(s));
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void PauseFromUI()
