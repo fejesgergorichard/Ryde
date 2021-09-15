@@ -26,29 +26,7 @@ public class PodiumRotator : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    ResetCts();
-                    touchPosLatest = touch.position.x;
-                    break;
-                case TouchPhase.Moved:
-                    touchPosNew = touch.position.x;
-                    velocity = touchPosNew - touchPosLatest * 4;
-                    touchPosLatest = touchPosNew;
-                    break;
-                case TouchPhase.Ended:
-                    Task.Run(() => KillVelocity(cts.Token));
-                    Debug.Log("Touch Phase Ended.");
-                    break;
-            }
-        }
-
-        // Mouse
-
+        // Mouse & touch
         if (Input.GetMouseButtonDown(0))
         {
             ResetCts();

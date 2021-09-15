@@ -8,12 +8,14 @@ using UnityEngine.SceneManagement;
 public class SceneSelector : MonoBehaviour
 {
     private GameObject _sceneSelectorUi;
+    
 
     private void Start()
     {
         _sceneSelectorUi = transform.parent.gameObject;
     }
 
+    // TODO EZT KIKUKÁZNI
     public void LoadScene(string target)
     {
         SceneManager.GetAllScenes().Select(s => SceneManager.UnloadScene(s));

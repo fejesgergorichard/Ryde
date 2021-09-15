@@ -1109,7 +1109,7 @@ GameObject:
   - component: {fileID: 1229743991}
   - component: {fileID: 1229743990}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainMenuUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1695,7 +1695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2751b4597f9cd8e478c9994e37607354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForceMultiplier: 45
+  ForceMultiplier: 40
+  AddForceTimeout: 190
 --- !u!20 &1413841390
 Camera:
   m_ObjectHideFlags: 0

@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
         ResetPlayer();
 
-        ReloadMap(ActiveMap);
+        ReloadMap();
         TrackCompleteUI.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -102,23 +102,6 @@ public class GameManager : MonoBehaviour
         LeanTween.scale(CoinFlyTarget, new Vector3(0.6f, 0.6f, 0.6f), 0.2f).setDelay(0.3f);
     }
 
-    private void LoadMap(string mapName)
-    {
-        if (!_mapLoaded)
-        {
-            SceneManager.LoadScene(mapName, LoadSceneMode.Additive);
-            var mainCamera = GameObject.Find("Main Camera");
-            var cameraPlaceholder = GameObject.Find("CameraPlaceholder");
-
-            mainCamera.transform.position = cameraPlaceholder.transform.position;
-            mainCamera.transform.rotation = cameraPlaceholder.transform.rotation;
-        }
-        else
-            SceneManager.UnloadSceneAsync(mapName);
-
-        _mapLoaded = !_mapLoaded;
-    }
-
     private void OnCrystalCollected()
     {
         Debug.Log("Crystal collected!");
@@ -137,10 +120,27 @@ public class GameManager : MonoBehaviour
         Restart();
     }
 
-    private void ReloadMap(string mapName)
+    private void ReloadMap()
     {
-        LoadMap(mapName);
-        LoadMap(mapName);
+        LoadMap(ActiveMap);
+        LoadMap(ActiveMap);
+    }
+
+    private void LoadMap(string mapName)
+    {
+        if (!_mapLoaded)
+        {
+            SceneManager.LoadScene(mapName, LoadSceneMode.Additive);
+            var mainCamera = GameObject.Find("Main Camera");
+            var cameraPlaceholder = GameObject.Find("CameraPlaceholder");
+
+            mainCamera.transform.position = cameraPlaceholder.transform.position;
+            mainCamera.transform.rotation = cameraPlaceholder.transform.rotation;
+        }
+        else
+            SceneManager.UnloadSceneAsync(mapName);
+
+        _mapLoaded = !_mapLoaded;
     }
 
     private void ResetPlayer()

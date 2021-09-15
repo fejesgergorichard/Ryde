@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameStarter : MonoBehaviour
 {
+    SceneLoader sl;
     void Start()
     {
         InitializeAppSettings();
@@ -22,9 +23,6 @@ public class GameStarter : MonoBehaviour
     public void StartGame()
     {
         string targetScene = "Abstract1";
-        SceneManager.LoadScene(targetScene);
-        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
-        GameManager.ActiveMap = targetScene;
-        GameManager.Instance?.Restart();
+        SceneLoader.Instance.LoadGameScene(targetScene);
     }
 }

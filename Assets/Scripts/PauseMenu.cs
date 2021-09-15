@@ -41,17 +41,17 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
-    public void MenuButtonAction()
+    public void SceneSelectorButtonAction()
     {
-        SceneManager.UnloadSceneAsync(GameManager.ActiveMap);
         SceneSelectorUI.SetActive(true);
         Resume();
     }
 
     public void HomeButtonAction()
     {
-        //SceneManager.GetAllScenes().Select(s => SceneManager.UnloadScene(s));
-        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        SceneManager.UnloadScene(GameManager.ActiveMap);
+        SceneLoader.Instance.LoadMainMenu();
     }
 
     public void PauseFromUI()
