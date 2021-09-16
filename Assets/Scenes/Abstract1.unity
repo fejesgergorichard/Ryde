@@ -1773,7 +1773,7 @@ GameObject:
   - component: {fileID: 697840501}
   m_Layer: 0
   m_Name: Cube.003 (18)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4816,7 +4816,7 @@ GameObject:
   - component: {fileID: 1645183750}
   m_Layer: 0
   m_Name: Cube.003 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5083,7 +5083,7 @@ GameObject:
   - component: {fileID: 1707111844}
   m_Layer: 0
   m_Name: Cube.003 (15)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7520,6 +7520,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tilting block
+      objectReference: {fileID: 0}
+    - target: {fileID: 6861310070791464124, guid: a4e740c66ad5cbb4ebb30b971b1cd44a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 6861310070791464125, guid: a4e740c66ad5cbb4ebb30b971b1cd44a,
         type: 3}

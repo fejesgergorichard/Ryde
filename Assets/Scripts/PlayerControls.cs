@@ -217,11 +217,11 @@ public class PlayerControls : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-		//if (collision.transform.tag.Contains("Wall"))
-        //{
-			AudioManager.PlaySuspensionSound();
-        //}
-    }
+        if (collision.transform.tag.Contains("Wall"))
+        {
+            AudioManager.PlaySuspensionSound();
+		}
+}
 
 
     private void SetMotorSmokeEmission(float val)
