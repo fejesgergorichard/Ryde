@@ -42,8 +42,13 @@ public class SceneLoader : MonoBehaviour
         LoadingScreen.SetActive(true);
         yield return StartCoroutine(FadeLoadingScreen(1, 0.5f));
 
-        SceneManager.LoadScene(sceneToLoad);
-        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        AsyncOperation loadMap = SceneManager.LoadSceneAsync(sceneToLoad);
+        AsyncOperation loadGameplay = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
+
+        while (!loadMap.isDone || !loadGameplay.isDone)
+        {
+            yield return null;
+        }
 
         yield return StartCoroutine(FadeLoadingScreen(0, 0.5f));
         LoadingScreen.SetActive(false);
