@@ -9,6 +9,7 @@ public class GameStarter : MonoBehaviour
     void Start()
     {
         InitializeAppSettings();
+        Resources.Load("");
     }
 
     private static void InitializeAppSettings()

@@ -61,7 +61,10 @@ public class GameManager : MonoBehaviour
         GameEvents.Instance.onFallEvent += OnFallEvent;
 
         LoadPlayerInitInfo();
-        Restart();
+
+        PlaceCamera();
+        ResetPlayer();
+
     }
 
     public void Restart()
@@ -70,9 +73,18 @@ public class GameManager : MonoBehaviour
 
         ResetPlayer();
 
-        ReloadMap();
         TrackCompleteUI.SetActive(false);
         Time.timeScale = 1f;
+        SceneLoader.ReloadMap();
+    }
+
+    private void PlaceCamera()
+    {
+        var mainCamera = GameObject.Find("Main Camera");
+        var cameraPlaceholder = GameObject.Find("CameraPlaceholder");
+
+        mainCamera.transform.position = cameraPlaceholder.transform.position;
+        mainCamera.transform.rotation = cameraPlaceholder.transform.rotation;
     }
 
     public async void AddCoin(Vector3 coinWorldPos, int num)
@@ -120,31 +132,9 @@ public class GameManager : MonoBehaviour
         Restart();
     }
 
-    private void ReloadMap()
-    {
-        LoadMap(ActiveMap);
-        LoadMap(ActiveMap);
-    }
-
-    private void LoadMap(string mapName)
-    {
-        if (!_mapLoaded)
-        {
-            SceneManager.LoadScene(mapName, LoadSceneMode.Additive);
-            var mainCamera = GameObject.Find("Main Camera");
-            var cameraPlaceholder = GameObject.Find("CameraPlaceholder");
-
-            mainCamera.transform.position = cameraPlaceholder.transform.position;
-            mainCamera.transform.rotation = cameraPlaceholder.transform.rotation;
-        }
-        else
-            SceneManager.UnloadSceneAsync(mapName);
-
-        _mapLoaded = !_mapLoaded;
-    }
-
     private void ResetPlayer()
     {
+        Score = 0;
         if (_player != null)
         {
             _player.transform.parent = null;
