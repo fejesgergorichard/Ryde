@@ -48,15 +48,43 @@ MonoBehaviour:
   - Name: Crystal
     Clip: {fileID: 8300000, guid: 3d87a31e5590e8849aa906308d4c0009, type: 3}
     Volume: 0.5
-    Pitch: 1
+    DefaultPitch: 1
   - Name: Crystal
     Clip: {fileID: 8300000, guid: 3d87a31e5590e8849aa906308d4c0009, type: 3}
     Volume: 0.5
-    Pitch: 1
+    DefaultPitch: 1
   - Name: Fall
     Clip: {fileID: 8300000, guid: f001c8adf0976ce46a57762d22715a08, type: 3}
     Volume: 0.5
-    Pitch: 1
+    DefaultPitch: 1
+  - Name: Pop
+    Clip: {fileID: 8300000, guid: afb8cf5af417c3442a2e9d2689767905, type: 3}
+    Volume: 0.5
+    DefaultPitch: 1
+  - Name: Motor
+    Clip: {fileID: 8300000, guid: 2af49ff4219bc584a9425359d497ec6e, type: 3}
+    Volume: 0.5
+    DefaultPitch: 1
+  - Name: Suspension0
+    Clip: {fileID: 8300000, guid: da03a43ae4c4be043a43ec97036b5796, type: 3}
+    Volume: 0.25
+    DefaultPitch: 1
+  - Name: Suspension1
+    Clip: {fileID: 8300000, guid: 686cf09c68aac6b448cc24f853d0687d, type: 3}
+    Volume: 0.25
+    DefaultPitch: 1
+  - Name: Suspension2
+    Clip: {fileID: 8300000, guid: 9402438b9881de54b9f090a93b4c75cb, type: 3}
+    Volume: 0.25
+    DefaultPitch: 1
+  - Name: Suspension3
+    Clip: {fileID: 8300000, guid: 5f8f37254e94c7045b66add90c9e0308, type: 3}
+    Volume: 0.25
+    DefaultPitch: 1
+  - Name: Suspension4
+    Clip: {fileID: 8300000, guid: 1f17447671414864289b1a4821b3ed80, type: 3}
+    Volume: 0.25
+    DefaultPitch: 1
 --- !u!81 &1809479063144915786
 AudioListener:
   m_ObjectHideFlags: 0

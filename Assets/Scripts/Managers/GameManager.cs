@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
             Score++;
 
             pitch += 0.1f;
-            AudioManager.Instance.PlaySound("Coin", pitch);
+            AudioManager.PlaySound("Coin", pitch);
 
             var coin = Instantiate(CoinSprite, coinScreenPos, Quaternion.identity);
             coin.transform.SetParent(CoinFlyTarget.parent);
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Crystal collected!");
         Time.timeScale = 0f;
-        AudioManager.Instance.PlaySound("Crystal");
+        AudioManager.PlaySound("Crystal");
         TrackCompleteUI.SetActive(true);
 
         var scoreCounterObject = TrackCompleteUI.transform.Find("ScoreCounter");
@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
     private void OnFallEvent()
     {
         Debug.Log("Player fell!");
-        AudioManager.Instance.PlaySound("Fall");
+        AudioManager.PlaySound("Fall");
         Restart();
     }
 

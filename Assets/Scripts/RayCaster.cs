@@ -24,23 +24,25 @@ public class RayCaster : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                ApplyForce();
+                string name = hit.collider.name;
+                if (name == "CarBody")
+                {
+                    ApplyForce();
+                    AudioManager.PlaySuspensionSound();
+                }
             }
         }
     }
 
     private void ApplyForce()
     {
-        string name = hit.collider.name;
-        if (name == "CarBody")
+
+        if (DateTime.Compare(forceApplyTime.AddMilliseconds(AddForceTimeout), DateTime.Now) < 0)
         {
-            if (DateTime.Compare(forceApplyTime.AddMilliseconds(AddForceTimeout), DateTime.Now) < 0)
-            {
-                forceApplyTime = DateTime.Now;
-                var mass = hit.collider.attachedRigidbody.mass;
-                Vector3 upwardsForce = new Vector3(0, ForceMultiplier * mass, 0);
-                hit.collider.attachedRigidbody.AddForceAtPosition(upwardsForce, hit.point);
-            }
+            forceApplyTime = DateTime.Now;
+            var mass = hit.collider.attachedRigidbody.mass;
+            Vector3 upwardsForce = new Vector3(0, ForceMultiplier * mass, 0);
+            hit.collider.attachedRigidbody.AddForceAtPosition(upwardsForce, hit.point);
         }
     }
 }

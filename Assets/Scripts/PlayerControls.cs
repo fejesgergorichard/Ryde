@@ -215,8 +215,16 @@ public class PlayerControls : MonoBehaviour
 		}
 	}
 
+    private void OnCollisionEnter(Collision collision)
+    {
+		//if (collision.transform.tag.Contains("Wall"))
+        //{
+			AudioManager.PlaySuspensionSound();
+        //}
+    }
 
-	private void SetMotorSmokeEmission(float val)
+
+    private void SetMotorSmokeEmission(float val)
 	{
 		foreach (var ps in particleSystems)
 		{

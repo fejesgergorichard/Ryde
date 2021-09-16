@@ -5,7 +5,7 @@ using Saving;
 using UnityEngine.Audio;
 
 [Serializable]
-public class Sound
+internal class Sound
 {
     private AudioSource source;
 
@@ -36,7 +36,7 @@ public class Sound
         source.pitch = DefaultPitch;
     }
 
-    public void Play(bool loop)
+    public void Play(bool loop = false)
     {
         source.loop = loop;
         source.volume = Volume;
@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     [SerializeField]
-    public Sound[] Sounds;
+    internal Sound[] Sounds;
 
     private void Awake()
     {
@@ -68,9 +68,10 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
         }
+        DontDestroyOnLoad(this);
     }
 
-    void Start()
+    private void Start()
     {
         for (int i = 0; i < Sounds.Length; i++)
         {
@@ -79,24 +80,59 @@ public class AudioManager : MonoBehaviour
             Sounds[i].SetSource(go.AddComponent<AudioSource>());
         }
     }
-    public void PlaySound(string name)
-    {
-        var sound = Sounds.FirstOrDefault(x => x.Name == name);
-        if (!SaveSystem.SaveData.Settings.IsSoundEffectsMuted)
-            sound.Play();
-    }
 
-    public void PlaySound(string name, bool loop)
+    public static void PlaySound(string name)
     {
-        var sound = Sounds.FirstOrDefault(x => x.Name == name);
-        sound.Play(loop);
+        Instance.PlaySoundLoop(name, false);
     }
     
-    public void PlaySound(string name, float pitch)
+    public static void PlaySound(string name, float pitch)
     {
-        var sound = Sounds.FirstOrDefault(x => x.Name == name);
-        sound.Pitch = pitch;
-        if (!SaveSystem.SaveData.Settings.IsSoundEffectsMuted)
-            sound.Play();
+        Instance.PlaySoundPitch(name, pitch);
     }
+
+    public static void PlaySound(string name, bool loop)
+    {
+        Instance.PlaySoundLoop(name, loop);
+    }
+
+    public static void PlaySuspensionSound()
+    {
+        int count = Instance.Sounds.Count(x => x.Name.ToLower().Contains("suspension"));
+        System.Random r = new System.Random();
+        int suspensionSoundNumber = r.Next(count);
+        string suspensionSoundName = "Suspension" + suspensionSoundNumber;
+        PlaySound(suspensionSoundName);
+    }
+
+    #region Private methods
+
+    private void PlaySoundLoop(string name, bool loop)
+    {
+        PlaySoundInner(GetSoundByName(name), loop);
+    }
+
+    private void PlaySoundPitch(string name, float pitch)
+    {
+        var sound = GetSoundByName(name);
+        sound.Pitch = pitch;
+        PlaySoundInner(sound, false);
+    }
+
+    private Sound GetSoundByName(string name)
+    {
+        return Sounds.FirstOrDefault(x => x.Name == name);
+    }
+
+    private void PlaySoundInner(Sound sound, bool loop)
+    {
+        if (!SaveSystem.SaveData.Settings.IsSoundEffectsMuted)
+        {
+            sound.Play(loop);
+            Debug.Log($"Playing sound: {sound.Name}");
+        }
+    }
+
+    #endregion
+
 }
