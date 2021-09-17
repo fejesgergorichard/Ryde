@@ -10,7 +10,9 @@ public class SceneLoader : MonoBehaviour
     public GameObject Overlay;
     public GameObject SceneSelectorUI;
     public GameObject PauseUI;
+    public GameObject TrackCompleteUI;
     public CanvasGroup canvasGroup; 
+    
     public static SceneLoader Instance { get; private set; }
 
     public void Awake()
@@ -41,7 +43,6 @@ public class SceneLoader : MonoBehaviour
     }
     public static void ReloadMap()
     {
-        //Instance?.LoadGameScene(GameManager.ActiveMap);
         Instance?.ReloadMapInstance();
     }
 
@@ -64,7 +65,9 @@ public class SceneLoader : MonoBehaviour
         PauseMenu.GameIsPaused = false;
         PauseMenu.PausedFromUI = false;
         SceneSelectorUI.SetActive(false);
+        TrackCompleteUI.SetActive(false);
         GameManager.ActiveMap = sceneToLoad;
+        Time.timeScale = 1f;
 
         AsyncOperation loadMap = SceneManager.LoadSceneAsync(sceneToLoad);
         AsyncOperation loadCommon = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
@@ -83,10 +86,12 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(GameManager.ActiveMap);
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        TrackCompleteUI.SetActive(false);
     }
 
     private IEnumerator StartLoadMainMenu()
     {
+        Time.timeScale = 1f;
         LoadingScreen.SetActive(true);
 
         yield return StartCoroutine(FadeLoadingScreen(1, 0.5f));
@@ -95,6 +100,7 @@ public class SceneLoader : MonoBehaviour
         PauseMenu.GameIsPaused = false;
         PauseMenu.PausedFromUI = false;
         SceneSelectorUI.SetActive(false);
+        TrackCompleteUI.SetActive(false);
         PauseUI.SetActive(false);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync("MainMenu");

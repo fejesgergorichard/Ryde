@@ -50,7 +50,6 @@ public class PauseMenu : MonoBehaviour
     public void HomeButtonAction()
     {
         Time.timeScale = 1f;
-        SceneManager.UnloadScene(GameManager.ActiveMap);
         SceneLoader.Instance.LoadMainMenu();
     }
 
