@@ -87,5 +87,6 @@ public class MobileInput : MonoBehaviour
     private void Start()
     {
         InitialGyroRotation = GyroRotation;
+        DontDestroyOnLoad(this);
     }
 }

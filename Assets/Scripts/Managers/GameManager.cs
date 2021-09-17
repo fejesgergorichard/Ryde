@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        DontDestroyOnLoad(Instance);
     }
 
     void Start()
@@ -60,31 +61,22 @@ public class GameManager : MonoBehaviour
         GameEvents.Instance.onCrystalTriggerEnter += OnCrystalCollected;
         GameEvents.Instance.onFallEvent += OnFallEvent;
 
-        LoadPlayerInitInfo();
-
-        PlaceCamera();
-        ResetPlayer();
-
+        Time.timeScale = 1f;
+        Score = 0;
     }
 
     public void Restart()
     {
-        Score = 0;
-
-        ResetPlayer();
-
         TrackCompleteUI.SetActive(false);
-        Time.timeScale = 1f;
+
         SceneLoader.ReloadMap();
-    }
 
-    private void PlaceCamera()
-    {
-        var mainCamera = GameObject.Find("Main Camera");
-        var cameraPlaceholder = GameObject.Find("CameraPlaceholder");
+        UpdatePlayerObjects();
+        ResetPlayerPosition();
+        SetCameraTargetToPlayer();
 
-        mainCamera.transform.position = cameraPlaceholder.transform.position;
-        mainCamera.transform.rotation = cameraPlaceholder.transform.rotation;
+        Time.timeScale = 1f;
+        Score = 0;
     }
 
     public async void AddCoin(Vector3 coinWorldPos, int num)
@@ -132,28 +124,24 @@ public class GameManager : MonoBehaviour
         Restart();
     }
 
-    private void ResetPlayer()
+    private void ResetPlayerPosition()
     {
-        Score = 0;
         if (_player != null)
         {
             _player.transform.parent = null;
+            _player.GetComponent<PlayerControls>().ResetPosition();
         }
-
-        SceneManager.MoveGameObjectToScene(_player, gameObject.scene);
-
-        // Reload camera target
-        var mainCamera = GameObject.Find("Main Camera");
-
-        // Reset position and forces
-        _spawnObject = GameObject.Find("SpawnObject");
-        _player.transform.position = _spawnObject.transform.position;
-        _player.transform.rotation = _spawnObject.transform.rotation;
-        _playerRigidBody.velocity = Vector3.zero;
-        _playerRigidBody.angularVelocity = Vector3.zero;
     }
 
-    private void LoadPlayerInitInfo()
+    private void SetCameraTargetToPlayer()
+    {
+        var mainCamera = GameObject.Find("Main Camera");
+        mainCamera.transform.parent = _player.transform.parent;
+        CameraControl cc = mainCamera.GetComponent<CameraControl>();
+        cc.Target = _player;
+    }
+
+    private void UpdatePlayerObjects()
     {
         _player = GameObject.Find("Player");
         _playerRigidBody = _player.GetComponent<Rigidbody>();

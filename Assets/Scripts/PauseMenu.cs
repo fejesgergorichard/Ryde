@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    private bool _pausedFromUI = false;
+    public static bool PausedFromUI = false;
     private GameObject PauseMenuUI;
     public GameObject SceneSelectorUI;
 
@@ -56,9 +56,9 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseFromUI()
     {
-        _pausedFromUI = !_pausedFromUI;
+        PausedFromUI = !PausedFromUI;
         
-        if (_pausedFromUI)
+        if (PausedFromUI)
         {
             Pause();
         }

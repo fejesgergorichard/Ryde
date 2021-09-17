@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public GameObject LoadingScreen;
-    public GameObject ReloadingScreen;
+    public GameObject Overlay;
+    public GameObject SceneSelectorUI;
     public CanvasGroup canvasGroup; 
     public static SceneLoader Instance { get; private set; }
 
@@ -39,13 +40,8 @@ public class SceneLoader : MonoBehaviour
     }
     public static void ReloadMap()
     {
-        Instance.ReloadMapInstance();
-    }
-
-
-    public void ReloadMapInstance()
-    {
-        StartCoroutine(StartReload());
+        //Instance?.LoadGameScene(GameManager.ActiveMap);
+        Instance?.ReloadMapInstance();
     }
 
     public void LoadGameScene(string sceneToLoad)
@@ -64,37 +60,35 @@ public class SceneLoader : MonoBehaviour
         yield return StartCoroutine(FadeLoadingScreen(1, 0.1f));
 
         AsyncOperation loadMap = SceneManager.LoadSceneAsync(sceneToLoad);
-        AsyncOperation loadGameplay = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
+        AsyncOperation loadCommon = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
 
-        while (!loadMap.isDone || !loadGameplay.isDone)
+        while (!loadMap.isDone)
         {
             yield return null;
         }
 
         yield return StartCoroutine(FadeLoadingScreen(0, 0.1f));
+
         LoadingScreen.SetActive(false);
+        Overlay.SetActive(true);
+        PauseMenu.GameIsPaused = false;
+        PauseMenu.PausedFromUI = false;
+        SceneSelectorUI.SetActive(false);
 
         GameManager.ActiveMap = sceneToLoad;
     }
 
-    private IEnumerator StartReload()
+    private void ReloadMapInstance()
     {
-        ReloadingScreen.SetActive(true);
-
-        AsyncOperation loadMap = SceneManager.LoadSceneAsync(GameManager.ActiveMap);
-        AsyncOperation loadGameplay = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
-
-        while (!loadMap.isDone || !loadGameplay.isDone)
-        {
-            yield return null;
-        }
-
-        ReloadingScreen.SetActive(false);
+        SceneManager.LoadScene(GameManager.ActiveMap);
+        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
     }
 
     private IEnumerator StartLoadMainMenu()
     {
+        Overlay.SetActive(false);
         LoadingScreen.SetActive(true);
+
         yield return StartCoroutine(FadeLoadingScreen(1, 0.5f));
 
         AsyncOperation operation = SceneManager.LoadSceneAsync("MainMenu");
@@ -104,7 +98,12 @@ public class SceneLoader : MonoBehaviour
         }
 
         yield return StartCoroutine(FadeLoadingScreen(0, 0.2f));
+
         LoadingScreen.SetActive(false);
+        Overlay.SetActive(false);
+        PauseMenu.GameIsPaused = false;
+        PauseMenu.PausedFromUI = false;
+        SceneSelectorUI.SetActive(false);
     }
 
     private IEnumerator FadeLoadingScreen(float targetValue, float duration)

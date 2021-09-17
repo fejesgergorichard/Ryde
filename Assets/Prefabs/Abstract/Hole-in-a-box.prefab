@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1254463364118992752}
   - component: {fileID: 1254463364118992754}
   - component: {fileID: 1254463364118992755}
+  - component: {fileID: 3079508379985667010}
   m_Layer: 0
   m_Name: Hole-in-a-box
   m_TagString: Untagged
@@ -82,3 +83,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3079508379985667010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254463364118992753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.019999996, z: 0.016997205}
+  m_Center: {x: 0, y: 0, z: -0.011501392}

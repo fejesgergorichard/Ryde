@@ -174,7 +174,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    public void Restart()
+    public void ResetPosition()
 	{
 		transform.position = initialPosition;
 		transform.rotation = initialRotation;
