@@ -60,6 +60,12 @@ public class SceneLoader : MonoBehaviour
         LoadingScreen.SetActive(true);
         yield return StartCoroutine(FadeLoadingScreen(1, 0.1f));
 
+        Overlay.SetActive(true);
+        PauseMenu.GameIsPaused = false;
+        PauseMenu.PausedFromUI = false;
+        SceneSelectorUI.SetActive(false);
+        GameManager.ActiveMap = sceneToLoad;
+
         AsyncOperation loadMap = SceneManager.LoadSceneAsync(sceneToLoad);
         AsyncOperation loadCommon = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
 
@@ -71,12 +77,6 @@ public class SceneLoader : MonoBehaviour
         yield return StartCoroutine(FadeLoadingScreen(0, 0.1f));
 
         LoadingScreen.SetActive(false);
-        Overlay.SetActive(true);
-        PauseMenu.GameIsPaused = false;
-        PauseMenu.PausedFromUI = false;
-        SceneSelectorUI.SetActive(false);
-
-        GameManager.ActiveMap = sceneToLoad;
     }
 
     private void ReloadMapInstance()
@@ -87,10 +87,15 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator StartLoadMainMenu()
     {
-        Overlay.SetActive(false);
         LoadingScreen.SetActive(true);
 
         yield return StartCoroutine(FadeLoadingScreen(1, 0.5f));
+
+        Overlay.SetActive(false);
+        PauseMenu.GameIsPaused = false;
+        PauseMenu.PausedFromUI = false;
+        SceneSelectorUI.SetActive(false);
+        PauseUI.SetActive(false);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync("MainMenu");
         while (!operation.isDone)
@@ -101,11 +106,6 @@ public class SceneLoader : MonoBehaviour
         yield return StartCoroutine(FadeLoadingScreen(0, 0.2f));
 
         LoadingScreen.SetActive(false);
-        Overlay.SetActive(false);
-        PauseMenu.GameIsPaused = false;
-        PauseMenu.PausedFromUI = false;
-        SceneSelectorUI.SetActive(false);
-        PauseUI.SetActive(false);
     }
 
     private IEnumerator FadeLoadingScreen(float targetValue, float duration)
