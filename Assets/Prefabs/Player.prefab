@@ -72,7 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlipTimeInMs: 400
   MaxMotorTorque: 102
-  BrakeTorqueMotorTorqueRatio: 0.5
+  BrakeTorqueMotorTorqueRatio: 1.2
   MaxSteeringAngle: 35
   TruckInfos:
   - leftWheel: {fileID: 2232415447188772251}
