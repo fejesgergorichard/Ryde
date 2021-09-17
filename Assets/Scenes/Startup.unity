@@ -1106,6 +1106,7 @@ MonoBehaviour:
   LoadingScreen: {fileID: 640841301}
   Overlay: {fileID: 2763953048732015627}
   SceneSelectorUI: {fileID: 1647213440}
+  PauseUI: {fileID: 7062908660393794261}
   canvasGroup: {fileID: 640841307}
 --- !u!4 &655987073
 Transform:
@@ -3982,6 +3983,12 @@ MonoBehaviour:
 --- !u!4 &7062908660393794260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4711961327993354331, guid: 1a8d15010592d0243a8e0780ce4fca63,
+    type: 3}
+  m_PrefabInstance: {fileID: 7062908660393794258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7062908660393794261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4711961328534153419, guid: 1a8d15010592d0243a8e0780ce4fca63,
     type: 3}
   m_PrefabInstance: {fileID: 7062908660393794258}
   m_PrefabAsset: {fileID: 0}

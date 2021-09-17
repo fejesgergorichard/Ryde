@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
     public GameObject LoadingScreen;
     public GameObject Overlay;
     public GameObject SceneSelectorUI;
+    public GameObject PauseUI;
     public CanvasGroup canvasGroup; 
     public static SceneLoader Instance { get; private set; }
 
@@ -104,6 +105,7 @@ public class SceneLoader : MonoBehaviour
         PauseMenu.GameIsPaused = false;
         PauseMenu.PausedFromUI = false;
         SceneSelectorUI.SetActive(false);
+        PauseUI.SetActive(false);
     }
 
     private IEnumerator FadeLoadingScreen(float targetValue, float duration)
