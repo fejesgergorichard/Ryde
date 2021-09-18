@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -11,6 +13,11 @@ public class SceneLoader : MonoBehaviour
     public GameObject SceneSelectorUI;
     public GameObject PauseUI;
     public GameObject TrackCompleteUI;
+    public int MinimumLoadTimeInMs = 500;
+    private DateTime loadStartTime;
+
+    public Image Image;
+
     public CanvasGroup canvasGroup; 
     
     public static SceneLoader Instance { get; private set; }
@@ -58,6 +65,8 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator StartLoad(string sceneToLoad)
     {
+        loadStartTime = DateTime.Now;
+        Image.color = new Color(1, 1, 1, 0f);
         LoadingScreen.SetActive(true);
         yield return StartCoroutine(FadeLoadingScreen(1, 0.1f));
 
@@ -69,17 +78,32 @@ public class SceneLoader : MonoBehaviour
         GameManager.ActiveMap = sceneToLoad;
         Time.timeScale = 1f;
 
-        AsyncOperation loadMap = SceneManager.LoadSceneAsync(sceneToLoad);
-        AsyncOperation loadCommon = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneToLoad);
+        AsyncOperation operation2 = SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
+        operation.allowSceneActivation = false;
+        operation2.allowSceneActivation = false;
 
-        while (!loadMap.isDone)
+        while (!operation.isDone)
         {
+            FillMask(operation.progress);
+
+            if (DateTime.Compare(loadStartTime.AddMilliseconds(MinimumLoadTimeInMs), DateTime.Now) < 0)
+            {
+                operation.allowSceneActivation = true;
+                operation2.allowSceneActivation = true;
+            }
+
             yield return null;
         }
 
         yield return StartCoroutine(FadeLoadingScreen(0, 0.1f));
 
         LoadingScreen.SetActive(false);
+    }
+
+    private void FillMask(float progress)
+    {
+        Image.color = new Color(1, 1, 1, progress + 0.1f);
     }
 
     private void ReloadMapInstance()
@@ -91,11 +115,13 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator StartLoadMainMenu()
     {
+        loadStartTime = DateTime.Now;
         Time.timeScale = 1f;
+        Image.color = new Color(1, 1, 1, 0f);
         LoadingScreen.SetActive(true);
 
         yield return StartCoroutine(FadeLoadingScreen(1, 0.5f));
-
+        
         Overlay.SetActive(false);
         PauseMenu.GameIsPaused = false;
         PauseMenu.PausedFromUI = false;
@@ -104,8 +130,16 @@ public class SceneLoader : MonoBehaviour
         PauseUI.SetActive(false);
 
         AsyncOperation operation = SceneManager.LoadSceneAsync("MainMenu");
+        operation.allowSceneActivation = false;
+
         while (!operation.isDone)
         {
+            FillMask(operation.progress); 
+
+            if (DateTime.Compare(loadStartTime.AddMilliseconds(MinimumLoadTimeInMs), DateTime.Now) < 0)
+            {
+                operation.allowSceneActivation = true;
+            }
             yield return null;
         }
 
