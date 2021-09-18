@@ -76,6 +76,7 @@ public class SceneLoader : MonoBehaviour
         SceneSelectorUI.SetActive(false);
         TrackCompleteUI.SetActive(false);
         GameManager.ActiveMap = sceneToLoad;
+        GameManager.Instance.Score = 0;
         Time.timeScale = 1f;
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneToLoad);
@@ -85,8 +86,9 @@ public class SceneLoader : MonoBehaviour
 
         while (!operation.isDone)
         {
-            FillMask(operation.progress);
+            FillMask();
 
+            // Wait for the Minimum loading time for the animations
             if (DateTime.Compare(loadStartTime.AddMilliseconds(MinimumLoadTimeInMs), DateTime.Now) < 0)
             {
                 operation.allowSceneActivation = true;
@@ -101,9 +103,12 @@ public class SceneLoader : MonoBehaviour
         LoadingScreen.SetActive(false);
     }
 
-    private void FillMask(float progress)
+    private void FillMask()
     {
-        Image.color = new Color(1, 1, 1, progress + 0.1f);
+        TimeSpan span = DateTime.Now - loadStartTime;
+        float newAlpha = (float)Math.Max(Math.Min(span.TotalMilliseconds / MinimumLoadTimeInMs, 1), 0);
+
+        Image.color = new Color(1, 1, 1, newAlpha);
     }
 
     private void ReloadMapInstance()
@@ -120,7 +125,7 @@ public class SceneLoader : MonoBehaviour
         Image.color = new Color(1, 1, 1, 0f);
         LoadingScreen.SetActive(true);
 
-        yield return StartCoroutine(FadeLoadingScreen(1, 0.5f));
+        yield return StartCoroutine(FadeLoadingScreen(1, 0.2f));
         
         Overlay.SetActive(false);
         PauseMenu.GameIsPaused = false;
@@ -134,8 +139,9 @@ public class SceneLoader : MonoBehaviour
 
         while (!operation.isDone)
         {
-            FillMask(operation.progress); 
+            FillMask();
 
+            // Wait for the Minimum loading time for the animations
             if (DateTime.Compare(loadStartTime.AddMilliseconds(MinimumLoadTimeInMs), DateTime.Now) < 0)
             {
                 operation.allowSceneActivation = true;
@@ -144,7 +150,6 @@ public class SceneLoader : MonoBehaviour
         }
 
         yield return StartCoroutine(FadeLoadingScreen(0, 0.2f));
-
         LoadingScreen.SetActive(false);
     }
 
