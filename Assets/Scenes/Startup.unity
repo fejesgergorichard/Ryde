@@ -2524,47 +2524,47 @@ PrefabInstance:
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
       propertyPath: Sounds.Array.data[0].Volume
-      value: 0.6
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
       propertyPath: Sounds.Array.data[1].Volume
-      value: 0.35
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
       propertyPath: Sounds.Array.data[2].Volume
-      value: 0.6
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
       propertyPath: Sounds.Array.data[3].Volume
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
       propertyPath: Sounds.Array.data[5].Volume
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
       propertyPath: Sounds.Array.data[6].Volume
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
       propertyPath: Sounds.Array.data[7].Volume
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
       propertyPath: Sounds.Array.data[8].Volume
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915787, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
       propertyPath: Sounds.Array.data[9].Volume
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1809479063144915788, guid: 23f77ee184c07ca42b2e367d34141cef,
         type: 3}
