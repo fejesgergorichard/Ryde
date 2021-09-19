@@ -789,7 +789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 160.08002, y: 113.16}
+  m_AnchoredPosition: {x: 158.81, y: 147.29498}
   m_SizeDelta: {x: 127.2438, y: 135.4567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &891163268
@@ -1179,7 +1179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 160.27002, y: -72.295}
+  m_AnchoredPosition: {x: 159, y: -69}
   m_SizeDelta: {x: 126.86, y: 144.3704}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262392608
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2751b4597f9cd8e478c9994e37607354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForceMultiplier: 40
+  ForceMultiplier: 50
   AddForceTimeout: 190
 --- !u!20 &1413841390
 Camera:
