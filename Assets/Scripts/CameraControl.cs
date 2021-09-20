@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraControl : MonoBehaviour
 {
     public GameObject Target;
+    public float Offset;
 
-    private Seethrough currentTransparentObject;
+    private Seethrough currentlyTransparent;
     public bool RotateCamera { get; set; }
 
     void Start()
@@ -33,40 +35,71 @@ public class CameraControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Calculate the Vector direction 
-        Vector3 direction = Target.transform.position - transform.position;
-        //Calculate the length
+        RayCastPlayer();
+        RayCastPlayerWithOffset(Offset);
+        RayCastPlayerWithOffset(-Offset);
+    }
+
+    private void RayCastPlayerWithOffset(float offset)
+    {
+        Vector3 direction = (Target.transform.position + (offset * Target.transform.forward)) - transform.position;
         float length = Vector3.Distance(Target.transform.position, transform.position);
-        //Draw the ray in the debug
+
         Debug.DrawRay(transform.position, direction * length, Color.red);
-        //The first object hit reference
+
         RaycastHit currentHit;
-        //Cast the ray and report the firt object hit filtering by "Wall" layer mask
         if (Physics.Raycast(transform.position, direction, out currentHit, length, LayerMask.GetMask("Default")))
         {
-            //Getting the script to change transparency of the hit object
-            Seethrough transparentWall = currentHit.transform.GetComponent<Seethrough>();
-            //If the object is not null
-            if (transparentWall)
+            Seethrough seethroughInstance = currentHit.transform.GetComponent<Seethrough>();
+            if (seethroughInstance) // if its not null
             {
-                //If there is a previous wall hit and it's different from this one
-                if (currentTransparentObject && currentTransparentObject.gameObject != transparentWall.gameObject)
+                // when we hit a different object
+                if (currentlyTransparent && currentlyTransparent.gameObject != seethroughInstance.gameObject)
                 {
-                    //Restore its transparency setting it not transparent
-                    currentTransparentObject.ChangeTransparency(false);
+                    currentlyTransparent.ChangeTransparency(false);
                 }
-                //Change the object transparency in transparent.
-                transparentWall.ChangeTransparency(true);
-                currentTransparentObject = transparentWall;
+                seethroughInstance.ChangeTransparency(true);
+                currentlyTransparent = seethroughInstance;
             }
         }
         else
         {
             //If nothing is hit and there is a previous object hit
-            if (currentTransparentObject)
+            if (currentlyTransparent)
             {
-                //Restore its transparency setting it not transparent
-                currentTransparentObject.ChangeTransparency(false);
+                currentlyTransparent.ChangeTransparency(false);
+            }
+        }
+    }
+
+    private void RayCastPlayer()
+    {
+        Vector3 direction = Target.transform.position - transform.position;
+        float length = Vector3.Distance(Target.transform.position, transform.position);
+
+        Debug.DrawRay(transform.position, direction * length, Color.red);
+
+        RaycastHit currentHit;
+        if (Physics.Raycast(transform.position, direction, out currentHit, length, LayerMask.GetMask("Default")))
+        {
+            Seethrough seethroughInstance = currentHit.transform.GetComponent<Seethrough>();
+            if (seethroughInstance) // if its not null
+            {
+                // when we hit a different object
+                if (currentlyTransparent && currentlyTransparent.gameObject != seethroughInstance.gameObject)
+                {
+                    currentlyTransparent.ChangeTransparency(false);
+                }
+                seethroughInstance.ChangeTransparency(true);
+                currentlyTransparent = seethroughInstance;
+            }
+        }
+        else
+        {
+            //If nothing is hit and there is a previous object hit
+            if (currentlyTransparent)
+            {
+                currentlyTransparent.ChangeTransparency(false);
             }
         }
     }
