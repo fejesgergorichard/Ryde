@@ -8,7 +8,17 @@ public class CameraControl : MonoBehaviour
     public GameObject Target;
     public float Offset;
 
-    private Seethrough currentlyTransparent;
+    public GameObject sphere;
+    public LayerMask mylayermask;
+
+    ////private Seethrough currentlyTransparent;
+
+    //private List<KeyValuePair<Seethrough, bool>> trackedObjects = new List<KeyValuePair<Seethrough, bool>>()
+    //                                                        {
+    //    new KeyValuePair<Seethrough, bool>(null, false),
+    //    new KeyValuePair<Seethrough, bool>(null, false)
+    //};
+
     public bool RotateCamera { get; set; }
 
     void Start()
@@ -31,76 +41,80 @@ public class CameraControl : MonoBehaviour
                                                transform.rotation.eulerAngles.z + (MobileInput.GyroRotation.eulerAngles.z - MobileInput.InitialGyroRotation.eulerAngles.z));
             transform.rotation = Quaternion.Euler(newRotation);
         }
-    }
 
-    private void FixedUpdate()
-    {
-        RayCastPlayer();
-        RayCastPlayerWithOffset(Offset);
-        RayCastPlayerWithOffset(-Offset);
-    }
-
-    private void RayCastPlayerWithOffset(float offset)
-    {
-        Vector3 direction = (Target.transform.position + (offset * Target.transform.forward)) - transform.position;
-        float length = Vector3.Distance(Target.transform.position, transform.position);
+        Vector3 direction = sphere.transform.position - transform.position;
+        float length = Vector3.Distance(sphere.transform.position, transform.position);
 
         Debug.DrawRay(transform.position, direction * length, Color.red);
 
-        RaycastHit currentHit;
-        if (Physics.Raycast(transform.position, direction, out currentHit, length, LayerMask.GetMask("Default")))
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position,
+            direction,
+            out hit, length, mylayermask))
         {
-            Seethrough seethroughInstance = currentHit.transform.GetComponent<Seethrough>();
-            if (seethroughInstance) // if its not null
+            if (hit.collider.gameObject.tag == "Spheremask")
             {
-                // when we hit a different object
-                if (currentlyTransparent && currentlyTransparent.gameObject != seethroughInstance.gameObject)
-                {
-                    currentlyTransparent.ChangeTransparency(false);
-                }
-                seethroughInstance.ChangeTransparency(true);
-                currentlyTransparent = seethroughInstance;
+                sphere.transform.LeanScale(new Vector3(0,0,0), 1f);
+            }
+            else
+            {
+                sphere.transform.LeanScale(new Vector3(6, 6, 6), 1f);
             }
         }
-        else
-        {
-            //If nothing is hit and there is a previous object hit
-            if (currentlyTransparent)
-            {
-                currentlyTransparent.ChangeTransparency(false);
-            }
-        }
+
+
     }
 
-    private void RayCastPlayer()
-    {
-        Vector3 direction = Target.transform.position - transform.position;
-        float length = Vector3.Distance(Target.transform.position, transform.position);
+    //private void FixedUpdate()
+    //{
+    //    RayCastPlayerWithOffset(Offset, 0);
+    //    RayCastPlayerWithOffset(-Offset, 1);
+    //}
 
-        Debug.DrawRay(transform.position, direction * length, Color.red);
+    //private void RayCastPlayerWithOffset(float offset, int index)
+    //{
+    //    Vector3 direction = (Target.transform.position + (offset * Target.transform.forward)) - transform.position;
+    //    float length = Vector3.Distance(Target.transform.position, transform.position);
 
-        RaycastHit currentHit;
-        if (Physics.Raycast(transform.position, direction, out currentHit, length, LayerMask.GetMask("Default")))
-        {
-            Seethrough seethroughInstance = currentHit.transform.GetComponent<Seethrough>();
-            if (seethroughInstance) // if its not null
-            {
-                // when we hit a different object
-                if (currentlyTransparent && currentlyTransparent.gameObject != seethroughInstance.gameObject)
-                {
-                    currentlyTransparent.ChangeTransparency(false);
-                }
-                seethroughInstance.ChangeTransparency(true);
-                currentlyTransparent = seethroughInstance;
-            }
-        }
-        else
-        {
-            //If nothing is hit and there is a previous object hit
-            if (currentlyTransparent)
-            {
-                currentlyTransparent.ChangeTransparency(false);
-            }
-        }
-    }
+    //    Debug.DrawRay(transform.position, direction * length, Color.red);
+
+    //    RaycastHit currentHit;
+    //    if (Physics.Raycast(transform.position, direction, out currentHit, length, LayerMask.GetMask("Default")))
+    //    {
+    //        Seethrough objectHit = currentHit.transform.GetComponent<Seethrough>();
+    //        if (objectHit) // if we hit an object with a  Seethrough script attached
+    //        {
+    //            // when we hit a different object than before
+    //            if (trackedObjects[index].Key && trackedObjects[index].Key.gameObject != objectHit.gameObject)
+    //            {
+    //                trackedObjects[index] = new KeyValuePair<Seethrough, bool>(objectHit, false);
+    //                DisableIfAllIsDisabled(index);
+    //                //trackedObjects[index].Key.ChangeTransparency(false);
+    //            }
+    //            objectHit.ChangeTransparency(true);
+    //            trackedObjects[index] = new KeyValuePair<Seethrough, bool>(objectHit, true);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        //If nothing is hit and there is a previous object hit
+    //        if (trackedObjects[index].Key)
+    //        {
+    //            trackedObjects[index] = new KeyValuePair<Seethrough, bool>(trackedObjects[index].Key, false);
+    //            DisableIfAllIsDisabled(index);
+    //            //trackedObjects[index].Key.ChangeTransparency(false);
+    //        }
+    //    }
+    //}
+
+    //private void DisableIfAllIsDisabled(int index)
+    //{
+    //    if (trackedObjects[0].Key != trackedObjects[1].Key ||
+    //        ((trackedObjects[0].Key == trackedObjects[1].Key) && (!trackedObjects[0].Value && !trackedObjects[1].Value)))
+    //    {
+    //        trackedObjects[index].Key.ChangeTransparency(false);
+    //        trackedObjects[index] = new KeyValuePair<Seethrough, bool>(null, false);
+    //    }
+    //}
 }

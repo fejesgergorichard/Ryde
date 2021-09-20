@@ -18,9 +18,9 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: Opaque
+    RenderType: Transparent
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -82,7 +82,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DontMix: 0
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _Fade: 1
     - _FogHeight: 0.97
     - _FogYStartPos: 0
@@ -110,7 +110,7 @@ Material:
     - _LmapEnable: 0
     - _MainTexturePower: 0
     - _Metallic: 0
-    - _Mode: 0
+    - _Mode: 1
     - _OcclusionStrength: 1
     - _OtherSettings: 1
     - _Parallax: 0.02
@@ -149,11 +149,11 @@ Material:
     - _ShowTop: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _UVSec: 0
     - _UnityFogEnable: 0
     - _ZWrite: 1
-    - _ZWriteOverride: 0
+    - _ZWriteOverride: 1
     m_Colors:
     - _AOColor: {r: 1, g: 1, b: 1, a: 1}
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}

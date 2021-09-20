@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Yellow
-  m_Shader: {fileID: 4800000, guid: f276502ebf8b1431192125b7316d5d67, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0078dd0916013d94689a7b62e19ff031, type: 3}
   m_ShaderKeywords: AO_ON FRONTSOLID RIGHTSOLID TOPSOLID _AOUV_UV0 _GRADIENTSPACE_WORLD_SPACE
     _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL _GRADSETTINGS_F_USE_GLOBAL
     _GRADSETTINGS_L_USE_GLOBAL _GRADSETTINGS_R_USE_GLOBAL _GRADSETTINGS_T_USE_GLOBAL
@@ -18,9 +18,9 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2000
   stringTagMap:
-    RenderType: Transparent
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -82,7 +82,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DontMix: 0
-    - _DstBlend: 10
+    - _DstBlend: 0
     - _Fade: 1
     - _FogHeight: 0.97
     - _FogYStartPos: 0.17
@@ -110,7 +110,7 @@ Material:
     - _LmapEnable: 0
     - _MainTexturePower: 0
     - _Metallic: 0
-    - _Mode: 1
+    - _Mode: 0
     - _OcclusionStrength: 1
     - _OtherSettings: 1
     - _Parallax: 0.02
@@ -149,11 +149,11 @@ Material:
     - _ShowTop: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _UVSec: 0
     - _UnityFogEnable: 0
     - _ZWrite: 1
-    - _ZWriteOverride: 1
+    - _ZWriteOverride: 0
     m_Colors:
     - _AOColor: {r: 1, g: 1, b: 1, a: 1}
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}

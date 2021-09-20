@@ -103,6 +103,7 @@ shader "Minimalist/BRP/Standard"
         //OtherSettings
         _OtherSettings ("OtherSettings", Float) = 0
         
+        
         _ShowGlobalGradientSettings ("Show Global Gradient Settings", Float) = 0
         _GradientYStartPos_G ("Gradient start Y", Vector) = (0, 0, 0, 0)
         _GradientHeight_G ("Gradient Height", Float) = 1
@@ -136,7 +137,7 @@ shader "Minimalist/BRP/Standard"
     SubShader
     {
         Tags { "DisableBatching" = "False" }
-        
+
         Pass
         {
             Name "StandardPass"
@@ -144,6 +145,12 @@ shader "Minimalist/BRP/Standard"
             Blend [_SrcBlend] [_DstBlend]
             cull [_Cull]
             ZWrite [_ZWrite]
+
+            Stencil
+            {
+                Ref 1 
+                Comp NotEqual
+            }
             
             CGPROGRAM
             
@@ -175,8 +182,9 @@ shader "Minimalist/BRP/Standard"
             #include "Minimalist.cginc"
 
             ENDCG
-            
         }
+
+        
         
         UsePass "Legacy Shaders/VertexLit/SHADOWCASTER"
     }
