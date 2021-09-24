@@ -75,7 +75,18 @@ public class CameraControl : MonoBehaviour
                 trackedTransparencies[i] = true;
                 TryChangeTransparency(i, true);
             }
+            // If the hit object is not seethrough
+            else
+            {
+                if (trackedObjects[i] != null)
+                {
+                    trackedTransparencies[i] = false;
+                    TryChangeTransparency(i, false);
+                    trackedObjects[i] = null;
+                }
+            }
         }
+        // If we did not hit anything
         else
         {
             if (trackedObjects[i] != null)
@@ -89,7 +100,7 @@ public class CameraControl : MonoBehaviour
 
     public void TryChangeTransparency(int i, bool value)
     {
-        var transparencyMap = Enumerable.Range(0, Offsets.Count).Select(x => new KeyValuePair<Seethrough, bool>(trackedObjects[x], trackedTransparencies[x]));
+        List<KeyValuePair<Seethrough, bool>> transparencyMap = CreateTransparencyMap();
 
         if (trackedObjects[i] != null)
         {
@@ -101,5 +112,17 @@ public class CameraControl : MonoBehaviour
             else if (value)
                 trackedObjects[i].ChangeTransparency(true);
         }
+    }
+
+    private List<KeyValuePair<Seethrough, bool>> CreateTransparencyMap()
+    {
+        var transparencyMap = new List<KeyValuePair<Seethrough, bool>>();
+
+        for (int j = 0; j < trackedObjects.Length; j++)
+        {
+            transparencyMap.Add(new KeyValuePair<Seethrough, bool>(trackedObjects[j], trackedTransparencies[j]));
+        }
+
+        return transparencyMap;
     }
 }

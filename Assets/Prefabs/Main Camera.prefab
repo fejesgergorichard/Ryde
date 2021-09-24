@@ -198,3 +198,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
+  UpwardsOffset: -0.4
+  Offsets:
+  - 0.8
+  - -0.8
+  - 0.6
+  - -0.6
+  - 0.4
+  - -0.4
+  - 0.2
+  - -0.2
+  - 0
+  - 0.1
+  - -0.1
