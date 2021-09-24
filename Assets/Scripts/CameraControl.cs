@@ -1,20 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
 public class CameraControl : MonoBehaviour
 {
     public GameObject Target;
-    public float Offset;
 
-    private Seethrough currentlyTransparent;
+    [Range(-1f, 1f)]
+    public float UpwardsOffset;
+    public List<float> Offsets;
+
+    private Seethrough[] trackedObjects;
+    private bool[] trackedTransparencies;
+
     public bool RotateCamera { get; set; }
 
     void Start()
     {
         Target = GameObject.Find("Player");
         transform.LookAt(Target.transform);
+
+        trackedObjects = new Seethrough[Offsets.Count];
+        trackedTransparencies = new bool[Offsets.Count];
     }
     
     void Update()
@@ -35,14 +45,15 @@ public class CameraControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RayCastPlayer();
-        RayCastPlayerWithOffset(Offset);
-        RayCastPlayerWithOffset(-Offset);
+        for (int i = 0; i < Offsets.Count; i++)
+        {
+            RayCast(Offsets[i], i);
+        }
     }
 
-    private void RayCastPlayerWithOffset(float offset)
+    private void RayCast(float offset, int i)
     {
-        Vector3 direction = (Target.transform.position + (offset * Target.transform.forward)) - transform.position;
+        Vector3 direction = (Target.transform.position + (offset * Target.transform.forward) + (UpwardsOffset * Target.transform.up)) - transform.position;
         float length = Vector3.Distance(Target.transform.position, transform.position);
 
         Debug.DrawRay(transform.position, direction * length, Color.red);
@@ -50,57 +61,45 @@ public class CameraControl : MonoBehaviour
         RaycastHit currentHit;
         if (Physics.Raycast(transform.position, direction, out currentHit, length, LayerMask.GetMask("Default")))
         {
-            Seethrough seethroughInstance = currentHit.transform.GetComponent<Seethrough>();
-            if (seethroughInstance) // if its not null
+            Seethrough hitSeethrough = currentHit.transform.GetComponent<Seethrough>();
+            if (hitSeethrough) // if its not null
             {
                 // when we hit a different object
-                if (currentlyTransparent && currentlyTransparent.gameObject != seethroughInstance.gameObject)
+                if (trackedObjects[i] && trackedObjects[i].gameObject != hitSeethrough.gameObject)
                 {
-                    currentlyTransparent.ChangeTransparency(false);
+                    trackedTransparencies[i] = false;
+                    TryChangeTransparency(i, false);
                 }
-                seethroughInstance.ChangeTransparency(true);
-                currentlyTransparent = seethroughInstance;
+
+                trackedObjects[i] = hitSeethrough;
+                trackedTransparencies[i] = true;
+                TryChangeTransparency(i, true);
             }
         }
         else
         {
-            //If nothing is hit and there is a previous object hit
-            if (currentlyTransparent)
+            if (trackedObjects[i] != null)
             {
-                currentlyTransparent.ChangeTransparency(false);
+                trackedTransparencies[i] = false;
+                TryChangeTransparency(i, false);
+                trackedObjects[i] = null;   
             }
         }
     }
 
-    private void RayCastPlayer()
+    public void TryChangeTransparency(int i, bool value)
     {
-        Vector3 direction = Target.transform.position - transform.position;
-        float length = Vector3.Distance(Target.transform.position, transform.position);
+        var transparencyMap = Enumerable.Range(0, Offsets.Count).Select(x => new KeyValuePair<Seethrough, bool>(trackedObjects[x], trackedTransparencies[x]));
 
-        Debug.DrawRay(transform.position, direction * length, Color.red);
+        if (trackedObjects[i] != null)
+        {
+            var trackedCopies = transparencyMap.Where(x => x.Key == trackedObjects[i]);
 
-        RaycastHit currentHit;
-        if (Physics.Raycast(transform.position, direction, out currentHit, length, LayerMask.GetMask("Default")))
-        {
-            Seethrough seethroughInstance = currentHit.transform.GetComponent<Seethrough>();
-            if (seethroughInstance) // if its not null
-            {
-                // when we hit a different object
-                if (currentlyTransparent && currentlyTransparent.gameObject != seethroughInstance.gameObject)
-                {
-                    currentlyTransparent.ChangeTransparency(false);
-                }
-                seethroughInstance.ChangeTransparency(true);
-                currentlyTransparent = seethroughInstance;
-            }
-        }
-        else
-        {
-            //If nothing is hit and there is a previous object hit
-            if (currentlyTransparent)
-            {
-                currentlyTransparent.ChangeTransparency(false);
-            }
+            if (trackedCopies.All(x => x.Value == false) && value == false)
+                trackedObjects[i].ChangeTransparency(false);
+
+            else if (value)
+                trackedObjects[i].ChangeTransparency(true);
         }
     }
 }
