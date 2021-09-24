@@ -8,6 +8,7 @@ public class Seethrough : MonoBehaviour
     private bool transparent = false;
     private Renderer rend;
     private CancellationTokenSource cts;
+    private const string materialTransparencyProperty = "_Fade";
 
     private void Start()
     {
@@ -42,18 +43,22 @@ public class Seethrough : MonoBehaviour
 
     private IEnumerator FadeTransparency(float targetValue, float duration, CancellationToken token)
     {
-        float startValue = rend.material.GetFloat("_Fade");
-        float time = 0;
-
-        while (time < duration)
+        Material[] materials = rend.materials;
+        foreach (Material material in materials)
         {
-            token.ThrowIfCancellationRequested();
+            float startValue = material.GetFloat(materialTransparencyProperty);
+            float time = 0;
 
-            rend.material.SetFloat("_Fade", Mathf.Lerp(startValue, targetValue, time / duration));
-            time += Time.deltaTime;
-            yield return null;
+            while (time < duration)
+            {
+                token.ThrowIfCancellationRequested();
+
+                material.SetFloat(materialTransparencyProperty, Mathf.Lerp(startValue, targetValue, time / duration));
+                time += Time.deltaTime;
+                yield return null;
+            }
+
+            material.SetFloat(materialTransparencyProperty, targetValue);
         }
-
-        rend.material.SetFloat("_Fade", targetValue);
     }
 }
