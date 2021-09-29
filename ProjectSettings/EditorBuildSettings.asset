@@ -19,6 +19,9 @@ EditorBuildSettings:
     guid: c3225c5d49a1ffb40a0f8fe37bc0cb84
   - enabled: 1
     path: Assets/Scenes/Abstract1.unity
+    guid: 191a76c5d47ea504c8ed641e931b0d61
+  - enabled: 1
+    path: Assets/Scenes/Abstract1-origi.unity
     guid: 4c9613f2c8d610e4685e0b3091872b7e
   - enabled: 1
     path: Assets/Scenes/Abstract2.unity

@@ -28,6 +28,9 @@ public class PlayerControls : MonoBehaviour
 	private Quaternion initialRotation;
 	private DeviceType deviceType;
 
+	public Joystick JoystickVert;
+	public Joystick JoystickHor;
+
 	[Range(0, 1000)]
 	public int FlipTimeInMs;
 	public float MaxMotorTorque;
@@ -120,6 +123,9 @@ public class PlayerControls : MonoBehaviour
 			motor = MaxMotorTorque * Input.GetAxis("Vertical");
 			steering = MaxSteeringAngle * Input.GetAxis("Horizontal");
 			brakeTorque = Mathf.Abs(Input.GetAxis("Jump"));
+
+			motor = MaxMotorTorque * JoystickVert.Vertical;
+			steering = MaxSteeringAngle * JoystickHor.Horizontal;
 		}
 
 		#endregion
