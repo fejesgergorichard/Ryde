@@ -337,6 +337,7 @@ MonoBehaviour:
   FlipBox: {x: 6, y: 5.25, z: 4.65}
   PullForce: 600000
   FlipEntryPoint: 0
+  CameraRotationSpeed: 1
 --- !u!65 &147727961
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -632,6 +633,7 @@ MonoBehaviour:
   FlipBox: {x: 0, y: 0, z: 0}
   PullForce: 600000
   FlipEntryPoint: 0
+  CameraRotationSpeed: 1
 --- !u!114 &524204231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +772,7 @@ MonoBehaviour:
   FlipBox: {x: 0, y: 0, z: 0}
   PullForce: 600000
   FlipEntryPoint: 0
+  CameraRotationSpeed: 1
 --- !u!1 &680244245
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +995,7 @@ MonoBehaviour:
   FlipBox: {x: 0, y: 0, z: 0}
   PullForce: 600000
   FlipEntryPoint: 0
+  CameraRotationSpeed: 1
 --- !u!1 &812202946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1122,7 @@ MonoBehaviour:
   FlipBox: {x: 0, y: 0, z: 0}
   PullForce: 600000
   FlipEntryPoint: 0
+  CameraRotationSpeed: 1
 --- !u!1001 &856380022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1347,6 +1352,7 @@ MonoBehaviour:
   FlipBox: {x: 0, y: 0, z: 0}
   PullForce: 600000
   FlipEntryPoint: 0
+  CameraRotationSpeed: 1
 --- !u!1 &996996168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,7 +1478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998263687}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -10.65, y: 2.27, z: 5}
+  m_LocalPosition: {x: -10.61, y: 2.27, z: 5}
   m_LocalScale: {x: 300, y: 225.53, z: 100}
   m_Children: []
   m_Father: {fileID: 1457828896}
@@ -1494,6 +1500,7 @@ MonoBehaviour:
   FlipBox: {x: 6, y: 5.73, z: 4.65}
   PullForce: 600000
   FlipEntryPoint: 1
+  CameraRotationSpeed: 1
 --- !u!65 &998263690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1632,6 +1639,7 @@ MonoBehaviour:
   FlipBox: {x: 6, y: 5.25, z: 4.65}
   PullForce: 600000
   FlipEntryPoint: 0
+  CameraRotationSpeed: 1
 --- !u!65 &1038329960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1821,6 +1829,7 @@ MonoBehaviour:
   FlipBox: {x: 0, y: 0, z: 0}
   PullForce: 600000
   FlipEntryPoint: 0
+  CameraRotationSpeed: 1
 --- !u!1 &1074406220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,43 +1982,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100.00009
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100.000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 100.00012
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.17
+      value: 3.68
       objectReference: {fileID: 0}
     - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21
+      value: 4.47
       objectReference: {fileID: 0}
     - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.79
+      value: 4.04
       objectReference: {fileID: 0}
     - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.4633479
+      value: -0.36305806
       objectReference: {fileID: 0}
     - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08462234
+      value: -0.053131558
       objectReference: {fileID: 0}
     - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.86777353
+      value: 0.9204462
       objectReference: {fileID: 0}
     - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.15848356
+      value: -0.13470227
       objectReference: {fileID: 0}
     - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 20.7
+      value: 7.13
       objectReference: {fileID: 0}
     - target: {fileID: 4641938386909831689, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
@@ -2164,6 +2188,7 @@ MonoBehaviour:
   FlipBox: {x: 0, y: 0, z: 0}
   PullForce: 600000
   FlipEntryPoint: 0
+  CameraRotationSpeed: 1
 --- !u!1 &1240964618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5549904917890473268, guid: a7337ba04f30c3743b0643e3e09020c9,

@@ -9,12 +9,12 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Yellow
   m_Shader: {fileID: 4800000, guid: f276502ebf8b1431192125b7316d5d67, type: 3}
-  m_ShaderKeywords: AO_ON FRONTSOLID RIGHTSOLID TOPSOLID _AOUV_UV0 _GRADIENTSPACE_WORLD_SPACE
-    _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL _GRADSETTINGS_F_USE_GLOBAL
-    _GRADSETTINGS_L_USE_GLOBAL _GRADSETTINGS_R_USE_GLOBAL _GRADSETTINGS_T_USE_GLOBAL
-    _LMAPBLENDINGMODE_ADD _MODE_OPAQUE _SHADING_B_VERTEX_COLOR _SHADING_D_VERTEX_COLOR
-    _SHADING_F_SOLIDCOLOR _SHADING_L_VERTEX_COLOR _SHADING_R_SOLID_COLOR _SHADING_T_SOLID_COLOR
-    _SHOWCUSTOMSHADING_ON _SHOWFRONT_ON _SHOWRIGHT_ON _SHOWTOP_ON
+  m_ShaderKeywords: AO_ON BACKSOLID BOTTOMSOLID FRONTSOLID LEFTSOLID RIGHTSOLID TOPSOLID
+    _AOUV_UV0 _GRADIENTSPACE_WORLD_SPACE _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL
+    _GRADSETTINGS_F_USE_GLOBAL _GRADSETTINGS_L_USE_GLOBAL _GRADSETTINGS_R_USE_GLOBAL
+    _GRADSETTINGS_T_USE_GLOBAL _LMAPBLENDINGMODE_ADD _MODE_OPAQUE _SHADING_B_VERTEX_COLOR
+    _SHADING_D_VERTEX_COLOR _SHADING_F_SOLIDCOLOR _SHADING_L_VERTEX_COLOR _SHADING_R_SOLID_COLOR
+    _SHADING_T_SOLID_COLOR _SHOWCUSTOMSHADING_ON _SHOWFRONT_ON _SHOWRIGHT_ON _SHOWTOP_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -125,25 +125,25 @@ Material:
     - _Rotation_R: 0
     - _Rotation_T: 0
     - _Saturation: 1
-    - _Shading_B: 0
-    - _Shading_D: 0
+    - _Shading_B: 1
+    - _Shading_D: 1
     - _Shading_F: 1
-    - _Shading_L: 0
+    - _Shading_L: 1
     - _Shading_R: 1
     - _Shading_T: 1
     - _ShadowBlend: 0.5
     - _ShadowInfluence: 0.93
     - _ShowAO: 0
     - _ShowAmbientSettings: 0
-    - _ShowBack: 0
-    - _ShowBottom: 0
+    - _ShowBack: 1
+    - _ShowBottom: 1
     - _ShowColorCorrection: 0
     - _ShowCustomShading: 1
     - _ShowFog: 1
     - _ShowFront: 1
     - _ShowGlobalGradientSettings: 0
     - _ShowLMap: 0
-    - _ShowLeft: 0
+    - _ShowLeft: 1
     - _ShowRight: 1
     - _ShowTexture: 0
     - _ShowTop: 1
@@ -158,10 +158,10 @@ Material:
     - _AOColor: {r: 1, g: 1, b: 1, a: 1}
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.8000001, g: 0.56858325, b: 0.18025805, a: 1}
-    - _Color1_B: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_D: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1_B: {r: 0.9607844, g: 0.6862745, b: 0.34117648, a: 1}
+    - _Color1_D: {r: 0.9960785, g: 0.9333334, b: 0.627451, a: 1}
     - _Color1_F: {r: 0.9607843, g: 0.6862745, b: 0.34117648, a: 1}
-    - _Color1_L: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1_L: {r: 0.95294124, g: 0.4156863, b: 0.3529412, a: 1}
     - _Color1_R: {r: 0.9529412, g: 0.41568628, b: 0.3529412, a: 1}
     - _Color1_T: {r: 0.99607843, g: 0.93333334, b: 0.627451, a: 1}
     - _Color2_B: {r: 1, g: 1, b: 1, a: 1}

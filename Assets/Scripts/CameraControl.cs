@@ -19,12 +19,14 @@ public class CameraControl : MonoBehaviour
     public bool RotateCamera { get; set; }
 
     public float ZRotationOffset { get; set; }
+    public float YPositionOffset { get; set; }
 
     void Start()
     {
         Target = GameObject.Find("Player");
         transform.LookAt(Target.transform);
         ZRotationOffset = 0f;
+        YPositionOffset = 0f;
 
         trackedObjects = new Seethrough[Offsets.Count];
         trackedTransparencies = new bool[Offsets.Count];
@@ -51,9 +53,15 @@ public class CameraControl : MonoBehaviour
                                                transform.rotation.eulerAngles.y,
                                                ZRotationOffset);
 
-            Vector3 actualRotation = Vector3.Slerp(transform.rotation.eulerAngles, newRotation, 1f * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(newRotation);
+        }
 
-            transform.rotation = Quaternion.Euler(actualRotation);
+        if (YPositionOffset != 0)
+        {
+            Vector3 newPosition = new Vector3(transform.position.x,
+                                            YPositionOffset,
+                                            transform.position.z);
+            transform.position = newPosition;
         }
     }
 

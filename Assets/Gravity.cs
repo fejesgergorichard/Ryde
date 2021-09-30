@@ -49,19 +49,33 @@ public class Gravity : MonoBehaviour
 
     private void FlipCamera()
     {
+        StartCoroutine(RotateCamera(180,-2, 1));
+    }
+
+    private IEnumerator RotateCamera(float targetRotation, float targetYPosition, float duration)
+    {
         var cam = GameObject.Find("Main Camera");
         var cameraControl = cam.GetComponent<CameraControl>();
 
-        
-        Vector3 newRotation = new Vector3(cam.transform.rotation.eulerAngles.x,
-                                               cam.transform.rotation.eulerAngles.y,
-                                               180);
+        float startZRotation = cam.transform.rotation.eulerAngles.z;
+        float startYPos = cam.transform.position.y;
+        float time = 0;
 
-        Vector3 actualRotation = Vector3.Slerp(cam.transform.rotation.eulerAngles, newRotation, CameraRotationSpeed * Time.deltaTime);
-        cameraControl.ZRotationOffset = actualRotation.z;
+        while (time < duration)
+        {
+            cameraControl.ZRotationOffset = Mathf.Lerp(startZRotation, targetRotation, time / duration);
+            cameraControl.YPositionOffset = Mathf.Lerp(startYPos, targetYPosition, time / duration);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
         cameraControl.ZRotationOffset = 180;
-
-        //cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, targetRotation, CameraRotationSpeed * Time.deltaTime);
+        cameraControl.YPositionOffset = targetYPosition;
+        
+        //cam.transform.position = new Vector3(cam.transform.position.x,
+        //targetYPosition,
+        //cam.transform.position.z);
     }
 
     void OnDrawGizmos()
