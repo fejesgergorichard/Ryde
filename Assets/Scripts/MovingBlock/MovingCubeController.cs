@@ -88,5 +88,6 @@ public class MovingCubeController : MonoBehaviour
             Gizmos.color = Color.red;
             spline.gizmoDraw(); // debug aid to be able to see the path in the scene inspector
         }
+        Gizmos.DrawWireCube(Points.Last().position, Points.Last().localScale);
     }
 }

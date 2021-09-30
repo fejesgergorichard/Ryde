@@ -215,16 +215,26 @@ public class PlayerControls : MonoBehaviour
 		}
 	}
 
- //   private void OnCollisionEnter(Collision collision)
- //   {
- //       if (collision.transform.tag.Contains("Wall"))
- //       {
- //           AudioManager.PlaySuspensionSound();
+	public void FlipWithTorque()
+	{
+		// the player is not flipping and the flip time passed
+		if (DateTime.Compare(flipStartTime.AddMilliseconds(FlipTimeInMs), DateTime.Now) < 0)
+		{
+			flipStartTime = DateTime.Now;
+			rb.AddRelativeTorque(new Vector3(0, 0, 3 * mass), ForceMode.Impulse);
+		}
+	}
+
+	//   private void OnCollisionEnter(Collision collision)
+	//   {
+	//       if (collision.transform.tag.Contains("Wall"))
+	//       {
+	//           AudioManager.PlaySuspensionSound();
 	//	}
 	//}
 
 
-    private void SetMotorSmokeEmission(float val)
+	private void SetMotorSmokeEmission(float val)
 	{
 		foreach (var ps in particleSystems)
 		{

@@ -8062,6 +8062,11 @@ PrefabInstance:
       propertyPath: m_SidewaysFriction.m_AsymptoteValue
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2448658098126496783, guid: 48c167ebc372b17408b9c27b49a58d11,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7137f7a531bec424980d57197420d577, type: 2}
     - target: {fileID: 3651740241089362200, guid: 48c167ebc372b17408b9c27b49a58d11,
         type: 3}
       propertyPath: m_Layer

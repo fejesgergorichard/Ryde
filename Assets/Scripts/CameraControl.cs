@@ -18,10 +18,13 @@ public class CameraControl : MonoBehaviour
 
     public bool RotateCamera { get; set; }
 
+    public float ZRotationOffset { get; set; }
+
     void Start()
     {
         Target = GameObject.Find("Player");
         transform.LookAt(Target.transform);
+        ZRotationOffset = 0f;
 
         trackedObjects = new Seethrough[Offsets.Count];
         trackedTransparencies = new bool[Offsets.Count];
@@ -41,6 +44,17 @@ public class CameraControl : MonoBehaviour
                                                transform.rotation.eulerAngles.z + (MobileInput.GyroRotation.eulerAngles.z - MobileInput.InitialGyroRotation.eulerAngles.z));
             transform.rotation = Quaternion.Euler(newRotation);
         }
+
+        if (ZRotationOffset != 0)
+        {
+            Vector3 newRotation = new Vector3(transform.rotation.eulerAngles.x,
+                                               transform.rotation.eulerAngles.y,
+                                               ZRotationOffset);
+
+            Vector3 actualRotation = Vector3.Slerp(transform.rotation.eulerAngles, newRotation, 1f * Time.deltaTime);
+
+            transform.rotation = Quaternion.Euler(actualRotation);
+        }
     }
 
     private void FixedUpdate()
@@ -56,7 +70,7 @@ public class CameraControl : MonoBehaviour
         Vector3 direction = (Target.transform.position + (offset * Target.transform.forward) + (UpwardsOffset * Target.transform.up)) - transform.position;
         float length = Vector3.Distance(Target.transform.position, transform.position);
 
-        Debug.DrawRay(transform.position, direction * length, Color.red);
+        //Debug.DrawRay(transform.position, direction * length, Color.red);
 
         RaycastHit currentHit;
         if (Physics.Raycast(transform.position, direction, out currentHit, length, LayerMask.GetMask("Default")))
