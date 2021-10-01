@@ -83,7 +83,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DontMix: 0
     - _DstBlend: 10
-    - _Fade: 0.774
+    - _Fade: 0.914
     - _FogHeight: 3.88
     - _FogYStartPos: -10.2
     - _GSpace: 0
@@ -152,8 +152,8 @@ Material:
     - _SrcBlend: 5
     - _UVSec: 0
     - _UnityFogEnable: 0
-    - _ZWrite: 0
-    - _ZWriteOverride: 0
+    - _ZWrite: 1
+    - _ZWriteOverride: 1
     m_Colors:
     - _AOColor: {r: 0, g: 0, b: 0, a: 1}
     - _AmbientColor: {r: 0, g: 0, b: 0, a: 0}
