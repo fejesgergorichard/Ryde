@@ -96,6 +96,11 @@ public class AudioManager : MonoBehaviour
         Instance.PlaySoundLoop(name, loop);
     }
 
+    public void PlayMusic()
+    {
+        Instance.PlaySoundLoop("Abstract-ambience", true);
+    }
+
     public static void PlaySuspensionSound()
     {
         int count = Instance.Sounds.Count(x => x.Name.ToLower().Contains("suspension"));
