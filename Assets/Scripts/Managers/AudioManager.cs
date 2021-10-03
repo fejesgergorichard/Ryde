@@ -94,12 +94,7 @@ public class AudioManager : MonoBehaviour
     public static void PlaySound(string name, bool loop)
     {
         Instance.PlaySoundLoop(name, loop);
-    }
-
-    public void PlayMusic()
-    {
-        Instance.PlaySoundLoop("Abstract-ambience", true);
-    }
+    } 
 
     public static void PlaySuspensionSound()
     {
