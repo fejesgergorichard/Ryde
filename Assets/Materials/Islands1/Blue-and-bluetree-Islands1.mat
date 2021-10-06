@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blue-tree
+  m_Name: Blue-and-bluetree-Islands1
   m_Shader: {fileID: 4800000, guid: f276502ebf8b1431192125b7316d5d67, type: 3}
   m_ShaderKeywords: AO_ON AO_ON_UV0 BOTTOMSOLID FRONTSOLID RIGHTSOLID TOPSOLID _AOUV_UV0
     _GRADIENTSPACE_WORLD_SPACE _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL
@@ -112,7 +112,7 @@ Material:
     - _Metallic: 0
     - _Mode: 1
     - _OcclusionStrength: 1
-    - _OtherSettings: 0
+    - _OtherSettings: 1
     - _Parallax: 0.02
     - _RealtimeShadow: 0
     - _RimEnable: 0
@@ -125,25 +125,25 @@ Material:
     - _Rotation_R: 0
     - _Rotation_T: 0
     - _Saturation: 1
-    - _Shading_B: 0
+    - _Shading_B: 1
     - _Shading_D: 1
     - _Shading_F: 1
-    - _Shading_L: 0
+    - _Shading_L: 1
     - _Shading_R: 1
     - _Shading_T: 1
     - _ShadowBlend: 0.382
     - _ShadowInfluence: 0.75
-    - _ShowAO: 0
-    - _ShowAmbientSettings: 1
-    - _ShowBack: 0
+    - _ShowAO: 1
+    - _ShowAmbientSettings: 0
+    - _ShowBack: 1
     - _ShowBottom: 1
     - _ShowColorCorrection: 0
     - _ShowCustomShading: 1
     - _ShowFog: 0
     - _ShowFront: 1
-    - _ShowGlobalGradientSettings: 1
+    - _ShowGlobalGradientSettings: 0
     - _ShowLMap: 0
-    - _ShowLeft: 0
+    - _ShowLeft: 1
     - _ShowRight: 1
     - _ShowTexture: 0
     - _ShowTop: 1

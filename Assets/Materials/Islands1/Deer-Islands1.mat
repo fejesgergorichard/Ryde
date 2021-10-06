@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Deer
+  m_Name: Deer-Islands1
   m_Shader: {fileID: 4800000, guid: f276502ebf8b1431192125b7316d5d67, type: 3}
   m_ShaderKeywords: AO_ON AO_ON_UV0 BACKSOLID BOTTOMSOLID FRONTSOLID LEFTSOLID RIGHTSOLID
     TOPSOLID _AOUV_UV0 _GRADIENTSPACE_WORLD_SPACE _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL

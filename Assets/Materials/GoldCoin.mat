@@ -72,7 +72,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AOEnable: 1
-    - _AOPower: 0.41
+    - _AOPower: 0.49
     - _AOuv: 0
     - _AmbientPower: 0
     - _Brightness: 0.17

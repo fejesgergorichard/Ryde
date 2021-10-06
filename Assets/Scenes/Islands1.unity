@@ -668,7 +668,7 @@ PrefabInstance:
     - target: {fileID: 3043875660876141170, guid: 9e667ac4e6274314a87638a321090aa4,
         type: 3}
       propertyPath: m_MaxParticleSize
-      value: 0.011
+      value: 0.006
       objectReference: {fileID: 0}
     - target: {fileID: 3043875660876141170, guid: 9e667ac4e6274314a87638a321090aa4,
         type: 3}
@@ -2096,7 +2096,7 @@ PrefabInstance:
     - target: {fileID: 4641938386909831688, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
       propertyPath: orthographic size
-      value: 4.3
+      value: 7.86
       objectReference: {fileID: 0}
     - target: {fileID: 4641938386909831688, guid: 6e5bf23156cb34a4d94a50904dd053d6,
         type: 3}
