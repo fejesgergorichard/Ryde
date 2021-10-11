@@ -10,41 +10,45 @@ public class Gravity : MonoBehaviour
     public bool FlipEntryPoint = false;
     public float CameraRotationSpeed = 1f;
 
-    private bool _flipped = false;
-
     private void FixedUpdate()
     {
+        // PullBox
         foreach (Collider collider in Physics.OverlapBox(transform.position, PullBox/2, Quaternion.identity))
         {
             if (collider.tag == "Player")
             {
-                Vector3 forceDirection = transform.position - collider.transform.position;
-                Debug.DrawRay(transform.position, -forceDirection * 4, Color.green);
+                var gravitableObject = collider.transform.parent.GetComponent<IGravitable>();
 
-                // Sucks the player towards the centre.
-                //collider.transform.parent.GetComponent<Rigidbody>().AddForce(forceDirection.normalized * PullForce * Time.fixedDeltaTime);
-                // This creates a force field that pushes the player back
-                //collider.transform.parent.GetComponent<Rigidbody>().AddForce(transform.right * PullForce * Time.fixedDeltaTime);
-                collider.transform.parent.GetComponent<Rigidbody>().AddForce(Vector3.up * PullForce * Time.fixedDeltaTime);
+                if (!gravitableObject.IsGravitated)
+                {
+                    //Vector3 forceDirection = transform.position - collider.transform.position;
+                    //Debug.DrawRay(transform.position, -forceDirection * 4, Color.green);
+
+                    //gravitableObject.Rigidbody.AddForce(Vector3.up * PullForce * Time.fixedDeltaTime);
+                    gravitableObject.IsGravitated = true;
+                    Physics.gravity = new Vector3(0, 9.81f, 0);
+                }
+
             }
         }
         
-        foreach (Collider collider in Physics.OverlapBox(transform.position, FlipBox/2, Quaternion.identity))
-        {
-            if (collider.tag == "Player")
-            {
-                Vector3 forceDirection = transform.position - collider.transform.position;
-                Debug.DrawRay(transform.position, -forceDirection * 2, Color.blue);
+        //// FlipBox
+        //foreach (Collider collider in Physics.OverlapBox(transform.position, FlipBox/2, Quaternion.identity))
+        //{
+        //    if (collider.tag == "Player")
+        //    {
+        //        Vector3 forceDirection = transform.position - collider.transform.position;
+        //        Debug.DrawRay(transform.position, -forceDirection * 2, Color.blue);
 
-                if (!_flipped && FlipEntryPoint)
-                {
-                    var rb = collider.transform.parent.GetComponent<Rigidbody>();
-                    rb.AddRelativeTorque(new Vector3(0.5f * rb.mass, 0, 0/*5 * rb.mass*/), ForceMode.Impulse);
-                    _flipped = true;
-                    FlipCamera();
-                }
-            }
-        }
+        //        if (!_flipped && FlipEntryPoint)
+        //        {
+        //            var rb = collider.transform.parent.GetComponent<Rigidbody>();
+        //            rb.AddRelativeTorque(new Vector3(0.5f * rb.mass, 0, 0/*5 * rb.mass*/), ForceMode.Impulse);
+        //            _flipped = true;
+        //            FlipCamera();
+        //        }
+        //    }
+        //}
     }
 
     private void FlipCamera()
@@ -72,10 +76,6 @@ public class Gravity : MonoBehaviour
 
         cameraControl.ZRotationOffset = 180;
         cameraControl.YPositionOffset = targetYPosition;
-        
-        //cam.transform.position = new Vector3(cam.transform.position.x,
-        //targetYPosition,
-        //cam.transform.position.z);
     }
 
     void OnDrawGizmos()
