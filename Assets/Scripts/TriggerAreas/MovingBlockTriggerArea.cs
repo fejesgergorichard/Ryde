@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class MovingBlockTriggerArea : TriggerAreaBase
 {
-    public override Action<int> InvokedEnterEvent => GameEvents.Instance.MovingBlockTriggerEnter;
-    public override Action<int> InvokedExitEvent => GameEvents.Instance.MovingBlockTriggerExit;
+    private Action<int> _enterEvent => GameEvents.Instance.MovingBlockTriggerEnter;
+    private Action<int> _exitEvent => GameEvents.Instance.MovingBlockTriggerExit;
 
     public override Action<Collider> ActionOnEnterEvent => EnterAction;
     public override Action<Collider> ActionOnExitEvent => ExitAction;
@@ -15,6 +15,7 @@ public class MovingBlockTriggerArea : TriggerAreaBase
         {
             // Set the parent of the player to our parent
             other.transform.parent.transform.parent = transform.parent;
+            _enterEvent?.Invoke(id);
         }
     }
     
@@ -24,6 +25,7 @@ public class MovingBlockTriggerArea : TriggerAreaBase
         {
             // Reset the player parent
             other.transform.parent.transform.parent = null;
+            _exitEvent?.Invoke(id);
         }
     }
 }

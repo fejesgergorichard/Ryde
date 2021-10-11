@@ -63,4 +63,26 @@ public class GameEvents : MonoBehaviour
     }
 
     #endregion
+
+    #region Gravity switcher event
+
+    public event Action onGravityTriggerEnter;
+    public event Action onGravityTriggerExit;
+    public void GravityTriggerEnter()
+    {
+        if (onGravityTriggerEnter != null)
+        {
+            onGravityTriggerEnter.Invoke();
+        }
+    }
+
+    public void GravityTriggerExit()
+    {
+        if (onGravityTriggerExit != null)
+        {
+            onGravityTriggerExit.Invoke();
+        }
+    }
+
+    #endregion
 }
