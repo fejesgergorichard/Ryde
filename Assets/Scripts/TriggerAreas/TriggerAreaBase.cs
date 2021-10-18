@@ -5,8 +5,8 @@ public abstract class TriggerAreaBase : MonoBehaviour
 {
     protected int id;
 
-    public abstract Action<Collider> ActionOnEnterEvent { get; }
-    public abstract Action<Collider> ActionOnExitEvent { get; }
+    public abstract Action<Collider> ActionOnEnterEvent { get; protected set; }
+    public abstract Action<Collider> ActionOnExitEvent { get; protected set; }
 
     private void Awake()
     {
