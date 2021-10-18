@@ -19,6 +19,7 @@ public class GravityChanger : MonoBehaviour
     {
         GameEvents.Instance.onGravityTriggerEnter -= EnterAction;
         GameEvents.Instance.onGravityTriggerExit -= ExitAction;
+        Physics.gravity = _defaultGravity;
     }
 
     private void EnterAction()
@@ -47,14 +48,14 @@ public class GravityChanger : MonoBehaviour
         while (time < duration)
         {
             cameraControl.ZRotationOffset = Mathf.Lerp(startZRotation, targetRotation, time / duration);
-            cameraControl.YPositionOffset = Mathf.Lerp(startYPos, targetYPosition, time / duration);
+            cameraControl.TargetYPosition = Mathf.Lerp(startYPos, targetYPosition, time / duration);
 
             time += Time.deltaTime;
             yield return null;
         }
 
         cameraControl.ZRotationOffset = 180;
-        cameraControl.YPositionOffset = targetYPosition;
+        cameraControl.TargetYPosition = targetYPosition;
     }
 
     private void RotatePlayer(float targetRotation, float duration, float delay = 0f)
