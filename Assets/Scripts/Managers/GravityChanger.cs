@@ -5,14 +5,18 @@ using UnityEngine;
 public class GravityChanger : MonoBehaviour
 {
     private readonly Vector3 _defaultGravity = new Vector3(0, -9.81f, 0);
+    private float _initialCameraY;
 
     public Vector3 NewGravityDirection = new Vector3(0, 9.81f, 0);
+    public float TargetCameraY;
 
     private void Start()
     {
         GameEvents.Instance.onGravityTriggerEnter += EnterAction;
         GameEvents.Instance.onGravityTriggerExit += ExitAction;
         Physics.gravity = _defaultGravity;
+        var cam = GameObject.Find("Main Camera");
+        _initialCameraY = cam.transform.position.y;
     }
 
     private void OnDestroy()
@@ -25,18 +29,18 @@ public class GravityChanger : MonoBehaviour
     private void EnterAction()
     {
         Physics.gravity = NewGravityDirection;
-        StartCoroutine(RotateCamera(180, -2, 1));
+        StartCoroutine(RepositionCamera(180, TargetCameraY, 1f));
         RotatePlayer(180, 0.5f, 0.3f);
     }
 
     private void ExitAction()
     {
         Physics.gravity = _defaultGravity;
-        StartCoroutine(RotateCamera(0, 0, 1));
+        StartCoroutine(RepositionCamera(0, _initialCameraY, 1f));
         RotatePlayer(0, 0.5f, 0.3f);
     }
 
-    private IEnumerator RotateCamera(float targetRotation, float targetYPosition, float duration)
+    private IEnumerator RepositionCamera(float targetRotation, float targetYPosition, float duration)
     {
         var cam = GameObject.Find("Main Camera");
         var cameraControl = cam.GetComponent<CameraControl>();
@@ -47,14 +51,14 @@ public class GravityChanger : MonoBehaviour
 
         while (time < duration)
         {
-            cameraControl.ZRotationOffset = Mathf.Lerp(startZRotation, targetRotation, time / duration);
+            cameraControl.TargetZRotation = Mathf.Lerp(startZRotation, targetRotation, time / duration);
             cameraControl.TargetYPosition = Mathf.Lerp(startYPos, targetYPosition, time / duration);
 
             time += Time.deltaTime;
             yield return null;
         }
 
-        cameraControl.ZRotationOffset = 180;
+        cameraControl.TargetZRotation = 180;
         cameraControl.TargetYPosition = targetYPosition;
     }
 

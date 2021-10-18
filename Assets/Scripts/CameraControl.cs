@@ -18,14 +18,14 @@ public class CameraControl : MonoBehaviour
 
     public bool RotateCamera { get; set; }
 
-    public float ZRotationOffset { get; set; }
+    public float TargetZRotation { get; set; }
     public float TargetYPosition { get; set; }
 
     void Start()
     {
         Target = GameObject.Find("Player");
         transform.LookAt(Target.transform);
-        ZRotationOffset = 0f;
+        TargetZRotation = 0f;
         TargetYPosition = 0f;
 
         trackedObjects = new Seethrough[Offsets.Count];
@@ -47,11 +47,11 @@ public class CameraControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(newRotation);
         }
 
-        if (ZRotationOffset != 0)
+        if (TargetZRotation != 0)
         {
             Vector3 newRotation = new Vector3(transform.rotation.eulerAngles.x,
                                                transform.rotation.eulerAngles.y,
-                                               ZRotationOffset);
+                                               TargetZRotation);
 
             transform.rotation = Quaternion.Euler(newRotation);
         }
