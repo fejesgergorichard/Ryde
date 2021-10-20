@@ -54,9 +54,3 @@ public class GravityTriggerArea : TriggerAreaBase
         }
     }
 }
-
-public enum GravityTriggerType
-{
-    Enter,
-    Exit
-}
