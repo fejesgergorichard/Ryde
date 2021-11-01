@@ -2935,6 +2935,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3941720546603384125, guid: 6149468c16fd54a468ac5e908bbfa9de,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 91abefbc4593fe14db52a3272b29c2ed, type: 3}
     - target: {fileID: 4098108344326634103, guid: 6149468c16fd54a468ac5e908bbfa9de,
         type: 3}
       propertyPath: m_Sprite
