@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -9,6 +10,7 @@ public class Seethrough : MonoBehaviour
     private Renderer rend;
     private CancellationTokenSource cts;
     private const string materialTransparencyProperty = "_Fade";
+
 
     private void Start()
     {
@@ -28,16 +30,24 @@ public class Seethrough : MonoBehaviour
         //Set the new configuration
         this.transparent = transparent;
 
-        cts.Cancel();
+        cts?.Cancel();
         cts = new CancellationTokenSource();
 
-        if (transparent)
+        try
         {
-            StartCoroutine(FadeTransparency(0.4f, 0.6f, cts.Token));
+            if (transparent)
+            {
+
+                StartCoroutine(FadeTransparency(0.4f, 0.6f, cts.Token));
+            }
+            else
+            {
+                StartCoroutine(FadeTransparency(1f, 0.5f, cts.Token));
+            }
         }
-        else
+        catch (OperationCanceledException)
         {
-            StartCoroutine(FadeTransparency(1f, 0.5f, cts.Token));
+            Debug.Log("Fading canceled");
         }
     }
 
