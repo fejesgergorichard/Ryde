@@ -33,21 +33,13 @@ public class Seethrough : MonoBehaviour
         cts?.Cancel();
         cts = new CancellationTokenSource();
 
-        try
+        if (transparent)
         {
-            if (transparent)
-            {
-
-                StartCoroutine(FadeTransparency(0.4f, 0.6f, cts.Token));
-            }
-            else
-            {
-                StartCoroutine(FadeTransparency(1f, 0.5f, cts.Token));
-            }
+            StartCoroutine(FadeTransparency(0.4f, 0.6f, cts.Token));
         }
-        catch (OperationCanceledException)
+        else
         {
-            Debug.Log("Fading canceled");
+            StartCoroutine(FadeTransparency(1f, 0.5f, cts.Token));
         }
     }
 
@@ -61,14 +53,20 @@ public class Seethrough : MonoBehaviour
 
             while (time < duration)
             {
-                token.ThrowIfCancellationRequested();
-
-                material.SetFloat(materialTransparencyProperty, Mathf.Lerp(startValue, targetValue, time / duration));
-                time += Time.deltaTime;
-                yield return null;
+                if (!token.IsCancellationRequested)
+                {
+                    material.SetFloat(materialTransparencyProperty, Mathf.Lerp(startValue, targetValue, time / duration));
+                    time += Time.deltaTime;
+                    yield return null;
+                }
+                else
+                {
+                    break;
+                }
             }
-
             material.SetFloat(materialTransparencyProperty, targetValue);
         }
+
+        yield return null;
     }
 }
