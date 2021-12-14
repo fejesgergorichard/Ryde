@@ -10,7 +10,7 @@ public abstract class TriggerAreaBase : MonoBehaviour
 
     private void Awake()
     {
-        id = transform.parent.GetComponent<MovingCubeController>().Id;
+        id = transform.parent.GetComponent<IIdentifiableController>().Id;
     }
 
     public void OnTriggerEnter(Collider other)

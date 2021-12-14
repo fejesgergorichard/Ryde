@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class MovingCubeController : MonoBehaviour
+public class MovingCubeController : MonoBehaviour, IIdentifiableController
 {
     private Quaternion initialRotation;
     private Quaternion finalRotation;
@@ -13,7 +12,8 @@ public class MovingCubeController : MonoBehaviour
     private float ratioPassed;
 
     [Header("ID for the event parameter")]
-    public int Id;
+    public int id;
+    public int Id => id;
     [Header("Movement properties")]
     public bool StartPingPongOnLoad = false;
     public float MovementSpeed = 10f;
