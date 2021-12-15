@@ -3408,7 +3408,7 @@ PrefabInstance:
     - target: {fileID: 1108584890455358236, guid: c046b166a3706fc48b221215c75ffc20,
         type: 3}
       propertyPath: TargetCameraY
-      value: -4
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1108584890455358237, guid: c046b166a3706fc48b221215c75ffc20,
         type: 3}
