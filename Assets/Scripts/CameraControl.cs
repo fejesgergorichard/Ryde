@@ -2,7 +2,6 @@
 using System.Linq;
 using UnityEngine;
 
-
 public class CameraControl : MonoBehaviour
 {
     public GameObject Target;
@@ -17,7 +16,8 @@ public class CameraControl : MonoBehaviour
     public bool RotateCamera { get; set; }
 
     public float TargetZRotation { get; set; }
-    public float TargetYPosition { get; set; }
+    private float targetYPosition = 0f;
+    public float TargetYPosition { get => targetYPosition; set => targetYPosition = value; }
 
     void Start()
     {

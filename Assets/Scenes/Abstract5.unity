@@ -2850,7 +2850,6 @@ Transform:
   - {fileID: 998263688}
   - {fileID: 1038329957}
   - {fileID: 147727958}
-  - {fileID: 1576947121}
   - {fileID: 728192535}
   - {fileID: 1065000122}
   m_Father: {fileID: 0}
@@ -2952,65 +2951,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469624857}
   m_Mesh: {fileID: 4300042, guid: c29d503e74f6f574f89aed4502c53d31, type: 3}
---- !u!1 &1576947120
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1576947121}
-  - component: {fileID: 1576947123}
-  - component: {fileID: 1576947122}
-  m_Layer: 0
-  m_Name: Trigger Area (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1576947121
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576947120}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -8.93, y: -0.94, z: 4.95}
-  m_LocalScale: {x: 50, y: 67.29999, z: 99.999985}
-  m_Children: []
-  m_Father: {fileID: 1457828896}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1576947122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576947120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27c035f5a0a24304996efbf02182446a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NewGravityDirection: {x: 0, y: 9.81, z: 0}
-  TargetCameraY: -2
---- !u!65 &1576947123
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576947120}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.062258214, y: 0.029861677, z: 0.010454246}
-  m_Center: {x: -0.009434333, y: -0.0008285508, z: -0.0047728824}
 --- !u!1001 &1752858256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3408,7 +3348,7 @@ PrefabInstance:
     - target: {fileID: 1108584890455358236, guid: c046b166a3706fc48b221215c75ffc20,
         type: 3}
       propertyPath: TargetCameraY
-      value: -5.5
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1108584890455358237, guid: c046b166a3706fc48b221215c75ffc20,
         type: 3}
