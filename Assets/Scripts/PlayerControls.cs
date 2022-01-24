@@ -27,6 +27,7 @@ public class PlayerControls : MonoBehaviour
 	private Vector3 initialPosition;
 	private Quaternion initialRotation;
 	private DeviceType deviceType;
+	private bool isMidAirRotationStopped = false;
 
 	[Range(0, 1000)]
 	public int FlipTimeInMs;
@@ -128,6 +129,8 @@ public class PlayerControls : MonoBehaviour
 		{
 			brakeTorque = MaxMotorTorque * BrakeTorqueMotorTorqueRatio;
 			motor = 0;
+
+			HandleStopAirRotation();
 		}
 		else
 		{
@@ -158,6 +161,24 @@ public class PlayerControls : MonoBehaviour
 			Flip();
 		}
 	}
+
+    private void HandleStopAirRotation()
+    {
+		bool groundTouched = TruckInfos.Exists(t => t.leftWheel.isGrounded || t.rightWheel.isGrounded);
+
+		if (groundTouched)
+        {
+			isMidAirRotationStopped = false;
+        }
+
+        if (!groundTouched && 
+			!isMidAirRotationStopped && 
+			TruckInfos.TrueForAll(t => !t.leftWheel.isGrounded && !t.rightWheel.isGrounded))
+        {
+			rb.angularVelocity = rb.angularVelocity / 4;
+			isMidAirRotationStopped = true;
+		}
+    }
 
     private void CheckTouchSide(Touch touch)
     {
