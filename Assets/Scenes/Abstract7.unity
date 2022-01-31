@@ -2203,6 +2203,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361053223002, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361069908772, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2213,11 +2218,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6875559361069908783, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361085673006, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361085673009, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361085673011, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2233,11 +2248,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361105241546, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361107069605, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361107069608, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361107069610, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2253,6 +2278,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6875559361146284051, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361248341048, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2263,6 +2293,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361248341054, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361253532676, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2273,6 +2308,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361253532682, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361317089568, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2283,6 +2323,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361317089574, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361317717492, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2293,6 +2338,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361317717498, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361329540340, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2303,11 +2353,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6875559361329540351, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361337499441, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361337499444, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361337499446, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2408,6 +2468,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361374434333, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361374434335, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2418,6 +2483,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361381089964, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361381089966, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2428,6 +2498,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361382888516, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361382888518, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2443,6 +2518,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361415345834, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875559361438793507, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361438793688, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2452,6 +2537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875559361481186595, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
       objectReference: {fileID: 0}
     - target: {fileID: 6875559361481186776, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
@@ -2473,6 +2563,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361490978458, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361492665904, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2482,6 +2577,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875559361492665915, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
       objectReference: {fileID: 0}
     - target: {fileID: 6875559361505070416, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
@@ -2493,11 +2593,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6875559361505070427, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361533156806, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361533156809, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361533156811, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2513,10 +2623,20 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6875559361570381023, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361612121793, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875559361612121799, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
       objectReference: {fileID: 0}
     - target: {fileID: 6875559361612121852, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
@@ -2533,6 +2653,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361644077786, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361659026728, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2543,11 +2668,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361659026734, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361663936993, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361663936996, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361663936998, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2558,6 +2693,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361697851436, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361697851438, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2573,6 +2713,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361842012030, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361852486312, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2583,6 +2728,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361852486318, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361895282064, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2593,11 +2743,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6875559361895282075, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361913390305, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361913390308, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361913390310, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2608,6 +2768,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559361914203116, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559361914203118, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2622,6 +2787,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875559361992987259, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875559362002499073, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
       objectReference: {fileID: 0}
     - target: {fileID: 6875559362002499075, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
@@ -2638,6 +2813,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362075222964, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362075222966, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2648,6 +2828,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362088739596, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362088739598, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2658,6 +2843,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362096360509, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362096360511, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2673,6 +2863,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362129874890, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362139652960, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2683,11 +2878,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362139652966, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362156838406, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362156838409, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362156838411, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2698,6 +2903,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362186049952, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362186049954, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2708,6 +2918,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362257205644, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362257205646, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2723,11 +2938,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362262184726, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362361073949, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362361074016, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362361074018, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2738,6 +2963,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362390946709, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362390946711, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2753,6 +2983,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362414116322, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362428078624, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2763,6 +2998,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362428078630, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362468182624, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2773,11 +3013,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6875559362468182635, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362515201242, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362515201245, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362515201247, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2788,6 +3038,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362596707901, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362596707903, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2803,11 +3058,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6875559362600085599, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362615421110, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362615421113, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362615421115, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2818,6 +3083,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362631167157, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362631167159, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2828,6 +3098,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362637110348, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362637110350, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2838,6 +3113,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362675952221, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362675952223, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2853,11 +3133,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362688102342, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362706187162, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362706187165, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362706187167, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2868,6 +3158,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362753812832, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362753812834, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2883,6 +3178,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6875559362781806943, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362822371464, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2893,15 +3193,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362822371470, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362827838457, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362827838460, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362827838462, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875559362828212771, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
       objectReference: {fileID: 0}
     - target: {fileID: 6875559362828212952, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
@@ -2918,6 +3233,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559362948476848, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559362948476850, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2928,6 +3248,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559363052075529, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559363052075531, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2938,10 +3263,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559363074661884, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559363074661886, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875559363088440322, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
       objectReference: {fileID: 0}
     - target: {fileID: 6875559363088440380, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
@@ -2958,6 +3293,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559363095391148, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559363095391150, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2968,6 +3308,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559363100421721, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559363100421723, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -2983,6 +3328,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559363106253666, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559363106274380, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2993,11 +3343,21 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6875559363106274391, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559363128166161, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 41ed39d0fe9ea2140a77c62e861e6369, type: 2}
+    - target: {fileID: 6875559363128166164, guid: fb5298cfb655d8844ac030b33b62246a,
+        type: 3}
+      propertyPath: m_TagString
+      value: VoxelPiece
+      objectReference: {fileID: 0}
     - target: {fileID: 6875559363128166166, guid: fb5298cfb655d8844ac030b33b62246a,
         type: 3}
       propertyPath: m_Mass
@@ -3005,6 +3365,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb5298cfb655d8844ac030b33b62246a, type: 3}
+--- !u!1 &6875559362370146141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6875559361735244368, guid: fb5298cfb655d8844ac030b33b62246a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6875559362370146140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6875559362370146142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6875559362370146141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d12a8afde39e840b6dbf8fced6b5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8918663274144007355
 PrefabInstance:
   m_ObjectHideFlags: 0
