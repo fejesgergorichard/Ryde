@@ -79,100 +79,101 @@ public class PlayerControls : MonoBehaviour
     {
 		Vector3 tilt = Input.acceleration;
 		tilt = Quaternion.Euler(90, 0, 0) * tilt;
-		rb.AddForce(tilt * ForceMultiplier);
+		//rb.AddForce(tilt * ForceMultiplier);
 		Debug.DrawRay(transform.position + Vector3.up, tilt, Color.red);
+		//rb.AddTorque(tilt);
 
 
-		//	float motor = 0;
-		//	float steering = 0;
-		//	float brakeTorque = 0;
+        float motor = 0;
+        float steering = 0;
+        float brakeTorque = 0;
 
-		//	#region Mobile controls
+        #region Mobile controls
 
-		//	if (deviceType == DeviceType.Handheld)
-		//	{
-		//		tapLeft = tapRight = false;
+        if (deviceType == DeviceType.Handheld)
+        {
+            tapLeft = tapRight = false;
 
-		//		if (Input.touches.Length != 0)
-		//           {
-		//               // "touches[0]" - first finger to touch
-		//               CheckTouchSide(Input.touches[0]);
+            if (Input.touches.Length != 0)
+            {
+                // "touches[0]" - first finger to touch
+                CheckTouchSide(Input.touches[0]);
 
-		//               if (Input.touches.Length > 1)
-		//			{
-		//				// "touches[1]" - second finger to touch
-		//				CheckTouchSide(Input.touches[1]);
-		//			}
-		//           }
+                if (Input.touches.Length > 1)
+                {
+                    // "touches[1]" - second finger to touch
+                    CheckTouchSide(Input.touches[1]);
+                }
+            }
 
-		//		// Right + Left touch = brake
-		//		if (tapLeft && tapRight)
-		//			brakeTorque = 1;
-		//		// Left touch only = reverse
-		//		else if (tapLeft && !tapRight)
-		//			motor = -MaxMotorTorque;
-		//		// Right touch only = forward
-		//		else if (tapRight && !tapLeft)
-		//			motor = MaxMotorTorque;
+            // Right + Left touch = brake
+            if (tapLeft && tapRight)
+                brakeTorque = 1;
+            // Left touch only = reverse
+            else if (tapLeft && !tapRight)
+                motor = -MaxMotorTorque;
+            // Right touch only = forward
+            else if (tapRight && !tapLeft)
+                motor = MaxMotorTorque;
 
-		//		// Steering is limited between +-maxSteeringAngle
-		//		steering = Math.Min(MaxSteeringAngle, Math.Max(-MaxSteeringAngle, MobileInput.AccelerometerTilt / 1.5f));
-		//	}
+            // Steering is limited between +-maxSteeringAngle
+            steering = Math.Min(MaxSteeringAngle, Math.Max(-MaxSteeringAngle, MobileInput.AccelerometerTilt / 1.5f));
+        }
 
-		//	#endregion
+		#endregion
 
-		//	#region Desktop controls
-		//	// WASD & Gamepad
+        #region Desktop controls
+        // WASD & Gamepad
 
-		//	else if (deviceType == DeviceType.Desktop)
-		//	{
-		//		motor = MaxMotorTorque * Input.GetAxis("Vertical");
-		//		steering = MaxSteeringAngle * Input.GetAxis("Horizontal");
-		//		brakeTorque = Mathf.Abs(Input.GetAxis("Jump"));
-		//	}
+        else if (deviceType == DeviceType.Desktop)
+        {
+            motor = MaxMotorTorque * Input.GetAxis("Vertical");
+            steering = MaxSteeringAngle * Input.GetAxis("Horizontal");
+            brakeTorque = Mathf.Abs(Input.GetAxis("Jump"));
+        }
 
-		//	#endregion
-
-
+        #endregion
 
 
 
-		//if (brakeTorque > 0.001)
-		//{
-		//	brakeTorque = MaxMotorTorque * BrakeTorqueMotorTorqueRatio;
-		//	motor = 0;
 
-		//	HandleStopAirRotation();
-		//}
-		//else
-		//{
-		//	brakeTorque = 0;
-		//}
 
-		//foreach (Truck truckInfo in TruckInfos)
-		//{
-		//	if (truckInfo.steering == true)
-		//	{
-		//		truckInfo.leftWheel.steerAngle = truckInfo.rightWheel.steerAngle = ((truckInfo.reverseTurn) ? -1 : 1) * steering;
-		//	}
+        if (brakeTorque > 0.001)
+        {
+            brakeTorque = MaxMotorTorque * BrakeTorqueMotorTorqueRatio;
+            motor = 0;
 
-		//	if (truckInfo.motor == true)
-		//	{
-		//		truckInfo.leftWheel.motorTorque = motor;
-		//		truckInfo.rightWheel.motorTorque = motor;
-		//	}
+            HandleStopAirRotation();
+        }
+        else
+        {
+            brakeTorque = 0;
+        }
 
-		//	truckInfo.leftWheel.brakeTorque = brakeTorque;
-		//	truckInfo.rightWheel.brakeTorque = brakeTorque;
+        foreach (Truck truckInfo in TruckInfos)
+        {
+            if (truckInfo.steering == true)
+            {
+                truckInfo.leftWheel.steerAngle = truckInfo.rightWheel.steerAngle = ((truckInfo.reverseTurn) ? -1 : 1) * steering;
+            }
 
-		//	VisualizeWheel(truckInfo);
-		//}
+            if (truckInfo.motor == true)
+            {
+                truckInfo.leftWheel.motorTorque = motor;
+                truckInfo.rightWheel.motorTorque = motor;
+            }
 
-		//if (Input.GetKey(KeyCode.R))
-		//{
-		//	Flip();
-		//}
-	}
+            truckInfo.leftWheel.brakeTorque = brakeTorque;
+            truckInfo.rightWheel.brakeTorque = brakeTorque;
+
+            //VisualizeWheel(truckInfo);
+        }
+
+        //if (Input.GetKey(KeyCode.R))
+        //{
+        //    Flip();
+        //}
+    }
 
     private void HandleStopAirRotation()
     {
