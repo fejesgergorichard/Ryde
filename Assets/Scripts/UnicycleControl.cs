@@ -10,11 +10,7 @@ public class UnicycleControl : MonoBehaviour
     public float minLeanTurnAmount;
     public float wheelRadius;
     public float gravityMultiplier;
-    public float rotationOffset;
     public float moveForceMultiplier;
-
-    [HideInInspector] public bool getInput;
-    [HideInInspector] public Vector3 overrideTurn;
 
     public Transform headRef;
     public Transform wheelRef;
@@ -25,86 +21,62 @@ public class UnicycleControl : MonoBehaviour
     public Transform rightPedal;
 
     private float wheelAngle;
-    private Vector3 leanDir;
     private Vector3 leanOffsetDir;
-    private Vector3 newRot;
     private Quaternion leanRotation;
-    private Vector3 flattenedForward;
-    private Vector3 flattenedVelocity;
     private Rigidbody rb;
 
     void Start()
     {
-        getInput = true;
         rb = GetComponent<Rigidbody>();
         cam = GameObject.Find("Main Camera").transform;
     }
 
     void FixedUpdate()
     {
-        Lean();
+        LeanAxis();
+        CalculateLeanOffsetDir();
         DontFallOver();
         Turn();
-        SpinWheel();
-        SpinPedals();
+        SpinWheelAndPedals();
         Fall();
     }
 
-    void Lean()
+    private void CalculateLeanOffsetDir()
     {
-        if (getInput)
-        {
-            if (Input.GetKey(KeyCode.W))
-            {
-                leanDir.x = 1;
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                leanDir.x = -1;
-            }
-            else
-            {
-                leanDir.x = 0;
-            }
-            
-            if (Input.GetKey(KeyCode.A))
-            {
-                leanDir.z = -1;
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                leanDir.z = 1;
-            }
-            else
-            {
-                leanDir.z = 0;
-            }
+        // Calculate the direction of leaning from the position of the head and the wheelbase without Y component
+        leanOffsetDir = headRef.position - wheelRef.position;
+        leanOffsetDir.y = 0;
+    }
 
-            leanDir = leanDir.x * cam.forward + leanDir.z * cam.right;
-            leanDir.y = 0;
-            var force = leanDir.normalized * leanSpeed * rb.mass;
-            var forcePosition = transform.position + Vector3.up * leanHeightOffset;
-            Debug.DrawLine(forcePosition, forcePosition+force, Color.red);
-            rb.AddForceAtPosition(force, forcePosition);
-            
-            
-            rb.AddForce(force);
-        }
-        else
-        {
-            leanDir = Vector3.zero;
-        }
+    void LeanAxis()
+    {
+        var x = Input.GetAxis("Vertical");
+        x = (Math.Abs(x) > 0.3f) ? 0.3f * Math.Sign(x) : x;
+        
+        var z = Input.GetAxis("Horizontal");
+        z = (Math.Abs(z) > 0.3f) ? 0.3f * Math.Sign(z) : z;
+        
+        var leanDir = new Vector3(Input.GetAxis("Vertical"), 
+            0f,
+            Input.GetAxis("Horizontal"));
+        
+        leanDir = leanDir.x * cam.forward + leanDir.z * cam.right;
+        leanDir.y = 0;
+        var force = MassEffectiveForce(leanDir.normalized * leanSpeed);
+        var forcePosition = transform.position + Vector3.up * leanHeightOffset;
+        
+        rb.AddForceAtPosition(force, forcePosition);
+        rb.AddForce(force);
+
+        Debug.DrawLine(forcePosition, forcePosition+force, Color.red);
     }
 
     void DontFallOver()
     {
-        // az az irány amerre a fej dől a kerékhez képest, függőleges komponens nélkül
-        leanOffsetDir = headRef.position - wheelRef.position;
-        leanOffsetDir.y = 0;
         Debug.DrawLine(headRef.position, headRef.position + leanOffsetDir, Color.yellow);
         var force = leanOffsetDir * -leanCorrectionSpeed;
         var forcePosition = wheelRef.position + Vector3.up * 2;
-        // var forcePosition = transform.position;
+        
         rb.AddForceAtPosition(force, forcePosition);
         Debug.DrawLine(forcePosition, forcePosition + force, Color.magenta);
         var actualRotation = transform.rotation;
@@ -121,30 +93,28 @@ public class UnicycleControl : MonoBehaviour
 
     void Turn()
     {
-        // if (overrideTurn != Vector3.zero)
-        // {
-        //     leanRotation = transform.rotation * Quaternion.LookRotation(overrideTurn);
-        //     newRot.y = Quaternion.Slerp(unicyclePivot.transform.localRotation, leanRotation,
-        //         turnSpeed * Time.deltaTime).y;
-        //     unicyclePivot.transform.localRotation = Quaternion.Euler(newRot);
-        // }
-        // else
+        Debug.DrawLine(unicyclePivot.transform.position, unicyclePivot.transform.position + unicyclePivot.forward * 5f, Color.black);
+        
         if (leanOffsetDir.magnitude > minLeanTurnAmount)
         {
-            leanRotation = transform.rotation * Quaternion.LookRotation(leanOffsetDir);
-            var y = Quaternion.Slerp(unicyclePivot.transform.localRotation, leanRotation,
-                    turnSpeed * Time.deltaTime).eulerAngles.y;
+            // Slerp unicyclePivot's y rotation towards the velocity vector
+            leanRotation = Quaternion.LookRotation(rb.velocity.normalized, unicyclePivot.up);
+            var localRotation = unicyclePivot.transform.localRotation;
 
-            unicyclePivot.transform.localRotation = Quaternion.Euler(unicyclePivot.transform.localRotation.eulerAngles.x, y, unicyclePivot.transform.localRotation.eulerAngles.z)
-                                                    * Quaternion.Euler(0.0f, rotationOffset, 0.0f);
+            float newY = Quaternion.Slerp(localRotation, leanRotation, turnSpeed * Time.deltaTime).eulerAngles.y;
+
+            unicyclePivot.transform.localRotation = Quaternion.Euler(
+                localRotation.eulerAngles.x,
+                newY,
+                localRotation.eulerAngles.z);
         }
     }
 
-    void SpinWheel()
+    void SpinWheelAndPedals()
     {
-        flattenedForward = unicyclePivot.forward;
+        var flattenedForward = unicyclePivot.forward;
         flattenedForward.y = 0;
-        flattenedVelocity = rb.velocity;
+        var flattenedVelocity = rb.velocity;
         flattenedVelocity.y = 0;
 
         if (Vector3.Angle(leanOffsetDir, flattenedForward) > 90)
@@ -155,11 +125,8 @@ public class UnicycleControl : MonoBehaviour
         {
             wheelAngle += flattenedVelocity.magnitude / (2 * Mathf.PI * wheelRadius);
         }
+        
         wheel.localRotation = Quaternion.Euler(0.0f, 0.0f, wheelAngle);
-    }
-
-    void SpinPedals()
-    {
         leftPedal.localRotation = Quaternion.Euler(0.0f, 0.0f, wheelAngle + 90);
         rightPedal.localRotation = Quaternion.Euler(0.0f, 0.0f, wheelAngle + 90);
     }
@@ -167,6 +134,11 @@ public class UnicycleControl : MonoBehaviour
     void Fall()
     {
         rb.AddForce(Physics.gravity * (gravityMultiplier + 1));
+    }
+
+    private Vector3 MassEffectiveForce(Vector3 force)
+    {
+        return force * rb.mass;
     }
 
     // private void OnDrawGizmos()
