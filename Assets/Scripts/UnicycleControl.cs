@@ -12,9 +12,14 @@ public class UnicycleControl : MonoBehaviour
     public float gravityMultiplier;
     public float rotationOffset;
     public float moveForceMultiplier;
+    
+    public float forwardFacingThreshold;
+    public float minSpeedTurnAmount;
+    public float forwardFacingPreference;
+    public float minLean;
 
     [HideInInspector] public bool getInput;
-    [HideInInspector] public Vector3 overrideTurn;
+    [HideInInspector] public Vector3 overrideTurn = Vector3.zero;
 
     public Transform headRef;
     public Transform wheelRef;
@@ -35,6 +40,7 @@ public class UnicycleControl : MonoBehaviour
 
     void Start()
     {
+        InitializeAppSettings();
         getInput = true;
         rb = GetComponent<Rigidbody>();
         cam = GameObject.Find("Main Camera").transform;
@@ -43,7 +49,7 @@ public class UnicycleControl : MonoBehaviour
     void FixedUpdate()
     {
         Lean();
-        DontFallOver();
+        DontFallOver2();
         Turn();
         SpinWheel();
         SpinPedals();
@@ -82,18 +88,25 @@ public class UnicycleControl : MonoBehaviour
 
             leanDir = leanDir.x * cam.forward + leanDir.z * cam.right;
             leanDir.y = 0;
-            var force = leanDir.normalized * leanSpeed * rb.mass;
+            var force = leanDir.normalized * leanSpeed;
             var forcePosition = transform.position + Vector3.up * leanHeightOffset;
             Debug.DrawLine(forcePosition, forcePosition+force, Color.red);
             rb.AddForceAtPosition(force, forcePosition);
-            
-            
-            rb.AddForce(force);
         }
         else
         {
             leanDir = Vector3.zero;
         }
+    }
+    
+
+    private static void InitializeAppSettings()
+    {
+        QualitySettings.vSyncCount = 0;
+        QualitySettings.antiAliasing = 0;
+
+        Application.targetFrameRate = 60;
+        Time.timeScale = 1f;
     }
 
     void DontFallOver()
@@ -118,18 +131,78 @@ public class UnicycleControl : MonoBehaviour
         rb.AddForceAtPosition(force * moveForceMultiplier, transform.position);
         Debug.DrawLine(transform.position, transform.position + force * -1, Color.blue);
     }
+    void DontFallOver2()
+    {
+        leanOffsetDir = headRef.position - wheelRef.position;
+        leanOffsetDir.y = 0;
+        if (leanOffsetDir.magnitude > minLean)
+        {
+            rb.AddForceAtPosition(leanOffsetDir * leanCorrectionSpeed, transform.position);
+        }
+        
+        var actualRotation = transform.rotation;
+        transform.rotation = Quaternion.Euler(actualRotation.eulerAngles.x, 0, actualRotation.eulerAngles.z);
+
+        if (headRef.position.y < wheel.position.y)
+        {
+            transform.rotation = Quaternion.identity;
+        }
+    }
 
     void Turn()
     {
-        // if (overrideTurn != Vector3.zero)
-        // {
-        //     leanRotation = transform.rotation * Quaternion.LookRotation(overrideTurn);
-        //     newRot.y = Quaternion.Slerp(unicyclePivot.transform.localRotation, leanRotation,
-        //         turnSpeed * Time.deltaTime).y;
-        //     unicyclePivot.transform.localRotation = Quaternion.Euler(newRot);
-        // }
-        // else
-        if (leanOffsetDir.magnitude > minLeanTurnAmount)
+        flattenedVelocity = rb.velocity;
+        flattenedVelocity.y = 0;
+        flattenedForward = unicyclePivot.forward;
+        flattenedForward.y = 0;
+        if (overrideTurn == Vector3.zero)
+        {
+            float facingDir = Vector3.Angle(flattenedVelocity.normalized, flattenedForward.normalized);
+            Debug.Log(facingDir);
+            if (facingDir < forwardFacingThreshold)
+            {
+                // Facing forward
+                if (flattenedVelocity.magnitude > minSpeedTurnAmount)
+                {
+                    leanRotation = transform.rotation * Quaternion.LookRotation(flattenedVelocity);
+                }
+            }
+            else if (facingDir < 90 + forwardFacingPreference)
+            {
+                // Facing sideways, closer to front
+                if (flattenedVelocity.magnitude > 0)
+                {
+                    leanRotation = transform.rotation * Quaternion.LookRotation(flattenedVelocity);
+                }
+            }
+            else if (facingDir < 180 - forwardFacingThreshold)
+            {
+                // Facing sideways (closer to back)
+                if (flattenedVelocity.magnitude > 0)
+                {
+                    leanRotation = transform.rotation * Quaternion.LookRotation(-flattenedVelocity);
+                }
+            }
+            else
+            {
+                // Facing backwards
+                if (flattenedVelocity.magnitude > minSpeedTurnAmount)
+                {
+                    leanRotation = transform.rotation * Quaternion.LookRotation(-flattenedVelocity);
+                }
+            }
+            
+            var localRotation = unicyclePivot.transform.localRotation;
+            
+            float newY = Quaternion.Slerp(localRotation, leanRotation, turnSpeed * Time.deltaTime).eulerAngles.y;
+
+            unicyclePivot.transform.localRotation = Quaternion.Euler(
+                localRotation.eulerAngles.x,
+                newY,
+                localRotation.eulerAngles.z);
+        }
+        
+        else if (leanOffsetDir.magnitude > minLeanTurnAmount)
         {
             leanRotation = transform.rotation * Quaternion.LookRotation(leanOffsetDir);
             var y = Quaternion.Slerp(unicyclePivot.transform.localRotation, leanRotation,

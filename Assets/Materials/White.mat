@@ -2,19 +2,43 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: White
   m_Shader: {fileID: 4800000, guid: f276502ebf8b1431192125b7316d5d67, type: 3}
-  m_ShaderKeywords: AO_ON FRONTSOLID RIGHTSOLID SHADOW_ON TOPSOLID USERIM _AOUV_UV0
-    _GRADIENTSPACE_WORLD_SPACE _GRADSETTINGS_B_USE_GLOBAL _GRADSETTINGS_D_USE_GLOBAL
-    _GRADSETTINGS_F_USE_GLOBAL _GRADSETTINGS_L_USE_GLOBAL _GRADSETTINGS_R_USE_GLOBAL
-    _GRADSETTINGS_T_USE_GLOBAL _LMAPBLENDINGMODE_ADD _MODE_OPAQUE _SHADING_B_VERTEX_COLOR
-    _SHADING_D_VERTEX_COLOR _SHADING_F_SOLIDCOLOR _SHADING_L_VERTEX_COLOR _SHADING_R_SOLID_COLOR
-    _SHADING_T_SOLID_COLOR _SHOWCUSTOMSHADING_ON _SHOWFRONT_ON _SHOWRIGHT_ON _SHOWTOP_ON
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - FRONTSOLID
+  - RIGHTSOLID
+  - SHADOW_ON
+  - TOPSOLID
+  - USERIM
+  m_InvalidKeywords:
+  - AO_ON
+  - _AOUV_UV0
+  - _GRADIENTSPACE_WORLD_SPACE
+  - _GRADSETTINGS_B_USE_GLOBAL
+  - _GRADSETTINGS_D_USE_GLOBAL
+  - _GRADSETTINGS_F_USE_GLOBAL
+  - _GRADSETTINGS_L_USE_GLOBAL
+  - _GRADSETTINGS_R_USE_GLOBAL
+  - _GRADSETTINGS_T_USE_GLOBAL
+  - _LMAPBLENDINGMODE_ADD
+  - _MODE_OPAQUE
+  - _SHADING_B_VERTEX_COLOR
+  - _SHADING_D_VERTEX_COLOR
+  - _SHADING_F_SOLIDCOLOR
+  - _SHADING_L_VERTEX_COLOR
+  - _SHADING_R_SOLID_COLOR
+  - _SHADING_T_SOLID_COLOR
+  - _SHOWCUSTOMSHADING_ON
+  - _SHOWFRONT_ON
+  - _SHOWRIGHT_ON
+  - _SHOWTOP_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -22,6 +46,7 @@ Material:
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -162,8 +187,8 @@ Material:
     - _Color1_D: {r: 1, g: 1, b: 1, a: 1}
     - _Color1_F: {r: 1, g: 1, b: 1, a: 1}
     - _Color1_L: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1_R: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
-    - _Color1_T: {r: 0.9150943, g: 0.88487893, b: 0.85898006, a: 1}
+    - _Color1_R: {r: 1, g: 0.9959826, b: 0.8349056, a: 1}
+    - _Color1_T: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_B: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_D: {r: 1, g: 1, b: 1, a: 1}
     - _Color2_F: {r: 1, g: 1, b: 1, a: 1}
